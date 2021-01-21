@@ -1,11 +1,12 @@
 import * as React from "react"
+import {Layout} from '../Components'
 
 
 const IndexPage = () => {
   return (
-    <div>
+    <Layout>
       <h1>New Quercus Group Website</h1>
-    </div>
+    </Layout>
   )
 }
 
