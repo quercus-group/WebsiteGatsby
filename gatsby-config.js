@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
     title: "QuercusGroupWebsite",
@@ -6,8 +9,8 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "RA6ossg_o3e9wdVX6Zl1SR4A3NWXX8WzfECHm-Ao8ow",
-        spaceId: "3uljl8cvry5j",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
     "gatsby-plugin-styled-components",
@@ -22,5 +25,14 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `lato\:400,700,900`,
+        ],
+        display: 'swap'
+      }
+    }
   ],
 };
