@@ -20,6 +20,7 @@ const HeroSection = ()=>{
 const IntroSection = styled(Section)`
     min-height: 90vh;
     align-content: center;
+    padding-top: 0;
 `
 
 const IntroText = styled(SectionText)`

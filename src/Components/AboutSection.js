@@ -4,7 +4,7 @@ import { Section, SectionText, SectionTitle } from './Elements';
 
 const AboutSection = () => {
     return ( 
-        <Section>
+        <StyledSection>
             <AboutSectionTitle>
                 We try to ensure that what we do is as impactful as possible.
             </AboutSectionTitle>
@@ -33,9 +33,15 @@ const AboutSection = () => {
                         <strong>Sustainability<br/>Collaboration<br/>Innovation</strong>
                     </InfoItem>
             </KeyInfo>
-        </Section>
+        </StyledSection>
      );
 }
+
+const StyledSection = styled(Section)`
+    min-height: 100vh;
+    align-content: center;
+    padding: 0;
+`
 
 const AboutSectionTitle = styled(SectionTitle)`
     text-align: center;

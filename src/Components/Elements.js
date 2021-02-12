@@ -6,8 +6,8 @@ export const Section = styled.section`
     grid-template-columns: repeat(12, minmax(auto, 4.5rem));
     grid-column-gap: 2rem;
     grid-template-rows: max-content;
-    grid-row-gap: 2rem;
-    padding-bottom: 10vh;
+    grid-row-gap: 4rem;
+    padding: 10vh 0;
 `
 
 export const SectionTitle = styled.h2`
