@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { Section, SectionText, SectionTitle, GridPicture } from "./Elements"
 import {useStaticQuery, graphql} from 'gatsby'
 import Img from "gatsby-image"
+import Button from "./Button"
 
 const ProjectSection = () => {
     const data = useStaticQuery(graphql`
@@ -41,6 +42,7 @@ const ProjectSection = () => {
                     </GridPicture>
                 ))}
             </ProjectsGrid>
+            <ToProjectsButton text="See more projects" linkTo="/projects"/>
             <Partner>
                 <h2>Our partners</h2>
             </Partner>
@@ -53,7 +55,7 @@ export const LeftSideText = styled(SectionText)`
 `
 const RightSideBox = styled(SectionText)`
     grid-column: 7 / span 4;
-    box-shadow: 0 0 0.5rem ${props => props.theme.colors.blue4};
+    box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue4};
     border-radius: 0.5rem;
     padding: 1.5rem;
 `
@@ -65,6 +67,12 @@ const ProjectsGrid = styled.div`
     grid-gap: 2rem;
     grid-template-rows: repeat(2, 1fr);
 `
+
+const ToProjectsButton = styled(Button)`
+    justify-self: end;
+    grid-column-end: 13;
+`
+
 
 const Partner = styled.div`
     grid-column: 1 / span 12;

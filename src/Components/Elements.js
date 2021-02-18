@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {motion} from 'framer-motion'
 
 export const Section = styled.section`
     grid-column: 2 / span 12;
@@ -7,7 +8,7 @@ export const Section = styled.section`
     grid-column-gap: 2rem;
     grid-template-rows: max-content;
     grid-row-gap: 4rem;
-    padding: 10vh 0;
+    padding: 8rem 0;
 `
 
 export const SectionTitle = styled.h2`
@@ -17,8 +18,25 @@ export const SectionTitle = styled.h2`
 export const SectionText = styled.div`
     grid-column: 3 / span 8;
 `
-export const GridPicture = styled.div`
+export const GridPicture = styled(motion.div)`
     border-radius: 0.5rem;
     overflow: hidden;
     aspect-ratio: 1 / 1;
+    position: relative;
+    box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue4};
+`
+export const Overlay = styled(motion.div)`
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: ${props => props.theme.colors.blue2tr};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${props => props.theme.colors.neutral900};
+    text-align: center;
+    cursor: pointer;
 `

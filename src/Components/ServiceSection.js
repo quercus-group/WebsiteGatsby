@@ -1,5 +1,6 @@
 import React from "react"
 import styled from 'styled-components'
+import Button from "./Button";
 import { Section, SectionTitle } from "./Elements";
 import { LeftSideText } from "./ProjectSection";
 
@@ -7,11 +8,14 @@ const ServiceSection = () => {
     return ( 
         <Section>
             <SectionTitle>We support collaborative and creative problem solving for sustainable development.</SectionTitle>
-            <LeftSideText>
+            <TextBlock>
+                <div>
                 <p>Quercus Group employs a combination of approaches, methods and practices aimed to advance sustainability, collaboration and innovation.</p>
                 <p>Our services integrate diverse perspectives and needs into a win-win-win approach. This entails tools to see the whole system from many viewpoints. It comprises bringing people together to seek alternatives, build them jointly and learn what works</p>
                 <p>We are equally happy to support our clients and partners in particular steps or make it a success from start to end.</p>
-            </LeftSideText>
+                </div>
+                <Button text="Learn more" linkTo="/services"/>
+            </TextBlock>
             <ServiceAccordion>
                 {services.map(service => (
                     <ServiceCategory>
@@ -24,12 +28,18 @@ const ServiceSection = () => {
      );
 }
 
+const TextBlock = styled(LeftSideText)`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`
+
 const ServiceAccordion = styled.div`
     grid-column: 7 / span 4;
 `
 const ServiceCategory = styled.div`
     padding: 1rem;
-    box-shadow: 0 0 0.5rem ${props => props.theme.colors.blue4};
+    box-shadow: 0 0.2rem 0.2rem ${props => props.theme.colors.blue4};
     margin-bottom: 1rem;
     border-radius: 0.5rem;
 `

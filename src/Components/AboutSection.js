@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Section, SectionText, SectionTitle } from './Elements';
+import Button from "./Button"
 
 const AboutSection = () => {
     return ( 
@@ -30,15 +31,16 @@ const AboutSection = () => {
                     </InfoItem>
                     <InfoItem>
                         <p>Approach</p>
-                        <strong>Sustainability<br/>Collaboration<br/>Innovation</strong>
+                        <strong className="highlighted">Sustainability<br/>Collaboration<br/>Innovation</strong>
                     </InfoItem>
             </KeyInfo>
+            <ToAboutButton text="More about Quercus Group" linkTo="/company"/>
         </StyledSection>
      );
 }
 
 const StyledSection = styled(Section)`
-    min-height: 100vh;
+    min-height: 80vh;
     align-content: center;
     padding: 0;
 `
@@ -48,6 +50,8 @@ const AboutSectionTitle = styled(SectionTitle)`
 `
 const AboutSectionText = styled(SectionText)`
     text-align: center;
+    font-size: 1.25rem;
+    color: ${props => props.theme.colors.blue2};
 `
 const KeyInfo = styled.div`
     grid-column: 1 / span 12;
@@ -58,9 +62,16 @@ const KeyInfo = styled.div`
 const InfoItem = styled.div`
     text-align: center;
     strong {
-        font-size: clamp(1.44rem, 1.73vw,1.563rem);        
+        font-size: clamp(1.44rem, 1.73vw,1.563rem);
+        &.highlighted {
+            color: ${props => props.theme.colors.yellow1};
+        }       
     }
-    
+`
+
+const ToAboutButton = styled(Button)`
+    grid-column-end: 13;
+    justify-self: end;
 `
   
 export default AboutSection;

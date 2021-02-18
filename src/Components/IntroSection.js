@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Section, SectionText, SectionTitle } from './Elements'
+import Button from './Button'
 
 const HeroSection = ()=>{
     return (
@@ -13,6 +14,8 @@ const HeroSection = ()=>{
                 <p>Our services help get a better understanding of what is going on, how to navigate rapid, far-reaching and unprecedented changes in all aspects of society and how to create effective change by doing it in partnership.</p>
                 <p>Imagine what we can do together.</p>
             </IntroText>
+            <ContactButton  text="Contact us today" linkTo="/contact"  arrowColor="#FFFEFE"/>
+            <NextSectionButton text="Learn more" arrowDirection="down"/>
         </IntroSection>
     )
 }
@@ -28,6 +31,23 @@ const IntroText = styled(SectionText)`
     column-gap: 2rem;
     p {
         margin-bottom: 1rem;
+    }
+`
+
+const NextSectionButton = styled(Button)`
+    grid-row: 3;
+    grid-column: 7;
+    
+`
+const ContactButton = styled(Button)`
+    grid-row: 3;
+    grid-column-end: 7;
+    justify-self: end;
+    .specificStyles {
+        border:none;
+        background: ${props => props.theme.colors.yellow1};
+        color: ${props => props.theme.colors.neutral900};
+        font-weight: 700;
     }
 `
 
