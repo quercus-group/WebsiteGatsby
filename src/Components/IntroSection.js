@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Section, SectionText, SectionTitle } from './Elements'
 import Button from './Button'
 
-const HeroSection = ()=>{
+const HeroSection = ({location})=>{
     return (
         <IntroSection>
             <SectionTitle>We help organizations and actors to collaborate better across differences._</SectionTitle>
@@ -15,7 +15,7 @@ const HeroSection = ()=>{
                 <p>Imagine what we can do together.</p>
             </IntroText>
             <ContactButton  text="Contact us today" linkTo="/contact"  arrowColor="#FFFEFE"/>
-            <NextSectionButton text="Learn more" arrowDirection="down"/>
+            <NextSectionButton text="Learn more" linkTo="#ProjectSection" arrowDirection="down"/>
         </IntroSection>
     )
 }

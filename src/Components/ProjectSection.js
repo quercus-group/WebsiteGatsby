@@ -25,7 +25,7 @@ const ProjectSection = () => {
         }
     `)
     return (
-        <Section>
+        <Section id="ProjectSection">
             <SectionTitle>A single project can be the beginning of a systemic shift. We help making changes beyond mere optimization.</SectionTitle>
             <LeftSideText>
                 <p>Since 2012, we supported companies, governments, cities, international agencies, universities and civil society in over 40 countries. Our engagements span days, months or years.</p>
