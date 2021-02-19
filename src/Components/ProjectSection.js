@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import Button from "./Button"
 
 const ProjectSection = () => {
+    
     const data = useStaticQuery(graphql`
         query ProjectData {
             allContentfulProject {
@@ -37,7 +38,7 @@ const ProjectSection = () => {
             </RightSideBox>
             <ProjectsGrid>
                 {data.allContentfulProject.edges.map(edge => (
-                    <GridPicture>
+                    <GridPicture key={edge.node.id}>
                         <Img fluid={edge.node.thumbnailImage.fluid} alt={edge.node.thumbnailImage.description} id={edge.node.id}/>
                     </GridPicture>
                 ))}

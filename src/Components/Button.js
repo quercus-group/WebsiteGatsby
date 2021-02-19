@@ -18,7 +18,7 @@ const Button = ({text, linkTo, className, arrowDirection, arrowColor}) => {
 const ArrowRight = ({arrowColor})=>{
     const strokeColor = arrowColor ? arrowColor : "#364975";
     return (
-    <motion.svg variants={SVGMotion} xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="28" height="28" viewBox="0 0 24 24" stroke-width="1" stroke={strokeColor} fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <motion.svg variants={SVGMotion} xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" stroke-width="1" stroke={strokeColor} fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <line x1="15" y1="16" x2="19" y2="12" />
@@ -29,7 +29,7 @@ const ArrowRight = ({arrowColor})=>{
 
 const ArrowDown = ()=>{
     return (
-        <motion.svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-down" width="28" height="28" viewBox="0 0 24 24" stroke-width="1" stroke="#364975" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <motion.svg xmlns="http://www.w3.org/2000/svg"  width="28" height="28" viewBox="0 0 24 24" stroke-width="1" stroke="#364975" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
         <line x1="12" y1="5" x2="12" y2="19" />
         <line x1="16" y1="15" x2="12" y2="19" />

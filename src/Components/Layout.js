@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {Header, Footer} from './index'
 
 if (typeof window !== "undefined") {
-    require("smooth-scroll")('a[href*="#"]')
+    require("smooth-scroll")('a[href*="#"]', {updateURL: false,})
   }
 
 const Layout = ({children})=>{

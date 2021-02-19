@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Section, SectionText, SectionTitle } from './Elements'
 import Button from './Button'
 
-const HeroSection = ({location})=>{
+const HeroSection = ()=>{
     return (
         <IntroSection>
             <SectionTitle>We help organizations and actors to collaborate better across differences._</SectionTitle>

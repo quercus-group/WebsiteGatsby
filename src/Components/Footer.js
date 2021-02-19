@@ -14,7 +14,7 @@ const Footer = ()=>{
             </CTA>
             <Addresses>
                 {offices.allContentfulOfficeAddress.edges.map((edge)=>(
-                    <div id={edge.node.id}>
+                    <div key={edge.node.id}>
                         <h3>{edge.node.office}</h3>
                             <address>
                                 {edge.node.street} <br/>

@@ -18,7 +18,7 @@ const ServiceSection = () => {
             </TextBlock>
             <ServiceAccordion>
                 {services.map(service => (
-                    <ServiceCategory>
+                    <ServiceCategory key={service.category}>
                         <h5>{service.category}</h5>
                         {/* <p>{service.services}</p> */}
                     </ServiceCategory>
