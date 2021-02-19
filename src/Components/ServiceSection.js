@@ -1,8 +1,9 @@
-import React from "react"
+import React, {useState} from "react"
 import styled from 'styled-components'
 import Button from "./Button";
 import { Section, SectionTitle } from "./Elements";
 import { LeftSideText } from "./ProjectSection";
+import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 const ServiceSection = () => {
     return ( 
@@ -16,16 +17,29 @@ const ServiceSection = () => {
                 </div>
                 <Button text="Learn more" linkTo="/services"/>
             </TextBlock>
-            <ServiceAccordion>
-                {services.map(service => (
-                    <ServiceCategory key={service.category}>
-                        <h5>{service.category}</h5>
-                        {/* <p>{service.services}</p> */}
-                    </ServiceCategory>
-                ))}                
-            </ServiceAccordion>
+                <AnimateSharedLayout>
+                <ServiceAccordion layout>
+                    {services.map(service => (
+                        <ServiceItem key={service.category} service={service}/>
+                    ))}                
+                </ServiceAccordion>
+            </AnimateSharedLayout>
         </Section>
      );
+}
+
+const ServiceItem = ({service})=>{
+    const [isOpen, setIsOpen] = useState(false);
+    const toggleOpen = () => setIsOpen(!isOpen);
+
+    return (
+        <ServiceCategory layout onClick={toggleOpen}>
+            <motion.h5 layout>{service.category}</motion.h5>
+            <AnimatePresence>
+                {isOpen && <motion.p layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{opacity:0 }}>{service.services}</motion.p>}
+            </AnimatePresence>
+        </ServiceCategory>
+    )
 }
 
 const TextBlock = styled(LeftSideText)`
@@ -34,14 +48,16 @@ const TextBlock = styled(LeftSideText)`
     justify-content: space-between;
 `
 
-const ServiceAccordion = styled.div`
+const ServiceAccordion = styled(motion.ul)`
     grid-column: 7 / span 4;
 `
-const ServiceCategory = styled.div`
+const ServiceCategory = styled(motion.li)`
     padding: 1rem;
     box-shadow: 0 0.2rem 0.2rem ${props => props.theme.colors.blue4};
     margin-bottom: 1rem;
     border-radius: 0.5rem;
+    list-style: none;
+    cursor: pointer;
 `
 
 const services = [
