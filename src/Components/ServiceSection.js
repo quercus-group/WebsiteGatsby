@@ -4,6 +4,7 @@ import Button from "./Button";
 import { Section, SectionTitle } from "./Elements";
 import { LeftSideText } from "./ProjectSection";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import {Services} from '../pages/services'
 
 const ServiceSection = () => {
     return ( 
@@ -19,7 +20,7 @@ const ServiceSection = () => {
             </TextBlock>
                 <AnimateSharedLayout>
                 <ServiceAccordion layout>
-                    {services.map(service => (
+                    {Services.map(service => (
                         <ServiceItem key={service.category} service={service}/>
                     ))}                
                 </ServiceAccordion>
@@ -36,10 +37,20 @@ const ServiceItem = ({service})=>{
         <ServiceCategory layout onClick={toggleOpen}>
             <motion.h5 layout>{service.category}</motion.h5>
             <AnimatePresence>
-                {isOpen && <motion.p layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{opacity:0 }}>{service.services}</motion.p>}
+                {isOpen && <motion.p layout variants={TextMotion} initial="close" animate="open" exit="close">{service.services}</motion.p>}
             </AnimatePresence>
         </ServiceCategory>
     )
+}
+
+
+const TextMotion = {
+    close: {
+        opacity: 0,
+    }, 
+    open: {
+        opacity: 1,
+    }
 }
 
 const TextBlock = styled(LeftSideText)`
@@ -52,23 +63,17 @@ const ServiceAccordion = styled(motion.ul)`
     grid-column: 7 / span 4;
 `
 const ServiceCategory = styled(motion.li)`
-    padding: 1rem;
+    padding: 1rem 2rem;
     box-shadow: 0 0.2rem 0.2rem ${props => props.theme.colors.blue4};
     margin-bottom: 1rem;
     border-radius: 0.5rem;
     list-style: none;
     cursor: pointer;
+    background-color: ${props => props.theme.colors.blue2};
+    color: ${props => props.theme.colors.neutral900};
+    p {
+        margin-top: 1rem;
+    }
 `
-
-const services = [
-    {category: "Understand & Situate", services: "Social and Action Research, Diagnosis & Analytics // Stakeholder, Systems & Issue Mapping // Collective Intelligence // Synthesis & Sensemaking"},
-    {category: "Plan & Strategize", services: "Strategy // Theory of Change // Sustainable & Inclusive Business Model // Project Management // Futures // Fundraising & Financing"},
-    {category: "Mobilize & Orchestrate", services: "Creative Facilitation & Moderation // Engagement & Partnership Plan // Brokering // Cluster Development // Stakeholder & Citizen Participation"},
-    {category: "Amplify & Generate", services: "Co-Creation // Convening // Open Innovation // Innovation Labs & Teams // Value Chain Development // Challenge Prizes // Accelerator Programs"},
-    {category: "Learn & Evaluate", services: "Capacity Building, Trainings & Coaching // Innovation & Action Learning // Evidence, Monitoring & Evaluation"},
-    {category: "Ventures", services: "Building new impact organizations, projects and alliances from scratch"}
-]
-
-
  
 export default ServiceSection;

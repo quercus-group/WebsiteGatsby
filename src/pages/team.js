@@ -90,8 +90,8 @@ const BioLink = styled(Link)`
     color: ${props => props.theme.colors.blue3};
     border-bottom: 0.1rem solid ${props => props.theme.colors.blue3};
 `
-const Question = styled.p`
-    grid-column: 3 / span 8;
+export const Question = styled.p`
+    grid-column: 2 / span 10;
     font-weight: 700;
     font-size: 1.5rem;
     text-align: center;

@@ -1,9 +1,9 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components'
 import { Section, SectionText, SectionTitle, GridPicture, Overlay } from './Elements';
 import Img from "gatsby-image"
-import {motion} from 'framer-motion'
+
 
 const TeamSection = () => {
     const data = useStaticQuery(graphql`
@@ -14,6 +14,7 @@ const TeamSection = () => {
                   id
                   firstName
                   lastName
+                  slug
                   profileImage {
                     description
                     fluid {
@@ -36,12 +37,14 @@ const TeamSection = () => {
             </SectionText>
             <TeamGrid>
                 {data.allContentfulTeamMember.edges.map(edge=>(
-                    <GridPicture key={edge.node.id} whileHover="hover" whileTap="hover" initial="rest" animate="rest" >
+                    <Link key={edge.node.id} to={`/team/${edge.node.slug}`}>
+                    <GridPicture whileHover="hover" whileTap="hover" initial="rest" animate="rest" >
                         <ProfileImage objectFit="cover" fluid={edge.node.profileImage.fluid} alt={edge.node.profileImage.description}/>
                         <TeamSectionOverlay variants={HoverMotion}>
                             <h5>{edge.node.firstName}<br/>{edge.node.lastName}</h5>
                         </TeamSectionOverlay>
                     </GridPicture>
+                    </Link>
                 ))}
             </TeamGrid>
         </Section>
