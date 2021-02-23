@@ -24,6 +24,7 @@ const IntroSection = styled(Section)`
     min-height: 90vh;
     align-content: center;
     padding-top: 0;
+    grid-row-gap: clamp(2rem,4.44vh, 4rem);
 `
 
 const IntroText = styled(SectionText)`

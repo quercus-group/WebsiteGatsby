@@ -64,7 +64,6 @@ const ProfileImage = styled(Img)`
 `
 
 const TeamSectionOverlay = styled(Overlay)`
-    
     h5 {
         line-height: 1.5;
     }

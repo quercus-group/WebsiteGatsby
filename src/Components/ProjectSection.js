@@ -1,19 +1,21 @@
 import React from "react"
 import styled from "styled-components"
-import { Section, SectionText, SectionTitle, GridPicture } from "./Elements"
-import {useStaticQuery, graphql} from 'gatsby'
+import { Section, SectionText, SectionTitle, GridPicture, Overlay } from "./Elements"
+import {useStaticQuery, graphql, Link} from 'gatsby'
 import Img from "gatsby-image"
 import Button from "./Button"
+import {HoverMotion} from './TeamSection'
 
 const ProjectSection = () => {
     
     const data = useStaticQuery(graphql`
         query ProjectData {
-            allContentfulProject {
+            allContentfulProject (sort: { fields: order, order: ASC }) {
             edges {
                 node {
                 id
-                projectTitle
+                slug
+                shortTitle
                 thumbnailImage {
                     description
                     fluid {
@@ -38,9 +40,14 @@ const ProjectSection = () => {
             </RightSideBox>
             <ProjectsGrid>
                 {data.allContentfulProject.edges.map(edge => (
-                    <GridPicture key={edge.node.id}>
+                    <Link key={edge.node.id} to={`/projects/${edge.node.slug}`}>
+                    <GridPicture whileHover="hover" whileTap="hover" initial="rest" animate="rest">
                         <Img fluid={edge.node.thumbnailImage.fluid} alt={edge.node.thumbnailImage.description} id={edge.node.id}/>
+                        <ProjectSectionOverlay variants={HoverMotion}>
+                            <h5>{edge.node.shortTitle}</h5>
+                        </ProjectSectionOverlay>
                     </GridPicture>
+                    </Link>
                 ))}
             </ProjectsGrid>
             <ToProjectsButton text="See more projects" linkTo="/projects"/>
@@ -60,23 +67,27 @@ const RightSideBox = styled(SectionText)`
     border-radius: 0.5rem;
     padding: 1.5rem;
 `
-
-const ProjectsGrid = styled.div`
+export const ProjectsGrid = styled.div`
     grid-column: 1 / span 12;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     grid-template-rows: repeat(2, 1fr);
 `
-
+const ProjectSectionOverlay = styled(Overlay)`
+    h5 {
+        line-height: 1.5;
+        width: 75%;
+    }
+    
+`
 const ToProjectsButton = styled(Button)`
     justify-self: end;
     grid-column-end: 13;
 `
-
-
 const Partner = styled.div`
     grid-column: 1 / span 12;
 `
+
 
 export default ProjectSection
