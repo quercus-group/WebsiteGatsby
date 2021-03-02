@@ -49,7 +49,7 @@ export const query = graphql`
             description {raw}
             featuredImage {
                 title
-                fluid {
+                fluid (maxWidth: 1250 quality: 80){
                     ...GatsbyContentfulFluid_withWebp
                 }
             }
@@ -91,8 +91,9 @@ const ProjectDescription = styled.div`
     grid-column: 3 / span 8;
 `
 const BigImage = styled(Img)`
-    grid-column: 1 / 12;
+    grid-column: 1 / 13;
     border-radius: 0.5em;
+    aspect-ratio: 16 / 9;
 `
 const PrimaryContact = styled.div`
     grid-column: 3 / span 4;

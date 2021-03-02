@@ -38,7 +38,7 @@ const TeamPage = ()=>{
                     </SectionText>
                     <TeamGrid>
                         {data.allContentfulTeamMember.edges.map(edge => (
-                            <div key={edge.node.id}>
+                            <Link key={edge.node.id} to={`/team/${edge.node.slug}`}>
                                 <ProfileImg  fluid={edge.node.profileImage.fluid} alt={edge.node.profileImage.description}/>
                                 <div>
                                     <Name>{edge.node.firstName} {edge.node.lastName}</Name>
@@ -48,7 +48,7 @@ const TeamPage = ()=>{
                                     </ContactDetails>
                                     <BioLink to={`/team/${edge.node.slug}`}>Show Bio</BioLink>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </TeamGrid>
                     <Question>Curious about what we offer and how we help?</Question>
