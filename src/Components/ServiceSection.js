@@ -4,7 +4,7 @@ import Button from "./Button";
 import { Section, SectionTitle } from "./Elements";
 import { LeftSideText } from "./ProjectSection";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
-import Services from '../Data/Services'
+import Services from '../data/Services'
 
 
 const ServiceSection = () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useStaticQuery, graphql, Link} from 'gatsby'
-import Img from "gatsby-image"
+import { GatsbyImage} from "gatsby-plugin-image"
 import {Layout} from '../Components'
 import { Section, SectionText, SectionTitle, Question} from '../Components/Elements'
 import Button from '../Components/Button'
@@ -20,9 +20,12 @@ const TeamPage = ()=>{
                   slug
                   profileImage {
                     description
-                    fluid {
-                        ...GatsbyContentfulFluid_withWebp
-                    }
+                    gatsbyImageData (
+                        quality: 75
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP]
+                        aspectRatio: 1
+                    )
                   }
                 }
               }
@@ -39,7 +42,7 @@ const TeamPage = ()=>{
                     <TeamGrid>
                         {data.allContentfulTeamMember.edges.map(edge => (
                             <Link key={edge.node.id} to={`/team/${edge.node.slug}`}>
-                                <ProfileImg  fluid={edge.node.profileImage.fluid} alt={edge.node.profileImage.description}/>
+                                <ProfileImg image={edge.node.profileImage.gatsbyImageData} alt={edge.node.profileImage.description}/>
                                 <div>
                                     <Name>{edge.node.firstName} {edge.node.lastName}</Name>
                                     <ContactDetails>
@@ -66,10 +69,9 @@ const TeamGrid = styled.div`
     grid-gap: 3rem 2rem;
 `
 
-const ProfileImg = styled(Img)`
+const ProfileImg = styled(GatsbyImage)`
     border-radius: 0.5rem;
     box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue5};
-    aspect-ratio: 1/1;
 `
 
 const Name = styled.p`

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {useStaticQuery, graphql, Link} from 'gatsby'
-import Img from "gatsby-image"
+import { GatsbyImage} from "gatsby-plugin-image"
 import {Layout} from '../Components'
 import { Section, SectionText, SectionTitle } from '../Components/Elements'
 import { LeftSideText, ProjectsGrid } from '../Components/ProjectSection'
@@ -20,9 +20,12 @@ const ProjectPage = ()=>{
                 excerpt {excerpt}
                 thumbnailImage {
                     description
-                    fluid {
-                        ...GatsbyContentfulFluid_withWebp
-                    }
+                    gatsbyImageData (
+                        quality: 50
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP]
+                        aspectRatio: 1
+                        )
                 }
                 }
             }
@@ -44,7 +47,7 @@ const ProjectPage = ()=>{
                 <ProjectsGrid>
                     {data.allContentfulProject.edges.map(edge => (
                         <Link key={edge.node.id} to={`/projects/${edge.node.slug}`}>
-                            <ProjectImg fluid={edge.node.thumbnailImage.fluid} alt={edge.node.thumbnailImage.description}/>
+                            <ProjectImg image={edge.node.thumbnailImage.gatsbyImageData} alt={edge.node.thumbnailImage.description}/>
                             
                             <ProjectTitle>{edge.node.projectTitle}</ProjectTitle>
                             <MoreInfo>
@@ -65,7 +68,7 @@ const ProjectPage = ()=>{
 const RightSideText = styled(SectionText)`
     grid-column: 7 / span 4;
 `
-const ProjectImg = styled(Img)`
+const ProjectImg = styled(GatsbyImage)`
     border-radius: 0.5rem;
     box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue5};
     aspect-ratio: 1/1;

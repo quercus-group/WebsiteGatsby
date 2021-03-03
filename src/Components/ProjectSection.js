@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Section, SectionText, SectionTitle, GridPicture, Overlay } from "./Elements"
 import {useStaticQuery, graphql, Link} from 'gatsby'
-import Img from "gatsby-image"
+import { GatsbyImage} from "gatsby-plugin-image"
 import Button from "./Button"
 import {HoverMotion} from './TeamSection'
 
@@ -18,10 +18,13 @@ const ProjectSection = () => {
                 shortTitle
                 thumbnailImage {
                     description
-                    fluid {
-                        ...GatsbyContentfulFluid_withWebp
+                    gatsbyImageData (
+                        quality: 50
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP]
+                        aspectRatio: 1
+                        )
                     }
-                }
                 }
             }
             }
@@ -42,7 +45,7 @@ const ProjectSection = () => {
                 {data.allContentfulProject.edges.map(edge => (
                     <Link key={edge.node.id} to={`/projects/${edge.node.slug}`}>
                     <GridPicture whileHover="hover" whileTap="hover" initial="rest" animate="rest">
-                        <Img fluid={edge.node.thumbnailImage.fluid} alt={edge.node.thumbnailImage.description} id={edge.node.id}/>
+                        <GatsbyImage image={edge.node.thumbnailImage.gatsbyImageData} alt={edge.node.thumbnailImage.description}/>
                         <ProjectSectionOverlay variants={HoverMotion}>
                             <h5>{edge.node.shortTitle}</h5>
                         </ProjectSectionOverlay>

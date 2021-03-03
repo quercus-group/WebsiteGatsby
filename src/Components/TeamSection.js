@@ -2,7 +2,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components'
 import { Section, SectionText, SectionTitle, GridPicture, Overlay } from './Elements';
-import Img from "gatsby-image"
+import { GatsbyImage} from "gatsby-plugin-image"
 
 
 const TeamSection = () => {
@@ -17,9 +17,12 @@ const TeamSection = () => {
                   slug
                   profileImage {
                     description
-                    fluid {
-                        ...GatsbyContentfulFluid_withWebp
-                    }
+                    gatsbyImageData (
+                        quality: 75
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP]
+                        aspectRatio: 1
+                    )
                   }
                 }
               }
@@ -39,7 +42,7 @@ const TeamSection = () => {
                 {data.allContentfulTeamMember.edges.map(edge=>(
                     <Link key={edge.node.id} to={`/team/${edge.node.slug}`}>
                     <GridPicture whileHover="hover" whileTap="hover" initial="rest" animate="rest" >
-                        <ProfileImage objectFit="cover" fluid={edge.node.profileImage.fluid} alt={edge.node.profileImage.description}/>
+                    <ProfileImg image={edge.node.profileImage.gatsbyImageData} alt={edge.node.profileImage.description}/>
                         <TeamSectionOverlay variants={HoverMotion}>
                             <h5>{edge.node.firstName}<br/>{edge.node.lastName}</h5>
                         </TeamSectionOverlay>
@@ -58,9 +61,9 @@ const TeamGrid = styled.div`
     grid-template-rows: repeat(auto, 1fr);
     grid-gap: 2rem 2rem;
 `
-const ProfileImage = styled(Img)`
-    height: 100%;
-    width: 100%;
+const ProfileImg = styled(GatsbyImage)`
+    border-radius: 0.5rem;
+    box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue5};
 `
 
 const TeamSectionOverlay = styled(Overlay)`
