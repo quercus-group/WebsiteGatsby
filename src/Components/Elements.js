@@ -40,3 +40,11 @@ export const Overlay = styled(motion.div)`
     text-align: center;
     cursor: pointer;
 `
+
+export const Question = styled.p`
+    grid-column: 2 / span 10;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+`

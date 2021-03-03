@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {useStaticQuery, graphql, Link} from 'gatsby'
 import Img from "gatsby-image"
 import {Layout} from '../Components'
-import { Section, SectionText, SectionTitle} from '../Components/Elements'
+import { Section, SectionText, SectionTitle, Question} from '../Components/Elements'
 import Button from '../Components/Button'
 
 const TeamPage = ()=>{
@@ -90,13 +90,7 @@ const BioLink = styled(Link)`
     color: ${props => props.theme.colors.blue3};
     border-bottom: 0.1rem solid ${props => props.theme.colors.blue3};
 `
-export const Question = styled.p`
-    grid-column: 2 / span 10;
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 0;
-`
+
 const ToServicesButton = styled(Button)`
     grid-column: 6 / span 2;
     justify-self: center;
