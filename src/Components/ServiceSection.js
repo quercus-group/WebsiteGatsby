@@ -19,7 +19,7 @@ const ServiceSection = () => {
                 </div>
                 <Button text="Learn more" linkTo="/services"/>
             </TextBlock>
-                <AnimateSharedLayout>
+            <AnimateSharedLayout>
                 <ServiceAccordion layout>
                     {Services.map(service => (
                         <ServiceItem key={service.category} service={service}/>
