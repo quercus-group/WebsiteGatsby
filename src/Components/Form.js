@@ -1,25 +1,27 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-
-
-	
+import fetch from 'isomorphic-unfetch';
 
 
 const Form = ({className}) => {
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
     const [firstname, setFirstname] = useState('')
     const [lastname, setLastname] = useState('')
     const [email, setEmail] = useState('')
     const [organization, setOrganization] = useState('')
     const [message, setMessage] = useState('')
     const portalId =  "8499028"
-	const formId =  "0764f8e0-a58c-4944-9407-265ea6bcda13"
+	const formId =  '0764f8e0-a58c-4944-9407-265ea6bcda13'
+   
 
     const submitHandler = (e)=>{
         e.preventDefault()
-        const xhr = new XMLHttpRequest();
         const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`
+        setLoading(true);
 
-        let data = {
+        const body = {
             "submittedAt": Date.now(),
             "fields": [
               {
@@ -49,24 +51,29 @@ const Form = ({className}) => {
             },
         }
 
-        const final_data = JSON.stringify(data)
-
-        xhr.open('POST', url);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-    
-        xhr.onreadystatechange = function() {
-            if(xhr.readyState === 4 && xhr.status === 200) { 
-                alert(xhr.responseText); // Returns a 200 response if the submission is successful.
-            } else if (xhr.readyState === 4 && xhr.status === 400){ 
-                alert(xhr.responseText); // Returns a 400 error the submission is rejected.          
-            } else if (xhr.readyState === 4 && xhr.status === 403){ 
-                alert(xhr.responseText); // Returns a 403 error if the portal isn't allowed to post submissions.           
-            } else if (xhr.readyState === 4 && xhr.status === 404){ 
-                alert(xhr.responseText); //Returns a 404 error if the formGuid isn't found     
-            }
-           }
-            
-        xhr.send(final_data)
+        fetch(url, {
+            method: 'post',
+            body: JSON.stringify(body),
+            headers: new Headers({
+              'Content-Type': 'application/json',
+              Accept: 'application/json, application/xml, text/plain, text/html, *.*',
+            }),
+          })
+            .then(res => res.json())
+            .then(() => {
+              setSuccess(true);
+              setError(false);
+              setLoading(false);
+              setFirstname('');
+              setLastname('');
+              setMessage('');
+            })
+            .catch(err => {
+              setSuccess(false);
+              setError(err);
+              setLoading(false);
+            });
+        
 
     }
 
