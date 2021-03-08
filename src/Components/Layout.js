@@ -2,9 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import {Header, Footer} from './index'
 
-if (typeof window !== "undefined") {
-    require("smooth-scroll")('a[href*="#"]', {updateURL: false,})
-  }
 
 const Layout = ({children})=>{
     return (

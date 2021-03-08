@@ -49,6 +49,10 @@ const HeaderContainer = styled.header`
         padding-bottom: 0.2rem;
         
     }
+    .contact_cta {
+        color: ${props => props.theme.colors.yellow1};
+        font-weight: 900;
+    }
 `
 
 const LogoImage = styled.img`

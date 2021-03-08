@@ -1,24 +1,96 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 
+
+	
+
+
 const Form = ({className}) => {
-    return (
-        <ContactForm className={className} required>
+    const [firstname, setFirstname] = useState('')
+    const [lastname, setLastname] = useState('')
+    const [email, setEmail] = useState('')
+    const [organization, setOrganization] = useState('')
+    const [message, setMessage] = useState('')
+    const portalId =  "8499028"
+	const formId =  "0764f8e0-a58c-4944-9407-265ea6bcda13"
+
+    const submitHandler = (e)=>{
+        e.preventDefault()
+        const xhr = new XMLHttpRequest();
+        const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`
+
+        let data = {
+            "submittedAt": Date.now(),
+            "fields": [
+              {
+                "name": "firstname",
+                "value": firstname
+              },
+              {
+                "name": "lastname",
+                "value": lastname
+              },
+              {
+                "name": "email",
+                "value": email
+              },
+              {
+                "name": "company",
+                "value": organization
+              },
+              {
+                "name": "message",
+                "value": message
+              },
+            ],
+            "context": {
+              "pageUri": "https://quercus-group.com/contact",
+              "pageName": "Quercus Group"
+            },
+        }
+
+        const final_data = JSON.stringify(data)
+
+        xhr.open('POST', url);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+    
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState === 4 && xhr.status === 200) { 
+                alert(xhr.responseText); // Returns a 200 response if the submission is successful.
+            } else if (xhr.readyState === 4 && xhr.status === 400){ 
+                alert(xhr.responseText); // Returns a 400 error the submission is rejected.          
+            } else if (xhr.readyState === 4 && xhr.status === 403){ 
+                alert(xhr.responseText); // Returns a 403 error if the portal isn't allowed to post submissions.           
+            } else if (xhr.readyState === 4 && xhr.status === 404){ 
+                alert(xhr.responseText); //Returns a 404 error if the formGuid isn't found     
+            }
+           }
+            
+        xhr.send(final_data)
+
+    }
+
+     return (
+        <ContactForm className={className} required onSubmit={submitHandler}>
            <div id="name">
-                <label id="firstName">First Name</label>
-                <input type="text" id="firstName" />
+                <label id="firstname" htmlFor="firstname">First Name</label>
+                <input type="text" id="firstname" value={firstname} onChange={e => setFirstname(e.target.value)}/>
            </div>
            <div id="name">
-                <label id="lastName">Last Name</label>
-                <input type="text" id="lastName" />
+                <label id="lastname" htmlFor="lastname">Last Name</label>
+                <input type="text" id="lastname" value={lastname} onChange={e => setLastname(e.target.value)}/>
+           </div>
+           <div className="email">
+                <label id="Email" htmlFor="email">Email</label>
+                <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)}/>
            </div>
            <div className="organization">
-           <label id="organization">Organization</label>
-                <input type="text" id="organization" />
+           <label id="organization" htmlFor="organization">Organization</label>
+                <input type="text" id="organization" value={organization} onChange={e => setOrganization(e.target.value)} />
            </div>
            <div className="message">
-           <label id="message">Message</label>
-                <textarea type="text" id="message"/>
+           <label id="message" htmlFor="message">Message</label>
+                <textarea type="text" id="message" value={message} onChange={e => setMessage(e.target.value)}/>
            </div>
            <SubmitButton>Send</SubmitButton>
         </ContactForm>        
@@ -26,9 +98,15 @@ const Form = ({className}) => {
 }
 
 const ContactForm = styled.form`
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
     width: 100%;
-    box-shadow: 0 0.2rem 0.2rem ${props => props.theme.colors.blue4};
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+        0 100px 80px rgba(0, 0, 0, 0.12);
     border-radius: 0.5em;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -37,7 +115,7 @@ const ContactForm = styled.form`
         display: flex;
         flex-direction: column;
     }
-    .organization, .message {
+    .email, .organization, .message {
         grid-column: 1 / span 2;
     }
     label {
