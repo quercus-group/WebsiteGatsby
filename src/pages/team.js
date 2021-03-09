@@ -71,7 +71,10 @@ const TeamGrid = styled.div`
 
 const ProfileImg = styled(GatsbyImage)`
     border-radius: 0.5rem;
-    box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue5};
+    box-shadow: 
+        0 2.8px 2.2px rgba(54, 73, 117, 0.034),
+        0 6.7px 5.3px rgba(54, 73, 117, 0.048),
+        0 1rem 1rem rgba(54, 73, 117, 0.12);
 `
 
 const Name = styled.p`

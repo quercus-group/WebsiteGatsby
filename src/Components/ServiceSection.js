@@ -65,7 +65,10 @@ const ServiceAccordion = styled(motion.ul)`
 `
 const ServiceCategory = styled(motion.li)`
     padding: 1rem 2rem;
-    box-shadow: 0 0.2rem 0.2rem ${props => props.theme.colors.blue4};
+    box-shadow: 
+        0 3.3px 6.5px rgba(0, 0, 0, 0.028),
+        0 10.9px 18.6px rgba(0, 0, 0, 0.041),
+        0 48px 80px rgba(0, 0, 0, 0.07);
     margin-bottom: 1rem;
     border-radius: 0.5rem;
     list-style: none;

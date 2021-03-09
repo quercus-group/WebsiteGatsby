@@ -23,7 +23,11 @@ export const GridPicture = styled(motion.div)`
     overflow: hidden;
     aspect-ratio: 1 / 1;
     position: relative;
-    box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue4};
+    box-shadow: 
+        0 2.8px 2.2px rgba(54, 73, 117, 0.034),
+        0 6.7px 5.3px rgba(54, 73, 117, 0.048),
+        0 12.5px 10px rgba(54, 73, 117, 0.06),
+        0 2rem 2rem rgba(54, 73, 117, 0.12);
 `
 export const Overlay = styled(motion.div)`
     position: absolute;

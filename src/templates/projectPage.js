@@ -100,7 +100,10 @@ const PrimaryContact = styled.div`
     display: flex;
     align-items: flex-start;
     border-radius: 0.5em;
-    box-shadow: 0 0.2rem 0.2rem ${props => props.theme.colors.blue4};
+    box-shadow: 
+        0 2.8px 2.2px rgba(54, 73, 117, 0.034),
+        0 6.7px 5.3px rgba(54, 73, 117, 0.048),
+        0 1rem 20px rgba(54, 73, 117, 0.12);
     padding: 1em;
 `
 const SecondaryContact = styled(PrimaryContact)`

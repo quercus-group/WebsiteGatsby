@@ -58,7 +58,10 @@ const StyledButton = styled(motion.button)`
 
 const HoverMotion = {
     rest: {
-        boxShadow: '0 0 0.0rem rgba(178, 188, 214, 0.5)',
+        boxShadow: `
+        0 0px 0px rgba(54, 73, 117, 0.034),
+        0 0rem 0px rgba(54, 73, 117, 0.12)
+        `,
         transition: {
             duration: 0.3,
             type: "tween",
@@ -66,7 +69,10 @@ const HoverMotion = {
         }
     },
     hover: {
-        boxShadow: '0 0.2rem 0.2rem rgba(178, 188, 214, 0.5)',
+        boxShadow: `
+        0 2.8px 2.2px rgba(54, 73, 117, 0.034),
+        0 0.5rem 10px rgba(54, 73, 117, 0.12)
+        `,
         transition: {
             duration: 0.3,
             type: "tween",

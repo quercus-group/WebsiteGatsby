@@ -66,7 +66,7 @@ export const LeftSideText = styled(SectionText)`
 `
 const RightSideBox = styled(SectionText)`
     grid-column: 7 / span 4;
-    box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue4};
+    box-shadow: ${props => props.theme.boxshadow.shadow1};
     border-radius: 0.5rem;
     padding: 1.5rem;
 `
@@ -82,7 +82,6 @@ const ProjectSectionOverlay = styled(Overlay)`
         line-height: 1.5;
         width: 75%;
     }
-    
 `
 const ToProjectsButton = styled(Button)`
     justify-self: end;

@@ -13,7 +13,7 @@ const Form = ({className}) => {
     const [organization, setOrganization] = useState('')
     const [message, setMessage] = useState('')
     const portalId =  "8499028"
-	const formId =  '0764f8e0-a58c-4944-9407-265ea6bcda13'
+	  const formId =  '0764f8e0-a58c-4944-9407-265ea6bcda13'
    
 
     const submitHandler = (e)=>{
@@ -78,26 +78,26 @@ const Form = ({className}) => {
     }
 
      return (
-        <ContactForm className={className} required onSubmit={submitHandler}>
+        <ContactForm className={className} required onSubmit={submitHandler} data-form-id={formId} data-portal-id={portalId} disabled={loading}>
            <div id="name">
                 <label id="firstname" htmlFor="firstname">First Name</label>
-                <input type="text" id="firstname" value={firstname} onChange={e => setFirstname(e.target.value)}/>
+                <input type="text" id="firstname" value={firstname} onChange={e => setFirstname(e.target.value)} placeholder='Your first name'/>
            </div>
            <div id="name">
-                <label id="lastname" htmlFor="lastname">Last Name</label>
-                <input type="text" id="lastname" value={lastname} onChange={e => setLastname(e.target.value)}/>
+                <label id="lastname" htmlFor="lastname" >Last Name</label>
+                <input type="text" id="lastname" value={lastname} onChange={e => setLastname(e.target.value)} placeholder='Your last name'/>
            </div>
            <div className="email">
                 <label id="Email" htmlFor="email">Email</label>
-                <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)}/>
+                <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} placeholder='name@example.com'/>
            </div>
            <div className="organization">
            <label id="organization" htmlFor="organization">Organization</label>
-                <input type="text" id="organization" value={organization} onChange={e => setOrganization(e.target.value)} />
+                <input type="text" id="organization" value={organization} onChange={e => setOrganization(e.target.value)} placeholder='Your organization'/>
            </div>
            <div className="message">
            <label id="message" htmlFor="message">Message</label>
-                <textarea type="text" id="message" value={message} onChange={e => setMessage(e.target.value)}/>
+                <textarea type="text" id="message" value={message} onChange={e => setMessage(e.target.value)} placeholder='Type your  message here'/>
            </div>
            <SubmitButton>Send</SubmitButton>
         </ContactForm>        
@@ -107,13 +107,7 @@ const Form = ({className}) => {
 const ContactForm = styled.form`
     padding: 2rem 2rem;
     width: 100%;
-    box-shadow:
-        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-        0 12.5px 10px rgba(0, 0, 0, 0.06),
-        0 22.3px 17.9px rgba(0, 0, 0, 0.072),
-        0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-        0 100px 80px rgba(0, 0, 0, 0.12);
+    box-shadow: ${props => props.theme.boxshadow.shadow1};
     border-radius: 0.5em;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
