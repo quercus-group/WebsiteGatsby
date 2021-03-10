@@ -65,7 +65,9 @@ const Form = ({className}) => {
               setError(false);
               setLoading(false);
               setFirstname('');
-              setLastname('');
+              setLastname('')
+              setEmail('')
+              setOrganization('');
               setMessage('');
             })
             .catch(err => {
@@ -77,7 +79,7 @@ const Form = ({className}) => {
 
     }
 
-     return (
+      return (
         <ContactForm className={className} required onSubmit={submitHandler} data-form-id={formId} data-portal-id={portalId} disabled={loading}>
            <div id="name">
                 <label id="firstname" htmlFor="firstname">First Name</label>
@@ -100,6 +102,9 @@ const Form = ({className}) => {
                 <textarea type="text" id="message" value={message} onChange={e => setMessage(e.target.value)} placeholder='Type your  message here'/>
            </div>
            <SubmitButton>Send</SubmitButton>
+           {loading && <div className="form-message"><p>Sending &hellip;</p></div>}
+           {success && <div className="form-message"><p> Success! Thank you for writing us.</p></div>}
+           {error && <div className="form-message"><p>Oops, something went wrong!</p></div>}
         </ContactForm>        
     );
 }
@@ -137,6 +142,10 @@ const ContactForm = styled.form`
         resize: none;
         height: 10vh;
         overflow: auto;
+    }
+    .form-message {
+      grid-column: 2 / span 1;
+      text-align: right;
     }
 `
 const SubmitButton = styled.button`

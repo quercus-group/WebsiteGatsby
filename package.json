@@ -23,6 +23,7 @@
     "gatsby-image": "^3.0.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^1.0.0",
+    "gatsby-plugin-prettier-eslint": "^1.0.4",
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-plugin-styled-components": "^4.0.0",

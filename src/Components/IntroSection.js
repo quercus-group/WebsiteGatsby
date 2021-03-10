@@ -10,7 +10,7 @@ const HeroSection = ()=>{
                 We help organizations and actors to collaborate better
                 <Typewriter
                     options={{
-                        strings: ['across differences.', 'across georgraphies.', 'across sectors.', 'across disciplines.' ],
+                        strings: ['across differences.', 'across geographies.', 'across sectors.', 'across disciplines.' ],
                         autoStart: true,
                         loop: true,
                         cursor: '_',
