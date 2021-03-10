@@ -66,7 +66,7 @@ export const LeftSideText = styled(SectionText)`
 `
 const RightSideBox = styled(SectionText)`
     grid-column: 7 / span 4;
-    box-shadow: ${props => props.theme.boxshadow.shadow1};
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     border-radius: 0.5rem;
     padding: 1.5rem;
 `
