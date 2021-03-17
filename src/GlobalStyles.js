@@ -6,6 +6,9 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: 0;
     }
+    html{
+        scroll-behavior: smooth;
+    }
     body, html {
         font-family: 'Lato', sans-serif;
         color: ${props => props.theme.colors.blue1};

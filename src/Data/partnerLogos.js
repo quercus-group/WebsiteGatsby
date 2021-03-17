@@ -1,4 +1,4 @@
-export const partnerLogos = [
+const partnerLogos = [
     {
         name: 'Confederation of Danish Industry',
         url: "https://stateofgreen.com/en/uploads/2018/05/DI.png"
@@ -21,10 +21,11 @@ export const partnerLogos = [
     },
     {
         name: 'Nordic Innovation',
-        url: "https://www.nordicinnovation.org/themes/custom/ni/logo.svg"
+        url: "https://www.nordicinnovation.org/sites/default/files/inline-images/NordicInnovation_RGB.png"
     },
     {
         name: 'Temasek',
-        url: "https://upload.wikimedia.org/wikipedia/commons/4/43/TemasekHoldings_logo.svg"
+        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/TemasekHoldings_logo.svg/1280px-TemasekHoldings_logo.svg.png"
     },
 ]
+export default partnerLogos

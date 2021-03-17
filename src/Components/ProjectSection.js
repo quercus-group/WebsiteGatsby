@@ -2,9 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { Section, SectionText, SectionTitle, GridPicture, Overlay } from "./Elements"
 import {useStaticQuery, graphql, Link} from 'gatsby'
-import { GatsbyImage} from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage} from "gatsby-plugin-image"
 import Button from "./Button"
 import {HoverMotion} from './TeamSection'
+import partnerLogos from '../data/partnerLogos'
 
 const ProjectSection = () => {
     
@@ -30,7 +31,11 @@ const ProjectSection = () => {
             }
         }
     `)
+    
+    const fivePartners = partnerLogos.slice(0,5)
+    
     return (
+        
         <Section id="ProjectSection">
             <SectionTitle>A single project can be the beginning of a systemic shift. We help making changes beyond mere optimization.</SectionTitle>
             <LeftSideText>
@@ -56,6 +61,15 @@ const ProjectSection = () => {
             <ToProjectsButton text="See more projects" linkTo="/projects"/>
             <Partner>
                 <h2>Our partners</h2>
+                <div className="logo-track">
+                    {
+                        fivePartners.map(logo => (
+                            <div className="logo-container" key={logo.name}>
+                                <img src={logo.url} alt={logo.name} />
+                            </div>
+                        ))
+                    }
+                </div>
             </Partner>
         </Section>
     )
@@ -89,6 +103,22 @@ const ToProjectsButton = styled(Button)`
 `
 const Partner = styled.div`
     grid-column: 1 / span 12;
+    .logo-track {
+        margin-top: 2rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo-container {
+        width: 12.5%;
+        img {
+            object-fit: cover;
+            width: 100%;
+            filter: saturate(0%);
+        }
+    }
+    
 `
 
 

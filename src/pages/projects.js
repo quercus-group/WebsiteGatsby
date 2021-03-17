@@ -48,7 +48,6 @@ const ProjectPage = ()=>{
                     {data.allContentfulProject.edges.map(edge => (
                         <Link key={edge.node.id} to={`/projects/${edge.node.slug}`}>
                             <ProjectImg image={edge.node.thumbnailImage.gatsbyImageData} alt={edge.node.thumbnailImage.description}/>
-                            
                             <ProjectTitle>{edge.node.projectTitle}</ProjectTitle>
                             <MoreInfo>
                                 <p className="client">{edge.node.client}</p>
@@ -56,7 +55,6 @@ const ProjectPage = ()=>{
                                 <p>{edge.node.excerpt.excerpt}</p>
                                 </Truncate>
                             </MoreInfo>
-                            
                         </Link>
                     ))}
                 </ProjectsGrid>
@@ -73,6 +71,7 @@ const ProjectImg = styled(GatsbyImage)`
     box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue5};
     aspect-ratio: 1/1;
 `
+
 const ProjectTitle = styled.p`
     margin-top: 1rem;
     font-weight: 700;

@@ -33,10 +33,13 @@ const ServiceSection = () => {
 const ServiceItem = ({service})=>{
     const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = () => setIsOpen(!isOpen);
-
+    const boxVariant = isOpen && BoxMotion
     return (
-        <ServiceCategory layout onClick={toggleOpen}>
+        <ServiceCategory layout onClick={toggleOpen} variants={boxVariant} initial="close" animate="open" exit="close">
+            <div className="title">
+            {isOpen && service.icon && <img src={service.icon} alt={`icon for ${service.category} services`}/>}
             <motion.h5 layout>{service.category}</motion.h5>
+            </div>
             <AnimatePresence>
                 {isOpen && <motion.p layout variants={TextMotion} initial="close" animate="open" exit="close">{service.services}</motion.p>}
             </AnimatePresence>
@@ -48,18 +51,48 @@ const ServiceItem = ({service})=>{
 const TextMotion = {
     close: {
         opacity: 0,
+        transition: {
+            type: 'tween',
+            duration: 0.5,
+            ease: 'easeInOut'
+        }
     }, 
     open: {
         opacity: 1,
+        transition: {
+            type: 'tween',
+            duration: 0.5,
+            ease: 'easeInOut'
+        }
     }
 }
+const BoxMotion = {
+    close: {
+        backgroundColor: '#485987',
+        color: '#FFFEFE',
+        transition: {
+            type: 'tween',
+            duration: 0.5,
+            ease: 'easeInOut'
+        }
+    },
+    open: {
+        backgroundColor: '#FFFEFE',
+        color: '#364975',
+        transition: {
+            type: 'tween',
+            duration: 0.5,
+            ease: 'easeInOut'
+        }
+    }
+}
+
 
 const TextBlock = styled(LeftSideText)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 `
-
 const ServiceAccordion = styled(motion.ul)`
     grid-column: 7 / span 4;
 `
@@ -67,11 +100,18 @@ const ServiceCategory = styled(motion.li)`
     padding: 1rem 2rem;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     margin-bottom: 1rem;
-    border-radius: 0.5rem;
+    border-radius: 0.5em;
     list-style: none;
     cursor: pointer;
     background-color: ${props => props.theme.colors.blue2};
     color: ${props => props.theme.colors.neutral900};
+    .title {
+        display: flex;
+        align-items: center;
+        img {
+            margin-right: 1rem;
+        }
+    }
     p {
         margin-top: 1rem;
     }
