@@ -2,16 +2,17 @@ import React from "react"
 import styled from "styled-components"
 import { Section, SectionText, SectionTitle, GridPicture, Overlay } from "./Elements"
 import {useStaticQuery, graphql, Link} from 'gatsby'
-import { GatsbyImage, StaticImage} from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Button from "./Button"
 import {HoverMotion} from './TeamSection'
-import partnerLogos from '../data/partnerLogos'
+import PartnerSlider from "./PartnerSlider"
+
 
 const ProjectSection = () => {
     
     const data = useStaticQuery(graphql`
         query ProjectData {
-            allContentfulProject (sort: { fields: order, order: ASC }) {
+            allContentfulProject (sort: { fields: order, order: ASC }, limit: 5) {
             edges {
                 node {
                 id
@@ -32,8 +33,6 @@ const ProjectSection = () => {
         }
     `)
     
-    const fivePartners = partnerLogos.slice(0,5)
-    
     return (
         
         <Section id="ProjectSection">
@@ -48,29 +47,18 @@ const ProjectSection = () => {
             </RightSideBox>
             <ProjectsGrid>
                 {data.allContentfulProject.edges.map(edge => (
-                    <Link key={edge.node.id} to={`/projects/${edge.node.slug}`}>
+                    <ProjectCard key={edge.node.id} to={`/projects/${edge.node.slug}`}>
                     <GridPicture whileHover="hover" whileTap="hover" initial="rest" animate="rest">
                         <GatsbyImage image={edge.node.thumbnailImage.gatsbyImageData} alt={edge.node.thumbnailImage.description}/>
                         <ProjectSectionOverlay variants={HoverMotion}>
                             <h5>{edge.node.shortTitle}</h5>
                         </ProjectSectionOverlay>
                     </GridPicture>
-                    </Link>
+                    </ProjectCard>
                 ))}
             </ProjectsGrid>
             <ToProjectsButton text="See more projects" linkTo="/projects"/>
-            <Partner>
-                <h2>Our partners</h2>
-                <div className="logo-track">
-                    {
-                        fivePartners.map(logo => (
-                            <div className="logo-container" key={logo.name}>
-                                <img src={logo.url} alt={logo.name} />
-                            </div>
-                        ))
-                    }
-                </div>
-            </Partner>
+            <PartnerSlider/>
         </Section>
     )
 }
@@ -91,6 +79,12 @@ export const ProjectsGrid = styled.div`
     grid-gap: 2rem;
     grid-template-rows: repeat(2, 1fr);
 `
+const ProjectCard = styled(Link)`
+    &:first-child {
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+    }
+`
 const ProjectSectionOverlay = styled(Overlay)`
     h5 {
         line-height: 1.5;
@@ -101,25 +95,7 @@ const ToProjectsButton = styled(Button)`
     justify-self: end;
     grid-column-end: 13;
 `
-const Partner = styled.div`
-    grid-column: 1 / span 12;
-    .logo-track {
-        margin-top: 2rem;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .logo-container {
-        width: 12.5%;
-        img {
-            object-fit: cover;
-            width: 100%;
-            filter: saturate(0%);
-        }
-    }
-    
-`
+
 
 
 export default ProjectSection
