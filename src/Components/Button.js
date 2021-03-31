@@ -6,7 +6,7 @@ import {motion} from 'framer-motion'
 
 const Button = ({text, linkTo, className, arrowDirection, arrowColor}) => {
     return (
-        <Link to={linkTo} initial="rest" animate="rest" whileHover="hover" className={className}>
+        <Link to={linkTo} className={className}>
             <StyledButton variants={HoverMotion} initial="rest" animate="rest" whileHover="hover" className="specificStyles">
                 {text}
             {(arrowDirection === 'down')? <ArrowDown/> : <ArrowRight arrowColor={arrowColor}/> } 

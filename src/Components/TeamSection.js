@@ -60,6 +60,12 @@ const TeamGrid = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(auto, 1fr);
     grid-gap: 2rem 2rem;
+    @media ${props => props.theme.breakpoints.large} {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 1 / span 6;
+    }
 `
 const ProfileImg = styled(GatsbyImage)`
     border-radius: 0.5rem;

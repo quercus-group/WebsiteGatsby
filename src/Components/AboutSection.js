@@ -58,6 +58,9 @@ const KeyInfo = styled.div`
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: min-content;
+    @media ${props => props.theme.breakpoints.medium}{
+        grid-column: 1 / span 6;
+    }
     `
 const InfoItem = styled.div`
     text-align: center;
@@ -72,6 +75,9 @@ const InfoItem = styled.div`
 const ToAboutButton = styled(Button)`
     grid-column-end: 13;
     justify-self: end;
+    @media ${props => props.theme.breakpoints.medium}{
+        grid-column-end: 7;
+    }
 `
   
 export default AboutSection;

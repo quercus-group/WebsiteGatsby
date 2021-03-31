@@ -12,7 +12,7 @@ const ProjectSection = () => {
     
     const data = useStaticQuery(graphql`
         query ProjectData {
-            allContentfulProject (sort: { fields: order, order: ASC }, limit: 5) {
+            allContentfulProject (sort: { fields: order, order: ASC }, limit: 6) {
             edges {
                 node {
                 id
@@ -65,12 +65,24 @@ const ProjectSection = () => {
 
 export const LeftSideText = styled(SectionText)`
     grid-column: 3 / span 4;
+    @media ${props => props.theme.breakpoints.large} {
+        grid-column: 2 / span 5;
+        }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 1 / span 3;
+        }
 `
 const RightSideBox = styled(SectionText)`
     grid-column: 7 / span 4;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     border-radius: 0.5rem;
     padding: 1.5rem;
+    @media ${props => props.theme.breakpoints.large} {
+        grid-column: 7 / span 5;
+    }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 4 / span 3;
+    }
 `
 export const ProjectsGrid = styled.div`
     grid-column: 1 / span 12;
@@ -78,11 +90,23 @@ export const ProjectsGrid = styled.div`
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
     grid-template-rows: repeat(2, 1fr);
+    @media ${props => props.theme.breakpoints.medium}{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 1 / span 6;
+    }
 `
 const ProjectCard = styled(Link)`
     &:first-child {
         grid-column: 1 / span 2;
         grid-row: 1 / span 2;
+    }
+    &:last-child {
+        display: none;
+        @media ${props => props.theme.breakpoints.medium}{
+        display: contents;
+        }
     }
 `
 const ProjectSectionOverlay = styled(Overlay)`
@@ -94,6 +118,9 @@ const ProjectSectionOverlay = styled(Overlay)`
 const ToProjectsButton = styled(Button)`
     justify-self: end;
     grid-column-end: 13;
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column-end: 7;
+    }
 `
 
 

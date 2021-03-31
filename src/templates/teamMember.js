@@ -1,7 +1,7 @@
 import React from 'react'
 import {graphql} from 'gatsby'
 import {documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
 import { Layout } from '../Components';
 import { Section } from '../Components/Elements'
@@ -12,7 +12,7 @@ const projectPage = ({data}) => {
         <Layout>
             <Section>
                 <ProfileGrid>
-                    <Img fluid={data.contentfulTeamMember.profileImage.fluid} alt={data.contentfulTeamMember.profileImage.description}/>
+                    <GatsbyImage image={data.contentfulTeamMember.profileImage.gatsbyImageData} alt={data.contentfulTeamMember.profileImage.description}/>
                     <Details>
                         <h3>{data.contentfulTeamMember.firstName} {data.contentfulTeamMember.lastName}</h3>
                         {
@@ -46,15 +46,12 @@ export const query = graphql`
             cvEducation {raw}
             profileImage {
                 description
-                fluid (quality: 80){
-                    ...GatsbyContentfulFluid_withWebp
-                }
-            }
-            activityImage {
-                description
-                fluid {
-                    ...GatsbyContentfulFluid_withWebp
-                }
+                gatsbyImageData (
+                    quality: 70
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP]
+                    aspectRatio: 1
+                    )
             }
         }
     }

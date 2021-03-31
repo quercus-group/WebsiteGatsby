@@ -57,11 +57,16 @@ const FooterContainer = styled.footer`
         color: ${props => props.theme.colors.neutral900};
         margin-bottom: 1rem;
     }
-
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 1 / span 8;
+        grid-template-columns: 2rem repeat(6, 1fr) 2rem;
+    }
 `
-
 const CTA = styled.div`
     grid-column: 2 / span 4;
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 2 / span 2;
+    }
 `
 const Addresses = styled.div`
     grid-column: span 4;
@@ -72,6 +77,9 @@ const Addresses = styled.div`
         font-style: normal;
         margin-bottom: 1rem;
         line-height: 1.5;
+    }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: span 2;
     }
 `
 const SocialMedia = styled.div`
@@ -86,6 +94,9 @@ const SocialMedia = styled.div`
         display: flex;
         flex-direction: column;
     }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: span 2;
+    }
 ` 
 const Disclaimer = styled.div`
     grid-column: 2 / span 12;
@@ -96,6 +107,9 @@ const Disclaimer = styled.div`
     align-items: center;
     * {
         margin-left: 2rem;
+    }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 2 / span 6;
     }
 `
 

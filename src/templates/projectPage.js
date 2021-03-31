@@ -1,6 +1,6 @@
 import React from 'react'
 import {graphql} from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image"
 import {documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styled from 'styled-components'
 import { Layout } from '../Components';
@@ -12,13 +12,15 @@ const projectPage = ({data}) => {
     return ( 
         <Layout>
             <Section>
-                <Client>{data.contentfulProject.client}</Client>
-                <SectionTitle>{data.contentfulProject.projectTitle}</SectionTitle>
-                <ProjectBrief>{data.contentfulProject.excerpt.excerpt}</ProjectBrief>
-                <BigImage fluid={data.contentfulProject.featuredImage.fluid} alt={data.contentfulProject.featuredImage.title}/>
+                <ProjectPageTop>
+                    <ClientName>{data.contentfulProject.client}</ClientName>
+                    <SectionTitle style={{marginBottom: '1rem'}}>{data.contentfulProject.projectTitle}</SectionTitle>
+                    <ProjectSubtitle>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores odit quia perferendis, ullam laborum error aperiam nam dolore commodi fuga incidunt? Minima cumque dolorem repellat voluptatum commodi debitis quo? Adipisci reprehenderit minima delectus quibusdam, ut cumque repudiandae temporibus quidem atque nam velit quod maiores assumenda deserunt labore modi blanditiis amet.</ProjectSubtitle>
+                </ProjectPageTop>
+                <FeatureImage image={data.contentfulProject.featuredImage.gatsbyImageData} alt={data.contentfulProject.featuredImage.title}/>
                 <ProjectDescription>{documentToReactComponents(JSON.parse(data.contentfulProject.description.raw))}</ProjectDescription>
                 <PrimaryContact>
-                    <ProfileImage fluid={PriContact.profileImage.fluid} alt={PriContact.profileImage.title}/>
+                    <ProfileImage image={PriContact.profileImage.gatsbyImageData} alt={PriContact.profileImage.title}/>
                     <ContactInfo>
                         <h5>{PriContact.firstName} {PriContact.lastName}</h5>
                         <p>{PriContact.email}</p>
@@ -27,7 +29,7 @@ const projectPage = ({data}) => {
                 </PrimaryContact>
                 {SecContact && 
                 <SecondaryContact>
-                <ProfileImage fluid={SecContact.profileImage.fluid} alt={SecContact.profileImage.title}/>
+                <ProfileImage image={SecContact.profileImage.gatsbyImageData} alt={SecContact.profileImage.title}/>
                 <ContactInfo>
                         <h5>{SecContact.firstName} {SecContact.lastName}</h5>
                         <p>{SecContact.email}</p>
@@ -45,13 +47,15 @@ export const query = graphql`
         contentfulProject (slug: {eq: $slug}) {
             projectTitle
             client
-            excerpt {excerpt}
             description {raw}
             featuredImage {
                 title
-                fluid (maxWidth: 1250 quality: 80){
-                    ...GatsbyContentfulFluid_withWebp
-                }
+                gatsbyImageData (
+                    quality: 70
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP]
+                    aspectRatio: 1
+                    )
             }
             primaryContact {
                 firstName
@@ -60,9 +64,12 @@ export const query = graphql`
                 phone
                 profileImage {
                     title
-                    fluid (maxWidth: 100){
-                        ...GatsbyContentfulFluid_withWebp
-                    }
+                    gatsbyImageData (
+                        quality: 70
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP]
+                        aspectRatio: 1
+                        )
                 }
             }
             secondaryContact {
@@ -72,28 +79,36 @@ export const query = graphql`
                 phone
                 profileImage {
                     title
-                    fluid (maxWidth: 100){
-                        ...GatsbyContentfulFluid_withWebp
-                    }
+                    gatsbyImageData (
+                        quality: 70
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP]
+                        aspectRatio: 1
+                        )
                 }
             }
         }   
     }
 `
-
-const Client = styled.h3`
+const ProjectPageTop = styled.div`
     grid-column: 3 / span 8;
 `
-const ProjectBrief = styled.p`
-    grid-column: 3 / span 8;
+const ClientName = styled.h3`
+    color: ${props => props.theme.colors.blue2};
+    font-size: clamp(1.44rem, 1.73vw,1.563rem);
+`
+const ProjectSubtitle = styled.p`
+    color: ${props => props.theme.colors.blue2};
+    font-size: clamp(1.15rem, 1.38vw, 1.25rem);
+    line-height: 1.55;
 `
 const ProjectDescription = styled.div`
     grid-column: 3 / span 8;
 `
-const BigImage = styled(Img)`
-    grid-column: 1 / 13;
+const FeatureImage = styled(GatsbyImage)`
+    grid-column: 2 / span 10;
     border-radius: 0.5em;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1200 / 627;
 `
 const PrimaryContact = styled.div`
     grid-column: 3 / span 4;
@@ -109,7 +124,7 @@ const PrimaryContact = styled.div`
 const SecondaryContact = styled(PrimaryContact)`
     grid-column: 7 / span 4;
 `
-const ProfileImage = styled(Img)`
+const ProfileImage = styled(GatsbyImage)`
     border-radius: 50%;
     height: 75%;
     width: 6em;

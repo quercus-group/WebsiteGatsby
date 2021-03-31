@@ -21,14 +21,14 @@ const PartnerSlider = () => {
             <div className="slider_header">
             <h2>Our partners</h2>
                 <SliderControls>
-                    <img src={ArrowLeft} alt="Arrow Left" onClick={slideHandler}/>
-                    <img src={ArrowRight} alt="Arrow Right" onClick={slideHandler}/>
+                    <button onClick={slideHandler}><img src={ArrowLeft} alt="Arrow Left" /></button>
+                    <button onClick={slideHandler}><img src={ArrowRight} alt="Arrow Right" /></button>
                 </SliderControls>
             </div>
             <motion.div initial={{x: '0'}}animate={controls} className="logo-track">
                 {partnerLogos.map(logo => (
                         <div className="logo-container" key={logo.name}>
-                                <img src={logo.url} alt={logo.name} />
+                                <img src={logo.url} alt={logo.name} title={logo.name} />
                         </div>
                     ))
                 }
@@ -44,7 +44,12 @@ const Partner = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        cursor: pointer;
+        button {
+            background: none;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
     }
     .logo-track {
         margin-top: 2rem;
@@ -60,10 +65,13 @@ const Partner = styled.div`
         margin: 0rem 2rem;
         img {
             object-fit: cover;
-            width: 100%;
+            width: 90%;
             filter: saturate(0%);
-            
         }
+        
+    }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 1 / span 6;
     }
 `
 const SliderControls = styled.div`

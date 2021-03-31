@@ -45,13 +45,15 @@ const HeaderContainer = styled.header`
         list-style: none;
     }
     li {
-        margin-left: 5rem;
+        margin-left: 5.55vw;
         padding-bottom: 0.2rem;
-        
     }
     .contact_cta {
         color: ${props => props.theme.colors.yellow1};
         font-weight: 900;
+    }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 1 / span 8;
     }
 `
 

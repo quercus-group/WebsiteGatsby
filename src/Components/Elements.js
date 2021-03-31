@@ -8,15 +8,32 @@ export const Section = styled.section`
     grid-column-gap: 2rem;
     grid-template-rows: max-content;
     grid-row-gap: 4rem;
-    padding: 8rem 0;
+    /* padding: clamp(4rem, 5.55vw, 5rem) 0; */
+    padding: 4rem 0;
+    @media ${props => props.theme.breakpoints.medium}{
+        grid-column: 2 / span 6;
+        grid-template-columns: repeat(6, 1fr); 
+    }
 `
 
 export const SectionTitle = styled.h2`
     grid-column: 3 / span 8;
+    @media ${props => props.theme.breakpoints.large} {
+        grid-column: 2 / span 10;
+        }
+    @media ${props => props.theme.breakpoints.medium}{
+        grid-column: 1 / span 6; 
+    }
 `
 
 export const SectionText = styled.div`
     grid-column: 3 / span 8;
+    @media ${props => props.theme.breakpoints.large} {
+        grid-column: 2 / span 10;
+        }
+    @media ${props => props.theme.breakpoints.medium}{
+        grid-column: 1 / span 6; 
+    }
 `
 export const GridPicture = styled(motion.div)`
     border-radius: 0.5rem;

@@ -1,6 +1,6 @@
 import React  from 'react'
 import {Layout} from '../Components'
-import styled from "styled-components"
+// import styled from "styled-components"
 import { Section, SectionTitle } from '../Components/Elements'
 
 const CompanyPage = ()=>{

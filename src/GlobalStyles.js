@@ -28,10 +28,10 @@ const GlobalStyle = createGlobalStyle`
     }
     h4 {
         font-size: clamp(1.44rem, 1.73vw,1.563rem);
-        line-height: 1.75;
+        line-height: 1.5;
     }
     h5 {
-        font-size: 1.25rem;
+        font-size: clamp(1.15rem, 1.38vw, 1.25rem);
         line-height: 1.75;
     }
     p {

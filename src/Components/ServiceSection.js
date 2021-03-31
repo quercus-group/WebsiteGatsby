@@ -95,6 +95,12 @@ const TextBlock = styled(LeftSideText)`
 `
 const ServiceAccordion = styled(motion.ul)`
     grid-column: 7 / span 4;
+    @media ${props => props.theme.breakpoints.large} {
+        grid-column: 7 / span 5;
+    }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 4 / span 3;
+    }
 `
 const ServiceCategory = styled(motion.li)`
     padding: 1rem 2rem;

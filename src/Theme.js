@@ -16,7 +16,10 @@ const theme = {
     0 12.5px 10px rgba(54, 73, 117, 0.06),
     0 2rem 40px rgba(54, 73, 117, 0.12)
     `,
-   
+  },
+  breakpoints: {
+    large: "screen and (max-width: 68rem)",
+    medium: "screen and (max-width: 58rem)"
   }
 }
 

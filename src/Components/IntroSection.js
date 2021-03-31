@@ -30,7 +30,7 @@ const HeroSection = ()=>{
 }
 
 const IntroSection = styled(Section)`
-    min-height: 90vh;
+    min-height: 85vh;
     align-content: center;
     padding-top: 0;
     grid-row-gap: clamp(2rem,4.44vh, 4rem);
@@ -45,6 +45,7 @@ const IntroText = styled(SectionText)`
     p {
         margin-bottom: 1rem;
     }
+    
 `
 
 

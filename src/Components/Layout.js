@@ -22,9 +22,15 @@ const PageContainer = styled.main`
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     width: 100%;
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-template-columns: 2rem repeat(6, 1fr) 2rem;
+    }
 `
 const ContentContainer = styled.div`
     grid-column: 2 / span 12;
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 2 / span 6;
+    }
 `
 
 export default Layout
