@@ -66,10 +66,14 @@ const TeamGrid = styled.div`
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 1 / span 6;
     }
+    @media ${props => props.theme.breakpoints.mediumsmall} {
+        grid-gap: 1.5rem;
+    }
 `
 const ProfileImg = styled(GatsbyImage)`
     border-radius: 0.5rem;
     box-shadow: 0 0.3rem 0.3rem ${props => props.theme.colors.blue5};
+    
 `
 
 const TeamSectionOverlay = styled(Overlay)`

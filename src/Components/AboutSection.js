@@ -27,7 +27,7 @@ const AboutSection = () => {
                     </InfoItem>
                     <InfoItem>
                         <p>Across sectors</p>
-                        <strong>Sustainable Trade<br/>Regional Economic Developmen<br/>Social Innovation</strong>
+                        <strong>Sustainable Trade<br/>Regional Economic Development<br/>Social Innovation</strong>
                     </InfoItem>
                     <InfoItem>
                         <p>Approach</p>
@@ -60,6 +60,8 @@ const KeyInfo = styled.div`
     grid-template-rows: min-content;
     @media ${props => props.theme.breakpoints.medium}{
         grid-column: 1 / span 6;
+        grid-template-columns: repeat(6, 1fr);
+        grid-row-gap: 2rem;
     }
     `
 const InfoItem = styled.div`
@@ -70,6 +72,15 @@ const InfoItem = styled.div`
             color: ${props => props.theme.colors.yellow1};
         }       
     }
+    @media ${props => props.theme.breakpoints.medium}{
+        &:nth-child(-n+3){
+            grid-column: span 2;
+        }
+        &:nth-child(n+4){
+            grid-column: span 3;
+            grid-row: 2;
+        }
+    }
 `
 
 const ToAboutButton = styled(Button)`
@@ -77,6 +88,7 @@ const ToAboutButton = styled(Button)`
     justify-self: end;
     @media ${props => props.theme.breakpoints.medium}{
         grid-column-end: 7;
+        grid-column: 4 / span 3;
     }
 `
   

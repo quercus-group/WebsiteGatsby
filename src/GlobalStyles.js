@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
     }
     body, html {
         font-family: 'Lato', sans-serif;
-        color: ${props => props.theme.colors.blue1};
-        background-color: ${props => props.theme.colors.neutral900};
+        color: ${props => props.theme.colors.primary900};
+        background-color: ${props => props.theme.colors.white100};
     }
     h1 {
         font-size: 3.052rem;

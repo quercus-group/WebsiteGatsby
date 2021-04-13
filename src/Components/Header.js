@@ -54,6 +54,9 @@ const HeaderContainer = styled.header`
     }
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 1 / span 8;
+        nav {
+            display: none;
+        }
     }
 `
 

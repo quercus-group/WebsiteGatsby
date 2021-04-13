@@ -40,7 +40,7 @@ const ArrowDown = ()=>{
 
 const StyledButton = styled(motion.button)`
     width: max-content;
-    background: ${props => props.theme.colors.neutral900};
+    background: ${props => props.theme.colors.white100};
     border: 0.1rem solid ${props => props.theme.colors.blue4};
     border-radius: 0.5em;
     padding: 0.5em 1em;

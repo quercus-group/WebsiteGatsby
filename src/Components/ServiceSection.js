@@ -17,7 +17,7 @@ const ServiceSection = () => {
                 <p>Our services integrate diverse perspectives and needs into a win-win-win approach. This entails tools to see the whole system from many viewpoints. It comprises bringing people together to seek alternatives, build them jointly and learn what works</p>
                 <p>We are equally happy to support our clients and partners in particular steps or make it a success from start to end.</p>
                 </div>
-                <Button text="Learn more" linkTo="/services"/>
+                
             </TextBlock>
             <AnimateSharedLayout>
                 <ServiceAccordion layout>
@@ -26,6 +26,7 @@ const ServiceSection = () => {
                     ))}                
                 </ServiceAccordion>
             </AnimateSharedLayout>
+            <ToServicesButton text="Learn more" linkTo="/services"/>
         </Section>
      );
 }
@@ -109,8 +110,8 @@ const ServiceCategory = styled(motion.li)`
     border-radius: 0.5em;
     list-style: none;
     cursor: pointer;
-    background-color: ${props => props.theme.colors.blue2};
-    color: ${props => props.theme.colors.neutral900};
+    background-color: ${props => props.theme.colors.white100};
+    /* color: ${props => props.theme.colors.primary900}; */
     .title {
         display: flex;
         align-items: center;
@@ -121,6 +122,15 @@ const ServiceCategory = styled(motion.li)`
     p {
         margin-top: 1rem;
     }
+`
+const ToServicesButton = styled(Button)`
+    grid-column: 3 / span 3;
+    @media ${props => props.theme.breakpoints.large} {
+        grid-column: 2 / span 3;
+        }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 1 / span 3;
+        }
 `
  
 export default ServiceSection;

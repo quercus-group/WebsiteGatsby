@@ -33,9 +33,13 @@ const IntroSection = styled(Section)`
     min-height: 85vh;
     align-content: center;
     padding-top: 0;
-    grid-row-gap: clamp(2rem,4.44vh, 4rem);
+    grid-row-gap: clamp(2rem, 4.44vh, 4rem);
     .typewriter  {
         color: ${props => props.theme.colors.yellow1};
+    }
+    @media ${props => props.theme.breakpoints.medium}{
+        padding-top: 2rem;
+        align-content: flex-start;
     }
 `
 
@@ -45,7 +49,10 @@ const IntroText = styled(SectionText)`
     p {
         margin-bottom: 1rem;
     }
-    
+    @media ${props => props.theme.breakpoints.medium}{
+        column-count: 1;
+        column-gap: 0;
+    }
 `
 
 

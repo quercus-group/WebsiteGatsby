@@ -34,10 +34,10 @@ const Footer = ()=>{
                     </div>
             </SocialMedia>
             <Disclaimer>
+                <Link style={{color: '#dedede'}}to="/">Privacy Policy</Link>
                 <p> &copy;{new Date().getFullYear()} Quercus Group.</p>
-                <Link to="/">Privacy Policy</Link>
-                <p>website by Wadim Baslow</p>
-                <p>logo designed by Bogna Anna Gebalska</p>
+                {/* <p>website by Wadim Baslow</p>
+                <p>logo designed by Bogna Anna Gebalska</p> */}
             </Disclaimer>
             </FooterContainer>
     )
@@ -47,25 +47,26 @@ const FooterContainer = styled.footer`
     grid-column: 1 / span 14;
     display: grid;
     grid-template-columns: 1fr repeat(12, minmax(auto, 4.5rem)) 1fr;
-    column-gap: 2rem;
-    background-color: ${props => props.theme.colors.blue2};
+    grid-column-gap: 2rem;
+    background-color: ${props => props.theme.colors.primary700};
     margin: 0 1rem 1rem 1rem;
     padding: 2rem 0rem;
     border-radius: 1rem;
-    color: ${props => props.theme.colors.blue4};
+    color: ${props => props.theme.colors.white400};
     h3 {
-        color: ${props => props.theme.colors.neutral900};
+        color: ${props => props.theme.colors.white50};
         margin-bottom: 1rem;
     }
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 1 / span 8;
         grid-template-columns: 2rem repeat(6, 1fr) 2rem;
+        grid-row-gap: 2rem;
     }
 `
 const CTA = styled.div`
     grid-column: 2 / span 4;
     @media ${props => props.theme.breakpoints.medium} {
-        grid-column: 2 / span 2;
+        grid-column: 2 / span 6;
     }
 `
 const Addresses = styled.div`
@@ -79,13 +80,18 @@ const Addresses = styled.div`
         line-height: 1.5;
     }
     @media ${props => props.theme.breakpoints.medium} {
-        grid-column: span 2;
+        grid-column: 2 / span 6;
+        display: flex;
+        justify-content: space-between;
+        div:nth-child(2) {
+            margin: 0 1rem;
+        }
     }
 `
 const SocialMedia = styled.div`
     grid-column: span 4;
     a {
-        color: ${props => props.theme.colors.yellow1};
+        color: ${props => props.theme.colors.highlight400};
         font-size: clamp(1.44rem, 1.73vw,1.563rem);
         font-weight: 700;
         line-height: 1.5;
@@ -95,21 +101,27 @@ const SocialMedia = styled.div`
         flex-direction: column;
     }
     @media ${props => props.theme.breakpoints.medium} {
-        grid-column: span 2;
+        grid-column: 2 / span 6;
     }
 ` 
 const Disclaimer = styled.div`
     grid-column: 2 / span 12;
     margin-top: 4rem;
-    border-top: solid 0.1rem ${props => props.theme.colors.blue4};
+    padding-top: 0.5rem;
+    border-top: solid 0.1rem ${props => props.theme.colors.white400};
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    p {
+        margin-bottom: 0;
+        line-height: 0;
+    }
     * {
         margin-left: 2rem;
     }
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 2 / span 6;
+        flex-wrap: wrap;
     }
 `
 

@@ -77,6 +77,7 @@ const RightSideBox = styled(SectionText)`
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     border-radius: 0.5rem;
     padding: 1.5rem;
+    height: fit-content;
     @media ${props => props.theme.breakpoints.large} {
         grid-column: 7 / span 5;
     }
@@ -96,16 +97,28 @@ export const ProjectsGrid = styled.div`
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 1 / span 6;
     }
+    @media ${props => props.theme.breakpoints.mediumsmall} {
+        grid-gap: 1.5rem;
+    }
 `
 const ProjectCard = styled(Link)`
     &:first-child {
         grid-column: 1 / span 2;
         grid-row: 1 / span 2;
+        /* @media ${props => props.theme.breakpoints.mediumsmall} {
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 1;
+        } */
     }
     &:last-child {
         display: none;
         @media ${props => props.theme.breakpoints.medium}{
         display: contents;
+        }
+    }
+    @media ${props => props.theme.breakpoints.mediumsmall} {
+        &:nth-child(n+4){
+            display: none;
         }
     }
 `
@@ -120,6 +133,7 @@ const ToProjectsButton = styled(Button)`
     grid-column-end: 13;
     @media ${props => props.theme.breakpoints.medium} {
         grid-column-end: 7;
+        grid-column: 4 / span 3;
     }
 `
 
