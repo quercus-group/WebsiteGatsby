@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components'
-import { Section, SectionText, SectionTitle, GridPicture, Overlay } from './Elements';
+import { Section, SectionText, SectionTitle, GridPicture, Overlay } from '../Elements';
 import { GatsbyImage} from "gatsby-plugin-image"
 
 

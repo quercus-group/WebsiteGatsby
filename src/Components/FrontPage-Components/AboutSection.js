@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Section, SectionText, SectionTitle } from './Elements';
-import Button from "./Button"
+import { Section, SectionText, SectionTitle } from '../Elements';
+import Button from "../Button"
 
 const AboutSection = () => {
     return ( 

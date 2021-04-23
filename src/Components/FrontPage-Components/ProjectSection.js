@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { Section, SectionText, SectionTitle, GridPicture, Overlay } from "./Elements"
+import { Section, SectionText, SectionTitle, GridPicture, Overlay } from "../Elements"
 import {useStaticQuery, graphql, Link} from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image"
-import Button from "./Button"
+import Button from "../Button"
 import {HoverMotion} from './TeamSection'
-import PartnerSlider from "./PartnerSlider"
+import PartnerSlider from "../PartnerSlider"
 
 
 const ProjectSection = () => {

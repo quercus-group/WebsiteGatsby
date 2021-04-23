@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Section, SectionText, SectionTitle } from './Elements'
+import { Section, SectionText, SectionTitle } from '../Elements'
 import Typewriter from "typewriter-effect"
 
 const HeroSection = ()=>{
@@ -35,7 +35,7 @@ const IntroSection = styled(Section)`
     padding-top: 0;
     grid-row-gap: clamp(2rem, 4.44vh, 4rem);
     .typewriter  {
-        color: ${props => props.theme.colors.yellow1};
+        color: ${props => props.theme.colors.secondary700};
     }
     @media ${props => props.theme.breakpoints.medium}{
         padding-top: 2rem;
