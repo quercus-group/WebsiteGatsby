@@ -3,7 +3,7 @@ import {graphql} from 'gatsby'
 import { GatsbyImage } from "gatsby-plugin-image"
 import {documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styled from 'styled-components'
-import { Layout } from '../Components';
+import Layout from '../Components/Layout'
 import { Section, SectionTitle } from '../Components/Elements';
 
 const projectPage = ({data}) => {

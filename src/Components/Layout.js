@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Header, Footer} from './index'
+import Header from '../Components/Header'
+import Footer from '../Components/Footer'
 
 
 const Layout = ({children})=>{
@@ -15,7 +16,7 @@ const Layout = ({children})=>{
     )
 }
 
-const PageContainer = styled.main`
+const PageContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr repeat(12, minmax(auto, 4.5rem)) 1fr;
     grid-column-gap: 2rem;
@@ -26,7 +27,7 @@ const PageContainer = styled.main`
         grid-template-columns: 2rem repeat(6, 1fr) 2rem;
     }
 `
-const ContentContainer = styled.div`
+const ContentContainer = styled.main`
     grid-column: 2 / span 12;
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 2 / span 6;

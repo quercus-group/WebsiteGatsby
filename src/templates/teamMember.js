@@ -3,7 +3,7 @@ import {graphql} from 'gatsby'
 import {documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
-import { Layout } from '../Components';
+import Layout from '../Components/Layout'
 import { Section } from '../Components/Elements'
 import Button from '../Components/Button'
 
@@ -19,7 +19,7 @@ const projectPage = ({data}) => {
                             (data.contentfulTeamMember.description !== null) ? <Description>{documentToReactComponents(JSON.parse(data.contentfulTeamMember.description.raw))}</Description> : ''
                         }
                         {
-                            (data.contentfulTeamMember.cvEducation !== null) ? <CV>{documentToReactComponents(JSON.parse(data.contentfulTeamMember.cvEducation.raw))}</CV> : ''
+                            (data.contentfulTeamMember.cvEducation !== null) ? <Cv>{documentToReactComponents(JSON.parse(data.contentfulTeamMember.cvEducation.raw))}</Cv> : ''
                         }
                         <Contacts>
                             <p><b>Email:</b> {data.contentfulTeamMember.email}</p>
@@ -69,7 +69,7 @@ const Details = styled.div`
 const Description = styled.div`
     margin-top: 2rem;
 `
-const CV = styled.div`
+const Cv = styled.div`
     margin-bottom: 2rem;
     p {
         margin: 0;

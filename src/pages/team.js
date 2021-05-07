@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import {useStaticQuery, graphql, Link} from 'gatsby'
 import { GatsbyImage} from "gatsby-plugin-image"
-import {Layout} from '../Components'
+import Layout from '../Components/Layout'
 import { Section, SectionText, SectionTitle, Question} from '../Components/Elements'
 import Button from '../Components/Button'
 
 const TeamPage = ()=>{
     const data = useStaticQuery(graphql`
-        query TeamMembers {
+        query Teammembers {
             allContentfulTeamMember (sort: { fields: order, order: ASC }){
               edges {
                 node {

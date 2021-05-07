@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import {useStaticQuery, graphql, Link} from 'gatsby'
 import { GatsbyImage} from "gatsby-plugin-image"
-import {Layout} from '../Components'
+import Layout from '../Components/Layout'
 import { Question, Section, SectionText, SectionTitle } from '../Components/Elements'
 import Button from '../Components/Button'
-import { LeftSideText, ProjectsGrid } from '../Components/ProjectSection'
+import { LeftSideText, ProjectsGrid } from '../Components/FrontPage-Components/ProjectSection'
 
 const ProjectPage = ()=>{
     const data = useStaticQuery(graphql`

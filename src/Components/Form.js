@@ -111,7 +111,6 @@ const Form = ({className}) => {
 
 const ContactForm = styled.form`
     padding: 2rem 2rem;
-    width: 100%;
     box-shadow: ${props => props.theme.boxshadow.shadow1};
     border-radius: 0.5em;
     display: grid;

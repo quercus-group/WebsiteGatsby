@@ -1,9 +1,6 @@
 import * as React from "react"
-import {Layout, HeroSection} from '../Components'
-import AboutSection from "../Components/AboutSection"
-import ProjectSection from "../Components/ProjectSection"
-import TeamSection from "../Components/TeamSection"
-import ServiceSection from "../Components/ServiceSection"
+import FrontPage from "../Components/FrontPage-Components/FrontPage"
+import Layout from '../Components/Layout'
 
 
 
@@ -11,11 +8,7 @@ const IndexPage = () => {
   
   return (
     <Layout>
-      <HeroSection/>
-      <ProjectSection/>
-      <ServiceSection/>
-      <AboutSection/>
-      <TeamSection/>
+      <FrontPage/>
     </Layout>
   )
 }

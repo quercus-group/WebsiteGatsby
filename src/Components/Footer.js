@@ -9,9 +9,10 @@ const Footer = ()=>{
     `)
     return (
         <FooterContainer>
-            <CTA>
-                <h3>Let’s create something great together!</h3>
-            </CTA>
+            <Line/>
+            <Cta>
+                <h3>Let’s create something great <span>together</span>!</h3>
+            </Cta>
             <Addresses>
                 {offices.allContentfulOfficeAddress.edges.map((edge)=>(
                     <div key={edge.node.id}>
@@ -34,10 +35,8 @@ const Footer = ()=>{
                     </div>
             </SocialMedia>
             <Disclaimer>
-                <Link style={{color: '#dedede'}}to="/">Privacy Policy</Link>
+                <Link style={{color: '#2C2D48'}}to="/">Privacy Policy</Link>
                 <p> &copy;{new Date().getFullYear()} Quercus Group.</p>
-                {/* <p>website by Wadim Baslow</p>
-                <p>logo designed by Bogna Anna Gebalska</p> */}
             </Disclaimer>
             </FooterContainer>
     )
@@ -48,14 +47,13 @@ const FooterContainer = styled.footer`
     display: grid;
     grid-template-columns: 1fr repeat(12, minmax(auto, 4.5rem)) 1fr;
     grid-column-gap: 2rem;
-    background-color: ${props => props.theme.colors.primary700};
     margin: 0 1rem 1rem 1rem;
     padding: 2rem 0rem;
-    border-radius: 1rem;
-    color: ${props => props.theme.colors.white400};
+    color: ${props => props.theme.colors.primary900};
     h3 {
-        color: ${props => props.theme.colors.white50};
+        color: ${props => props.theme.colors.primary900};
         margin-bottom: 1rem;
+        font-size: 1.5rem;
     }
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 1 / span 8;
@@ -63,8 +61,20 @@ const FooterContainer = styled.footer`
         grid-row-gap: 2rem;
     }
 `
-const CTA = styled.div`
+const Line = styled.div`
+    grid-column: 2 / span 12;
+    height: 0.05rem;
+    background-color: ${props => props.theme.colors.primary900};
+    margin-bottom: 4rem;
+`
+const Cta = styled.div`
     grid-column: 2 / span 4;
+    h3 {
+        font-size: 2rem;
+    }
+    span {
+        color: ${props => props.theme.colors.highlight600}
+    }
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 2 / span 6;
     }
@@ -78,6 +88,7 @@ const Addresses = styled.div`
         font-style: normal;
         margin-bottom: 1rem;
         line-height: 1.5;
+        color: ${props => props.theme.colors.primary700};
     }
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 2 / span 6;
@@ -91,7 +102,7 @@ const Addresses = styled.div`
 const SocialMedia = styled.div`
     grid-column: span 4;
     a {
-        color: ${props => props.theme.colors.highlight400};
+        color: ${props => props.theme.colors.secondary700};
         font-size: clamp(1.44rem, 1.73vw,1.563rem);
         font-weight: 700;
         line-height: 1.5;
@@ -108,7 +119,6 @@ const Disclaimer = styled.div`
     grid-column: 2 / span 12;
     margin-top: 4rem;
     padding-top: 0.5rem;
-    border-top: solid 0.1rem ${props => props.theme.colors.white400};
     display: flex;
     justify-content: flex-end;
     align-items: center;

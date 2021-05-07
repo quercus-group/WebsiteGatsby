@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Layout} from '../Components'
+import Layout from '../Components/Layout'
 import { Section, SectionTitle, SectionText, Question} from '../Components/Elements'
 import Button from '../Components/Button'
 import Services from '../data/Services'

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Layout} from '../Components'
+import Layout from '../Components/Layout'
 import styled from 'styled-components'
 import { Section } from '../Components/Elements'
 import Form from '../Components/Form'

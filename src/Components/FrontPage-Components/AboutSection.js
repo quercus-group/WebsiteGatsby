@@ -1,95 +1,75 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Section, SectionText, SectionTitle } from '../Elements';
-import Button from "../Button"
+import {useStaticQuery, graphql} from 'gatsby'
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const AboutSection = () => {
+    const data = useStaticQuery(graphql`
+        query  TeamMembers {
+        allContentfulTeamMember (sort: { fields: order, order: ASC }) {
+            edges {
+                node {
+                    id
+                    firstName
+                    lastName
+                    profileImage {
+                        gatsbyImageData (
+                            aspectRatio: 1
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP, JPG]
+                            quality: 75
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    `)
     return ( 
-        <StyledSection>
-            <AboutSectionTitle>
-                We try to ensure that what we do is as impactful as possible.
-            </AboutSectionTitle>
-            <AboutSectionText as="p">
-                The real glue is human. At our core, we work with relational challenges. 
-            </AboutSectionText>
-            <KeyInfo>
-                    <InfoItem>
-                        <p>An epic adventure since</p>
-                        <strong>2012</strong>
-                    </InfoItem>
-                    <InfoItem>
-                        <p>Offices in</p>
-                        <strong>Copenhagen<br/>Nairobi<br/>Singapore</strong>
-                    </InfoItem>
-                    <InfoItem>
-                        <p>Worldwide</p>
-                        <strong>40+<br/>countries</strong>
-                    </InfoItem>
-                    <InfoItem>
-                        <p>Across sectors</p>
-                        <strong>Sustainable Trade<br/>Regional Economic Development<br/>Social Innovation</strong>
-                    </InfoItem>
-                    <InfoItem>
-                        <p>Approach</p>
-                        <strong className="highlighted">Sustainability<br/>Collaboration<br/>Innovation</strong>
-                    </InfoItem>
-            </KeyInfo>
-            <ToAboutButton text="More about Quercus Group" linkTo="/company"/>
-        </StyledSection>
+        <AboutSectionContainer>
+            <div className="about-description">
+                <h2 className="sectionTitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
+                <p>Quercus Group is an international consulting company for sustainability based in <span>Copenhagen, Nairobi and Singapore</span>. Our expertise is collaboration and how to effectively use it to address the world’s most difficult challenges. We do and have done so in 45+ countries worldwide. </p>
+            </div>
+            <div className="team-pictures">
+                {data.allContentfulTeamMember.edges.map(edge => (
+                    <GatsbyImage className='profileImage' key={edge.node.id} image={edge.node.profileImage.gatsbyImageData} alt={`${edge.node.firstName} ${edge.node.lastName} from Quercus Group.`}/>
+                ))}
+            </div>
+        </AboutSectionContainer>
      );
 }
 
-const StyledSection = styled(Section)`
-    min-height: 80vh;
-    align-content: center;
-    padding: 0;
-`
-
-const AboutSectionTitle = styled(SectionTitle)`
-    text-align: center;
-`
-const AboutSectionText = styled(SectionText)`
-    text-align: center;
-    font-size: 1.25rem;
-    color: ${props => props.theme.colors.blue2};
-`
-const KeyInfo = styled.div`
-    grid-column: 1 / span 12;
+const AboutSectionContainer = styled.section`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: min-content;
-    @media ${props => props.theme.breakpoints.medium}{
-        grid-column: 1 / span 6;
-        grid-template-columns: repeat(6, 1fr);
-        grid-row-gap: 2rem;
+    grid-template-columns: repeat(12, minmax(auto, 4.5rem));
+    grid-column-gap: 2rem;
+    p {
+        font-size: 1.25rem;
     }
-    `
-const InfoItem = styled.div`
-    text-align: center;
-    strong {
-        font-size: clamp(1.44rem, 1.73vw,1.563rem);
-        &.highlighted {
-            color: ${props => props.theme.colors.yellow1};
-        }       
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
-    @media ${props => props.theme.breakpoints.medium}{
-        &:nth-child(-n+3){
-            grid-column: span 2;
-        }
-        &:nth-child(n+4){
-            grid-column: span 3;
-            grid-row: 2;
+    span {
+        font-weight: 700;
+        color: ${props => props.theme.colors.highlight400}
+    }
+    .about-description {
+        grid-column: 1 / span 4;
+    }
+    .team-pictures {
+        grid-column: 5 / span 8;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 2rem;
+        .profileImage {
+            max-width: 11rem;
+            border-radius: 100%;
+            filter: grayscale(1);
         }
     }
 `
 
-const ToAboutButton = styled(Button)`
-    grid-column-end: 13;
-    justify-self: end;
-    @media ${props => props.theme.breakpoints.medium}{
-        grid-column-end: 7;
-        grid-column: 4 / span 3;
-    }
-`
   
 export default AboutSection;

@@ -23,22 +23,22 @@ const partnerLogos = [
         name: 'Nordic Innovation',
         url: "https://www.nordicinnovation.org/sites/default/files/inline-images/NordicInnovation_RGB.png"
     },
-    {
-        name: 'Temasek',
-        url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/TemasekHoldings_logo.svg/1280px-TemasekHoldings_logo.svg.png"
-    },
-    {
-        name: 'Danish Business Authority',
-        url: "https://danishbusinessauthority.dk/sites/all/themes/subsite/img/logo-erst.png"
-    },
-    {
-        name: 'CLEAN',
-        url: "https://www.cleancluster.dk/wp-content/themes/x-child/images/logo.png"
-    },
-    {
-        name: 'PlanBoernefonden',
-        url: "https://planbornefonden.dk/wp-content/uploads/2018/06/logo.png"
-    },
+    // {
+    //     name: 'Temasek',
+    //     url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/TemasekHoldings_logo.svg/1280px-TemasekHoldings_logo.svg.png"
+    // },
+    // {
+    //     name: 'Danish Business Authority',
+    //     url: "https://danishbusinessauthority.dk/sites/all/themes/subsite/img/logo-erst.png"
+    // },
+    // {
+    //     name: 'CLEAN',
+    //     url: "https://www.cleancluster.dk/wp-content/themes/x-child/images/logo.png"
+    // },
+    // {
+    //     name: 'PlanBoernefonden',
+    //     url: "https://planbornefonden.dk/wp-content/uploads/2018/06/logo.png"
+    // },
     
 ]
 export default partnerLogos

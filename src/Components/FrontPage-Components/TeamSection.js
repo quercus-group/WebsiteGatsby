@@ -7,7 +7,7 @@ import { GatsbyImage} from "gatsby-plugin-image"
 
 const TeamSection = () => {
     const data = useStaticQuery(graphql`
-        query Teammembers {
+        query Team {
             allContentfulTeamMember (sort: { fields: order, order: ASC }){
               edges {
                 node {

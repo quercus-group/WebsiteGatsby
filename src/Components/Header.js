@@ -17,13 +17,7 @@ const Header = ()=>{
                         <Link to="/projects" activeClassName="active_nav">Projects</Link>
                     </li>
                     <li>
-                        <Link to="/services" activeClassName="active_nav">Services</Link>
-                    </li>
-                    <li>
-                        <Link to="/company" activeClassName="active_nav">Company</Link>
-                    </li>
-                    <li>
-                        <Link to="/team" activeClassName="active_nav">Team</Link>
+                        <Link to="/about" activeClassName="active_nav">About</Link>
                     </li>
                     <li>
                         <Link to="/contact" className="contact_cta" activeClassName="active_nav">Contact</Link>
@@ -45,12 +39,10 @@ const HeaderContainer = styled.header`
         list-style: none;
     }
     li {
-        margin-left: 5.55vw;
+        margin-left: 2vw;
         padding-bottom: 0.2rem;
-    }
-    .contact_cta {
-        color: ${props => props.theme.colors.yellow1};
-        font-weight: 900;
+        text-transform: uppercase;
+        font-weight: 400;
     }
     @media ${props => props.theme.breakpoints.medium} {
         grid-column: 1 / span 8;
