@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {useStaticQuery, graphql} from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image';
+import LightButton from '../Light-Button';
 
 const AboutSection = () => {
     const data = useStaticQuery(graphql`
@@ -16,7 +17,7 @@ const AboutSection = () => {
                         gatsbyImageData (
                             aspectRatio: 1
                             placeholder: BLURRED
-                            formats: [AUTO, WEBP, JPG]
+                            formats: [AUTO, WEBP]
                             quality: 75
                             )
                         }
@@ -28,8 +29,11 @@ const AboutSection = () => {
     return ( 
         <AboutSectionContainer>
             <div className="about-description">
-                <h2 className="sectionTitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
-                <p>Quercus Group is an international consulting company for sustainability based in <span>Copenhagen, Nairobi and Singapore</span>. Our expertise is collaboration and how to effectively use it to address the world’s most difficult challenges. We do and have done so in 45+ countries worldwide. </p>
+                <div>
+                    <h2 className="sectionTitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
+                    <p>Quercus Group is an international consulting company for sustainability based in <span>Copenhagen, Nairobi and Singapore</span>. Our expertise is collaboration and how to effectively use it to address the world’s most difficult challenges. We do and have done so in 45+ countries worldwide. </p>
+                </div>
+                <LightButton buttonText='Learn more' linkTo='/about' className='button'/>
             </div>
             <div className="team-pictures">
                 {data.allContentfulTeamMember.edges.map(edge => (
@@ -57,6 +61,9 @@ const AboutSectionContainer = styled.section`
     }
     .about-description {
         grid-column: 1 / span 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     .team-pictures {
         grid-column: 5 / span 8;
@@ -70,6 +77,7 @@ const AboutSectionContainer = styled.section`
         }
     }
 `
+
 
   
 export default AboutSection;

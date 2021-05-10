@@ -56,7 +56,7 @@ const HeroContainer = styled.section`
     }
     .image {
         border-radius: 0.5rem;
-        img {
+         img {
             filter: grayscale(1);
         }
     }
