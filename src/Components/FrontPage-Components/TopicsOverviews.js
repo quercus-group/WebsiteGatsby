@@ -7,7 +7,7 @@ const TopicsOverview = () => {
     return ( 
         <TopicsContainer>
             {topics.map(topic => (
-                <div>
+                <div key={topic}>
                     <h4>{topic}</h4>
                 </div>
             ))}

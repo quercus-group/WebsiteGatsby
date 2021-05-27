@@ -1,36 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+import Products from '../../data/Products';
+import ProductCard from './ProductCard';
 import TopicsOverview from './TopicsOverviews';
 
+
 const ProductSection = () => {
-    return ( 
+     return ( 
         <SectionContainer>
             <h2 className='sectionTitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
             <p className='sectionSubtitle'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur mollitia quae dolore minima ad vero ipsam quisquam obcaecati, aperiam maiores.</p>
-            <div className='product'>
-                <h2>Stakeholder Engagement</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, similique!</p>
-            </div>
-            <div className='product'>
-                <h2>Innovation Services</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, similique!</p>
-            </div>
-            <div className='product'>
-                <h2>Cluster Development</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, similique!</p>
-            </div>
-            <div className='product'>
-                <h2>Business Support</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, similique!</p>
-            </div>
-            <div className='product'>
-                <h2>Research & Insight</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, similique!</p>
-            </div>
-            <div className='product'>
-                <h2>Ventures</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, similique!</p>
-            </div>
+            {
+                Products.map(product => (
+                    <ProductCard 
+                        title={product.title}
+                        teaser={product.teaser}
+                        icon={product.icon}
+                        key={product.title}
+                    />
+                ))
+            }
             <p className="topicIntro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quod ea repellat ex blanditiis, harum animi eveniet, quaerat, aperiam perferendis quasi necessitatibus impedit voluptates inventore earum illum veritatis</p>
             <TopicsOverview/>
             <BigStatement>
@@ -55,16 +44,8 @@ const SectionContainer = styled.section`
         font-size: 1.25rem;
         line-height: 1.5;
     }
-    .product {
-        grid-column: span 4;
-        border: 0.1rem solid ${props => props.theme.colors.white300};
-        border-radius: 0.5rem;
-        margin-bottom: 2rem;
-        padding: 2rem;
-        box-shadow: 0 0.3rem 0.5rem 0rem rgba(0, 0, 0, 0.15);
-    }
     .sectionTitle {
-        grid-column: 4 / span 6;
+        grid-column: 4 / span 7;
         margin-bottom: 2rem;
         font-weight: 700;
         text-align: center;
