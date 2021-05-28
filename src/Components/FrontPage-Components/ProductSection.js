@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Products from '../../Data/products';
+import Products from '../../Data/Products';
 import ProductCard from './ProductCard';
 import TopicsOverview from './TopicsOverviews';
 
