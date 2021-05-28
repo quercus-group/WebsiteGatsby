@@ -28,9 +28,17 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: "./src/images/",
+        path: `${__dirname}/src/images`,
       },
       __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "data",
+        path: `${__dirname}/src/data`,
+      },
+      __key: "data",
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
