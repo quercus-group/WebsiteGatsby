@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components'
 import partnerLogos from '../../data/partnerLogos'
+import LightButton from '../Light-Button';
 
 const ContactSection = () => {
     return ( 
         <ContactSectionContainer>
             <h2 className='sectionTitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
             <p className='sectionSubtitle'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur mollitia quae dolore minima ad vero ipsam quisquam obcaecati, aperiam maiores.</p>
+            <LightButton buttonText='Contact us today' linkTo='/contact' className='contactButton'/>
             <p className='sectionSubtitle clientIntro'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur mollitia quae dolore minima ad vero ipsam quisquam obcaecati, aperiam maiores.</p>
             <div className="clientLogos">
                 {partnerLogos.map(logo => (
@@ -44,8 +46,12 @@ const ContactSectionContainer = styled.section`
         margin-bottom: 4.5rem;
         text-align: center;
     }
+    .contactButton {
+        grid-column: 1 / span 12;
+        justify-self: center;
+    }
     .clientIntro {
-        margin-top: 8rem;
+        margin-top: 7.5rem;
     }
     .clientLogos {
         grid-column: 1 / span 12;

@@ -73,9 +73,6 @@ const AboutSectionContainer = styled.section`
         .profileImage {
             max-width: 11rem;
             border-radius: 100%;
-            img {
-                filter: grayscale(1);
-            }
         }
     }
 `
