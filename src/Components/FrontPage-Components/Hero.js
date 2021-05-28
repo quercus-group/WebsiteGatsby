@@ -1,27 +1,52 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import styled from 'styled-components'
+import {graphql, useStaticQuery} from 'gatsby'
+
+
 
 const Hero = () => {
+    const heroImages = useStaticQuery(graphql`
+        query images {
+            allContentfulAsset (filter: {title: {in: ["MariamHeroImage", "AllanHeroImage", "NicolaiHeroImage"]}})
+                {edges {
+                    node  {
+                        title,
+                        description, 
+                        id
+                        gatsbyImageData (
+                            placeholder: BLURRED
+                            formats: [AUTO, WEBP]
+                            quality: 75
+                        )
+                    }
+                }
+            }
+        }
+    `)
+    const firstImage = heroImages.allContentfulAsset.edges[2]
+    const secondImage = heroImages.allContentfulAsset.edges[0]
+    const thirdImage = heroImages.allContentfulAsset.edges[1]
+
     return ( 
         <HeroContainer>
             <div className='heroCopy'>
                 <h1>Building innovative communities.</h1>
                 <h3>We help businesses, government, academia and civic society to shape innovation & growth  with nature and people. Diversity of perspectives is always our starting point.</h3>
             </div>
-            <StaticImage 
-                src='https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80'
-                alt='Workshop Omage'
+            <GatsbyImage 
+                image={firstImage.node.gatsbyImageData}
+                alt={firstImage.node.description}
                 className=' image firstImage'
                 />
-            <StaticImage
-                src='https://images.unsplash.com/photo-1501471759181-021123cdc844?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1949&q=80'
-                alt='People crossing the street'
+            <GatsbyImage
+                image={secondImage.node.gatsbyImageData}
+                alt={secondImage.node.description}
                 className=' image secondImage'
                 />
-            <StaticImage
-                src='https://images.unsplash.com/photo-1531482615713-2afd69097998?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'
-                alt='People working on computer'
+            <GatsbyImage
+                image={thirdImage.node.gatsbyImageData}
+                alt={thirdImage.node.description}
                 className=' image thirdImage'
             />
         </HeroContainer>
@@ -57,9 +82,6 @@ const HeroContainer = styled.section`
     .image {
         border-radius: 0.5rem;
         position: relative;
-         img {
-            filter: grayscale(1);
-        }
     }
     .firstImage {
         grid-column: 7 / span 3;

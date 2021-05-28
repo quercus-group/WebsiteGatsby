@@ -33,7 +33,7 @@ const AboutSection = () => {
                     <h2 className="sectionTitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
                     <p>Quercus Group is an international consulting company for sustainability based in <span>Copenhagen, Nairobi and Singapore</span>. Our expertise is collaboration and how to effectively use it to address the world’s most difficult challenges. We do and have done so in 45+ countries worldwide. </p>
                 </div>
-                <LightButton buttonText='Learn more' linkTo='/about' className='button'/>
+                <LightButton buttonText='About us' linkTo='/about' className='button'/>
             </div>
             <div className="team-pictures">
                 {data.allContentfulTeamMember.edges.map(edge => (

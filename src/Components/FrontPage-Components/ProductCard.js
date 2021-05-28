@@ -48,7 +48,7 @@ const Card = styled.div`
         justify-self: flex-end;
         }
         &.arrow {
-            stroke: ${props => props.theme.colors.primary900};
+            stroke: ${props => props.theme.colors.primary100};
             stroke-width: 1;
             align-self: flex-end;
             width:4rem;
