@@ -28,18 +28,11 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/src/images`,
+        path: `./src/images`,
       },
       __key: "images",
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "data",
-        path: `${__dirname}/src/data`,
-      },
-      __key: "data",
-    },
+    
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
