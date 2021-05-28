@@ -2,7 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 module.exports = {
-  flags: { PRESERVE_WEBPACK_CACHE: true },
+  
   siteMetadata: {
     title: "Quercus Group | Sustainability, Collaboration & Innovation",
     description: "We help businesses, government and civic society to collaborate. Quercus Group is an international consulting company for sustainability in Copenhagen, Nairobi and Singapore.",

@@ -4,8 +4,6 @@ import {useStaticQuery, graphql, Link} from 'gatsby'
 import { GatsbyImage} from "gatsby-plugin-image"
 import Layout from '../Components/Layout'
 import { Question, Section, SectionText, SectionTitle } from '../Components/Elements'
-import Button from '../Components/Button'
-import { LeftSideText, ProjectsGrid } from '../Components/FrontPage-Components/ProjectSection'
 
 const ProjectPage = ()=>{
     const data = useStaticQuery(graphql`
@@ -56,7 +54,6 @@ const ProjectPage = ()=>{
                     ))}
                 </ProjectsGrid>
                 <Question>Interested how we can contribute to your next project?</Question>
-                <ToServicesButton text="Services" linkTo="/services"/>
             </Section>
         </Layout>
     )
@@ -86,6 +83,32 @@ const ProjectInformation = styled(Link)`
     }
 
 `
+const LeftSideText = styled(SectionText)`
+    grid-column: 3 / span 4;
+    @media ${props => props.theme.breakpoints.large} {
+        grid-column: 2 / span 5;
+        }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 1 / span 3;
+        }`
+
+const ProjectsGrid = styled.div`
+    grid-column: 1 / span 12;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    grid-template-rows: repeat(2, 1fr);
+    @media ${props => props.theme.breakpoints.medium}{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media ${props => props.theme.breakpoints.medium} {
+        grid-column: 1 / span 6;
+    }
+    @media ${props => props.theme.breakpoints.mediumsmall} {
+        grid-gap: 1.5rem;
+    }
+`
+
 const ProjectTitle = styled.p`
     padding: 0 1rem;
     margin: 0;
@@ -108,10 +131,6 @@ const MoreInfo = styled.div`
         overflow: hidden;
         text-overflow: ellipsis;
     }
-`
-const ToServicesButton = styled(Button)`
-    grid-column: 6 / span 2;
-    justify-self: center;
 `
 
 export default ProjectPage
