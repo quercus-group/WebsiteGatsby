@@ -1,10 +1,10 @@
 import React from 'react'
 import {ThemeProvider} from "styled-components"
 import GlobalStyle from './src/GlobalStyles'
-import theme from './src/theme'
+import Theme from './src/Theme'
 
 export const wrapRootElement = ({element} )=> (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={Theme}>
         <GlobalStyle/>
         {element}
     </ThemeProvider>

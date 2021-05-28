@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import partnerLogos from '../../data/partnerLogos'
+import partnerLogos from '../../Data/partnerLogos'
 import LightButton from '../Light-Button';
 
 const ContactSection = () => {
