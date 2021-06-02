@@ -30,7 +30,7 @@ const AboutSection = () => {
         <AboutSectionContainer>
             <div className="about-description">
                 <div>
-                    <h2 className="sectionTitle">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h2>
+                    <h2 className="sectionTitle">Quercus is the latin for oak. The tree symbolises the long-term.</h2>
                     <p>Quercus Group is an international consulting company for sustainability based in <span>Copenhagen, Nairobi and Singapore</span>. Our expertise is collaboration and how to effectively use it to address the world’s most difficult challenges. We do and have done so in 45+ countries worldwide. </p>
                 </div>
                 <LightButton buttonText='About us' linkTo='/about' className='button'/>

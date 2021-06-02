@@ -9,21 +9,21 @@ const ProductSection = () => {
      return ( 
         <SectionContainer>
             <h2 className='sectionTitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-            <p className='sectionSubtitle'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur mollitia quae dolore minima ad vero ipsam quisquam obcaecati, aperiam maiores.</p>
+            <p className='sectionSubtitle'>Quercus Group employs a combination of approaches, methods and practices aimed to advance sustainability, collaboration and innovation.  Our services help get a better understanding of what is going on, how to navigate rapid, far-reaching and unprecedented changes in all aspects of society and how to create effective change by doing it in partnership.</p>
             {
                 Products.map(product => (
                     <ProductCard 
                         title={product.title}
                         teaser={product.teaser}
                         icon={product.icon}
-                        key={product.title}
+                        key={product.id}
                     />
                 ))
             }
-            <p className="topicIntro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quod ea repellat ex blanditiis, harum animi eveniet, quaerat, aperiam perferendis quasi necessitatibus impedit voluptates inventore earum illum veritatis</p>
+            <p className="topicIntro">We are not bound by the topic and seek synergies across sectors and themes. Our focus is driven by the challenge and its unique context. In past and recent projects, we tackled issues related to&hellip;</p>
             <TopicsOverview/>
             <BigStatement>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, architecto eos. Laborum, aliquam! Deleniti, voluptatem!
+                A single project can be the beginning of a systemic shift. We help making changes beyond mere optimization.
             </BigStatement>
         </SectionContainer>
      );

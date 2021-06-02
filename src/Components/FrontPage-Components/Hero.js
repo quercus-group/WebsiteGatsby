@@ -2,6 +2,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import styled from 'styled-components'
 import {graphql, useStaticQuery} from 'gatsby'
+import LightButton from '../Light-Button';
 
 
 
@@ -31,9 +32,10 @@ const Hero = () => {
     return ( 
         <HeroContainer>
             <div className='heroCopy'>
-                <h1>Building innovative communities.</h1>
-                <h3>We help businesses, government, academia and civic society to shape innovation & growth  with nature and people. Diversity of perspectives is always our starting point.</h3>
+                <h1>Today's challenges demand acting together.</h1>
+                <h3>We help businesses, government, academia and civic society to collaborate more and better across perspectives, sectors and countries.</h3>
             </div>
+            <LightButton buttonText='Get in touch' className='cta' linkTo='/contact'/>
             <GatsbyImage 
                 image={firstImage.node.gatsbyImageData}
                 alt={firstImage.node.description}
@@ -62,7 +64,7 @@ const HeroContainer = styled.section`
     grid-template-rows: repeat(3, 1fr);
     grid-row-gap: 2rem;
     margin-bottom: 2rem;
-    max-height: 50rem;
+    max-height: 48rem;
     .heroCopy {
         grid-column: 1 / span 6;
         grid-row: 1 / span 2;
@@ -78,6 +80,11 @@ const HeroContainer = styled.section`
             line-height: 1.5;
             color: ${props => props.theme.colors.primary700};
         }
+    }
+    .cta {
+        grid-column: 1 / span 6;
+        grid-row: 3 / span 1;
+        align-self: flex-end;
     }
     .image {
         border-radius: 0.5rem;
