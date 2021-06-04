@@ -64,7 +64,7 @@ const HeroContainer = styled.section`
     grid-template-rows: repeat(3, 1fr);
     grid-row-gap: 2rem;
     margin-bottom: 2rem;
-    max-height: 48rem;
+    height: 84vh;
     .heroCopy {
         grid-column: 1 / span 6;
         grid-row: 1 / span 2;
@@ -78,7 +78,7 @@ const HeroContainer = styled.section`
         h3 {
             font-size: 1.5rem;
             line-height: 1.5;
-            color: ${props => props.theme.colors.primary700};
+            color: ${props => props.theme.colors.primary500};
         }
     }
     .cta {
@@ -101,5 +101,38 @@ const HeroContainer = styled.section`
     .thirdImage {
         grid-column: 6 / span 4;
         grid-row: 3 / span 1;
+    }
+    @media screen and (min-width: 90rem){
+        max-height: 48rem;
+    }
+    @media screen and (max-width: 68rem){
+        grid-template-columns: repeat(8, minmax(auto, 6rem));
+        height: 82vh;
+        .heroCopy {
+            grid-column: 1 / span 4;
+            grid-row: 1 / span 3;
+            align-self: center;
+            h1 {
+                font-size: 3rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+        }
+        .firstImage {
+            grid-column: 5 / span 2;
+        }
+        .secondImage {
+            grid-column: 7 / span 2;
+        }
+        .thirdImage {
+            grid-column: 5 / span 2;
+        }
+        .cta {
+            grid-column: 1 / span 4;
+            grid-row: 3 / span 1;
+            align-self: flex-end;
+            font-size: 1.25rem;
+        }
     }
 `

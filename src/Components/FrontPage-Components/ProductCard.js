@@ -77,6 +77,16 @@ const Card = styled.div`
     &:hover .slider {
         clip-path: circle(150% at 50% 100%);
     }
+    @media screen and (max-width: 68rem){
+        grid-column: span 6;
+        min-height: 18rem;
+        h2 {
+            width: 100%;
+        }
+        svg {
+            width: 4rem;
+        }
+    }
 `
  
 export default ProductCard;

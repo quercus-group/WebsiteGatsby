@@ -55,11 +55,6 @@ const FooterContainer = styled.footer`
         margin-bottom: 1rem;
         font-size: 1.5rem;
     }
-    @media ${props => props.theme.breakpoints.medium} {
-        grid-column: 1 / span 8;
-        grid-template-columns: 2rem repeat(6, 1fr) 2rem;
-        grid-row-gap: 2rem;
-    }
 `
 const Line = styled.div`
     grid-column: 2 / span 12;
@@ -75,9 +70,6 @@ const Cta = styled.div`
     span {
         color: ${props => props.theme.colors.highlight600}
     }
-    @media ${props => props.theme.breakpoints.medium} {
-        grid-column: 2 / span 6;
-    }
 `
 const Addresses = styled.div`
     grid-column: span 4;
@@ -89,14 +81,6 @@ const Addresses = styled.div`
         margin-bottom: 1rem;
         line-height: 1.5;
         color: ${props => props.theme.colors.primary700};
-    }
-    @media ${props => props.theme.breakpoints.medium} {
-        grid-column: 2 / span 6;
-        display: flex;
-        justify-content: space-between;
-        div:nth-child(2) {
-            margin: 0 1rem;
-        }
     }
 `
 const SocialMedia = styled.div`
@@ -110,9 +94,6 @@ const SocialMedia = styled.div`
     .social_media_links {
         display: flex;
         flex-direction: column;
-    }
-    @media ${props => props.theme.breakpoints.medium} {
-        grid-column: 2 / span 6;
     }
 ` 
 const Disclaimer = styled.div`
@@ -128,10 +109,6 @@ const Disclaimer = styled.div`
     }
     * {
         margin-left: 2rem;
-    }
-    @media ${props => props.theme.breakpoints.medium} {
-        grid-column: 2 / span 6;
-        flex-wrap: wrap;
     }
 `
 

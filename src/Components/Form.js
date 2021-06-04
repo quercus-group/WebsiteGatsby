@@ -111,7 +111,7 @@ const Form = ({className}) => {
 
 const ContactForm = styled.form`
     padding: 2rem 2rem;
-    box-shadow: ${props => props.theme.boxshadow.shadow1};
+    box-shadow: 0 0.3rem 0.5rem 0rem rgba(0, 0, 0, 0.15);
     border-radius: 0.5em;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -130,9 +130,9 @@ const ContactForm = styled.form`
         font-size: 1rem;
         padding: 1em;
         border-radius: 0.5em;
-        border: 0.1rem solid ${props => props.theme.colors.blue4};
+        border: 0.1rem solid ${props => props.theme.colors.secondary700};
         background: none;
-        box-shadow: inset 0 0 0.2rem ${props => props.theme.colors.blue4};
+        box-shadow: inset 0 0 0.2rem ${props => props.theme.colors.secondary300};
     }
     textarea {
         display: block;
@@ -153,13 +153,11 @@ const SubmitButton = styled.button`
     font-weight: 400;
     width: 75%;
     justify-self: end;
-    background: ${props => props.theme.colors.yellow1};
-    color:  ${props => props.theme.colors.neutral900};
-    border: 0.1rem solid ${props => props.theme.colors.blue4};
+    background: ${props => props.theme.colors.highlight600};
+    color:  ${props => props.theme.colors.white50};
     border-radius: 0.5em;
     padding: 1em;
     cursor: pointer;
-    box-shadow: 0 0.1rem 0.2rem ${props => props.theme.colors.blue4};
 `
  
 export default Form;

@@ -5,7 +5,6 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
 import Layout from '../Components/Layout'
 import { Section } from '../Components/Elements'
-import Button from '../Components/Button'
 
 const projectPage = ({data}) => {
     return ( 
@@ -27,7 +26,6 @@ const projectPage = ({data}) => {
                         </Contacts>
                     </Details>
                 </ProfileGrid>
-                <ToTeamButton linkTo="/team" text='Team' />
             </Section>
         </Layout>
      );
@@ -79,11 +77,6 @@ const Contacts = styled.div`
     p {
         margin: 0;
     }
-`
-const ToTeamButton = styled(Button)`
-    justify-self: end;
-    grid-column-end: 13;
-    grid-row: 2 / span 1;
 `
  
 export default projectPage;

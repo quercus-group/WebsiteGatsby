@@ -31,7 +31,7 @@ const Seo = ({title, description}) => {
       } = site.siteMetadata
 
     const seo = {
-        title: title ? `${title} | ${defaultTitle}` : defaultTitle,
+        title: title ? `${title} | Quercus Group` : defaultTitle,
         description: description || defaultDescription,
         author: author,
         // image: defaultImage,

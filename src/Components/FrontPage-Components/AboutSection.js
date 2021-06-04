@@ -75,6 +75,11 @@ const AboutSectionContainer = styled.section`
             border-radius: 100%;
         }
     }
+    @media screen and (max-width: 68rem){
+        .team-pictures {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 `
 
 

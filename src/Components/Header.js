@@ -34,21 +34,18 @@ const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 1rem 3rem;
+    @media screen and (max-width: 83rem){
+        padding: 1rem 2rem;
+    }
     ul {
         display: flex;
         list-style: none;
     }
     li {
-        margin-left: 2vw;
+        margin-left: clamp(2rem,2vw, 3rem);
         padding-bottom: 0.2rem;
         text-transform: uppercase;
         font-weight: 400;
-    }
-    @media ${props => props.theme.breakpoints.medium} {
-        grid-column: 1 / span 8;
-        nav {
-            display: none;
-        }
     }
 `
 
