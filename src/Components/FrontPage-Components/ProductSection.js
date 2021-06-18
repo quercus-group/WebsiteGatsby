@@ -60,6 +60,22 @@ const SectionContainer = styled.section`
         margin: 4.5rem 0 3rem 0;
         text-align: center;
     }
+    @media screen and (max-width: 40rem){
+        grid-template-columns: repeat(6, 1fr);
+        .sectionTitle {
+            width: 100%;
+            grid-column: 1 / span 5;
+            text-align: left;
+        }
+        .sectionSubtitle {
+            grid-column: 1 / span 6;
+            text-align: left;
+        }
+        .topicIntro {
+            grid-column: 1 / span 6;
+            text-align: left;
+        }
+    }
 `
 const BigStatement = styled.h4`
     font-size: 3rem;
@@ -68,4 +84,7 @@ const BigStatement = styled.h4`
     text-align: center;
     margin: 8rem 0rem;
     grid-column: 3 / span 8;
+    @media screen and (max-width: 40rem){
+        grid-column: 1 / span 6;
+    }
 `

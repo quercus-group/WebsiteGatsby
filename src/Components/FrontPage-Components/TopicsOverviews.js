@@ -32,6 +32,9 @@ const TopicsContainer = styled.div`
         font-size: 1.125rem;
         font-weight: 400;
     }
+    @media screen and (max-width: 40rem){
+        grid-column: 1 / span 6;
+    }
 `
  
 export default TopicsOverview;
