@@ -69,15 +69,22 @@ const AboutSectionContainer = styled.section`
         grid-column: 5 / span 8;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
         grid-gap: 2rem;
+        height: fit-content;
         .profileImage {
             max-width: 11rem;
             border-radius: 100%;
+            aspect-ratio: 1;
         }
     }
     @media screen and (max-width: 68rem){
+        .about-description {
+            grid-column: 1 / span 6;
+        }
         .team-pictures {
             grid-template-columns: repeat(3, 1fr);
+            grid-column: 7 / span 6;
         }
     }
 `

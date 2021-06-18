@@ -9,7 +9,7 @@ import LightButton from '../Light-Button';
 const Hero = () => {
     const heroImages = useStaticQuery(graphql`
         query images {
-            allContentfulAsset (filter: {title: {in: ["MariamHeroImage", "AllanHeroImage", "NicolaiHeroImage"]}})
+            allContentfulAsset (filter: {title: {in: ["NicolaiHero", "HowMightWe", "DitteKaren"]}})
                 {edges {
                     node  {
                         title,
@@ -26,8 +26,8 @@ const Hero = () => {
         }
     `)
     const firstImage = heroImages.allContentfulAsset.edges[2]
-    const secondImage = heroImages.allContentfulAsset.edges[0]
-    const thirdImage = heroImages.allContentfulAsset.edges[1]
+    const secondImage = heroImages.allContentfulAsset.edges[1]
+    const thirdImage = heroImages.allContentfulAsset.edges[0]
 
     return ( 
         <HeroContainer>
@@ -78,7 +78,7 @@ const HeroContainer = styled.section`
         h3 {
             font-size: 1.5rem;
             line-height: 1.5;
-            color: ${props => props.theme.colors.primary500};
+            color: ${props => props.theme.colors.primary300};
         }
     }
     .cta {
@@ -110,8 +110,6 @@ const HeroContainer = styled.section`
         height: 82vh;
         .heroCopy {
             grid-column: 1 / span 4;
-            grid-row: 1 / span 3;
-            align-self: center;
             h1 {
                 font-size: 3rem;
             }
@@ -126,13 +124,36 @@ const HeroContainer = styled.section`
             grid-column: 7 / span 2;
         }
         .thirdImage {
-            grid-column: 5 / span 2;
+            grid-column: 4 / span 3;
         }
         .cta {
             grid-column: 1 / span 4;
             grid-row: 3 / span 1;
             align-self: flex-end;
             font-size: 1.25rem;
+        }
+    }
+    @media screen and (max-width: 56rem){
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        height: auto;
+        .heroCopy {
+            grid-column: 1 / span 5;
+            
+        }
+        .firstImage {
+            grid-column: 6 / span 3;
+            grid-row: 1 / span 3;
+        }
+        .secondImage {
+            display: none;
+        }
+        .thirdImage {
+            grid-column: 4 /span 4;
+            grid-row: 3 / span 2;
+        }
+        .cta {
+            align-self: center;
         }
     }
 `
