@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle} from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -15,15 +15,15 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.colors.white100};
     }
     h1 {
-        font-size: 3.052rem;
+        font-size: 3.5rem;
         line-height: 1.3;
     }
     h2 {
-        font-size: clamp(2.074rem, 2.712vw,2.441rem);
+        font-size: 2rem;
         line-height: 1.3;
     }
     h3 {
-        font-size: clamp(1.728rem,2.17vw,1.953rem);
+        font-size: 1.5rem;
         line-height: 1.5;
     }
     h4 {
@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
         line-height: 1.75;
     }
     p {
-        font-size: 1rem;
+        font-size: 1.25rem;
         line-height: 1.75;
         margin-bottom: 1rem;
     }
@@ -43,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: ${props => props.theme.colors.blue1};
     }
-    
 `
+
+
 export default GlobalStyle

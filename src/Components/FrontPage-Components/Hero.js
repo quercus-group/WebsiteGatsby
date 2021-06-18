@@ -151,9 +151,10 @@ const HeroContainer = styled.section`
         .thirdImage {
             grid-column: 4 /span 4;
             grid-row: 3 / span 2;
+            box-shadow: 0.3rem 0.3rem 0.5rem 0rem rgba(0, 0, 0, 0.15);
         }
         .cta {
-            align-self: center;
+            align-self: flex-start;
         }
     }
 `

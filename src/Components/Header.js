@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Logo from '../images/QuercusGroupLogo.svg'
 import {Link} from 'gatsby'
+import { Menu2 } from 'tabler-icons-react'
 
 const Header = ()=>{
  
@@ -24,6 +25,9 @@ const Header = ()=>{
                     </li>
                 </ul>
             </nav>
+            <button className='menu-button'>
+                <Menu2 size={32}/>
+            </button>
         </HeaderContainer>
     )
 }
@@ -34,6 +38,16 @@ const HeaderContainer = styled.header`
     justify-content: space-between;
     align-items: center;
     padding: 1rem 3rem;
+    .menu-button {
+        background: none;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        svg {
+            stroke: ${props => props.theme.colors.primary900};
+        }
+    }
     @media screen and (max-width: 83rem){
         padding: 1rem 2rem;
     }
@@ -46,6 +60,16 @@ const HeaderContainer = styled.header`
         padding-bottom: 0.2rem;
         text-transform: uppercase;
         font-weight: 400;
+    }
+    @media screen and (max-width: 56rem){
+        nav {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 56rem){
+        .menu-button {
+            display: none;
+        }
     }
 `
 
