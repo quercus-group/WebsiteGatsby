@@ -8,9 +8,9 @@ const Layout = ({children})=>{
     return (
         <PageContainer>
             <Header/>
-            <ContentContainer>
+            <main className='content-container'>
                 {children}
-            </ContentContainer>
+            </main>
             <Footer/>
         </PageContainer>
     )
@@ -24,11 +24,23 @@ const PageContainer = styled.div`
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
-    
-`
-const ContentContainer = styled.main`
-    grid-column: 2 / span 12;
-    
+    .content-container {
+        grid-column: 2 / span 12;
+    }
+    @media screen and (max-width: 56rem){
+        grid-template-columns: 1.5rem repeat(8, minmax(auto, 4.5rem)) 1.5rem;
+        grid-column-gap: 1.5rem;
+        .content-container {
+            grid-column: 2 / span 8;
+        }
+    }
+    @media screen and (max-width: 40rem){
+        grid-template-columns: 1rem repeat(6, minmax(auto, 4.5rem)) 1rem;
+        grid-column-gap: 1rem;
+        .content-container {
+            grid-column: 2 / span 6;
+        }
+    }
 `
 
 export default Layout

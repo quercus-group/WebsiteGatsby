@@ -65,6 +65,8 @@ const HeaderContainer = styled.header`
         }
     }
     @media screen and (max-width: 56rem){
+        grid-column: 2 / span 8;
+        padding: 1rem 0;
         nav {
             display: none;
         }
@@ -73,6 +75,9 @@ const HeaderContainer = styled.header`
         .menu-button {
             display: none;
         }
+    }
+    @media screen and (max-width: 40rem){
+        grid-column: 2 / span 6;
     }
 `
 
