@@ -30,7 +30,7 @@ const AboutSection = () => {
         <AboutSectionContainer>
             <div className="about-description">
                 <div>
-                    <h2 className="sectionTitle">Quercus is the latin for oak. The tree symbolises the long-term.</h2>
+                    <h2 className="sectionTitle">Quercus is latin for oak. The tree symbolises the long-term.</h2>
                     <p>Quercus Group is an international consulting company for sustainability based in <span>Copenhagen, Nairobi and Singapore</span>. Our expertise is collaboration and how to effectively use it to address the world’s most difficult challenges. We do and have done so in 45+ countries worldwide. </p>
                 </div>
                 <LightButton buttonText='About us' linkTo='/about' className='button'/>
@@ -85,6 +85,36 @@ const AboutSectionContainer = styled.section`
         .team-pictures {
             grid-template-columns: repeat(3, 1fr);
             grid-column: 7 / span 6;
+        }
+    }
+    @media screen and (max-width: 56rem){
+        grid-template-columns: repeat(8, 1fr);
+        .about-description, .team-pictures {
+            grid-column: 1 / span 8;
+        }
+        .about-description {
+            align-items: center;
+            h2, p {
+                text-align: center;
+            }
+            .button {
+                margin-top: 2rem;
+            }
+        }
+        .team-pictures {
+            margin-top: 4.5rem;
+        }
+    }
+    @media screen and (max-width: 40rem){
+        grid-template-columns: repeat(6, 1fr);
+        .about-description, .team-pictures {
+            grid-column: 1 / span 6;
+        }
+        .about-description {
+            align-items: flex-start;
+            h2, p {
+                text-align: left;
+            }
         }
     }
 `

@@ -56,11 +56,48 @@ const ContactSectionContainer = styled.section`
     .clientLogos {
         grid-column: 1 / span 12;
         display: flex;
-        /* flex-wrap: wrap; */
+        flex-wrap: wrap;
         justify-content: space-between;
         img {
             max-height: 3.5rem;
             filter: grayscale(1);
+        }
+    }
+    @media screen and (max-width: 56rem){
+        grid-template-columns: repeat(8, 1fr);
+        .sectionTitle, .sectionSubtitle, .contactButton {
+            grid-column: 2 / span 6;
+        }
+    }
+    @media screen and (max-width: 45rem){
+        .sectionTitle, .sectionSubtitle, .contactButton {
+            grid-column: 1 / span 8;
+        }
+    }
+    @media screen and (max-width: 40rem){
+        margin-top: 4.5rem;
+        grid-template-columns: repeat(6, 1fr);
+        .sectionTitle, .sectionSubtitle {
+            text-align: left;
+            grid-column: 1 / span 6;
+        }
+        .sectionSubtitle {
+            margin-bottom: 2rem;
+        }
+        .contactButton {
+            grid-column: 1 / span 6;
+            justify-self: start;
+        }
+        .clientIntro {
+            margin-top: 4.5rem;
+        }
+        .clientLogos {
+            grid-column: 1 / span 6;
+            flex-wrap: wrap;
+            img {
+                margin-bottom: 1rem;
+                transform: scale(0.9);
+            }
         }
     }
 `

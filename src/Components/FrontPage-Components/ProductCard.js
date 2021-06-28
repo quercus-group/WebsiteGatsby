@@ -55,15 +55,6 @@ const Card = styled.div`
             height: 4rem;
         } 
     }
-    &:hover {
-        transform: scale(1.02);
-    }
-    &:hover svg {
-        stroke: ${props => props.theme.colors.white100};
-    }
-    &:hover h2, &:hover p {
-        color: ${props => props.theme.colors.white100};
-    }
     .slider {
         position: absolute;
         bottom: 0;
@@ -74,8 +65,19 @@ const Card = styled.div`
         transition: clip-path 0.75s ease-in-out;
         clip-path: circle(0% at 50% 100%);
     }
-    &:hover .slider {
-        clip-path: circle(150% at 50% 100%);
+    @media screen and (min-width: 40rem){
+        &:hover {
+            transform: scale(1.02);
+        }
+        &:hover svg {
+            stroke: ${props => props.theme.colors.white100};
+        }
+        &:hover h2, &:hover p {
+            color: ${props => props.theme.colors.white100};
+        }
+        &:hover .slider {
+            clip-path: circle(150% at 50% 100%);
+        }
     }
     @media screen and (max-width: 68rem){
         grid-column: span 6;
@@ -86,6 +88,9 @@ const Card = styled.div`
         svg {
             width: 4rem;
         }
+    }
+    @media screen and (max-width: 56rem){
+        grid-column: span 4;
     }
     @media screen and (max-width: 40rem){
         grid-column: 1 / span 6;

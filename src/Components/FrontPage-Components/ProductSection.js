@@ -60,20 +60,31 @@ const SectionContainer = styled.section`
         margin: 4.5rem 0 3rem 0;
         text-align: center;
     }
+    @media screen and (max-width: 56rem){
+        grid-template-columns: repeat(8, 1fr);
+        .sectionTitle {
+            grid-column: 2 / span 6;
+            width: 100%;
+        }
+        .sectionSubtitle, .topicIntro {
+            grid-column: 1 / span 8;
+        }
+    }
     @media screen and (max-width: 40rem){
         grid-template-columns: repeat(6, 1fr);
         .sectionTitle {
-            width: 100%;
             grid-column: 1 / span 5;
             text-align: left;
         }
         .sectionSubtitle {
             grid-column: 1 / span 6;
             text-align: left;
+            margin-bottom: 2rem;
         }
         .topicIntro {
             grid-column: 1 / span 6;
             text-align: left;
+            margin-top: 2rem;
         }
     }
 `
@@ -84,7 +95,13 @@ const BigStatement = styled.h4`
     text-align: center;
     margin: 8rem 0rem;
     grid-column: 3 / span 8;
+    @media screen and (max-width: 56rem){
+        grid-column: 1 / span 8;
+    }
     @media screen and (max-width: 40rem){
         grid-column: 1 / span 6;
+        text-align: left;
+        margin: 4.5rem 0;
+        font-size: 2.5rem;
     }
 `
