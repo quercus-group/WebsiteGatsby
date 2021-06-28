@@ -15,13 +15,13 @@ const Header = ()=>{
             <nav>
                 <ul>
                     <li>
-                        <Link to="/projects" activeClassName="active_nav">Projects</Link>
+                        <Link to="/projects" className='nav-link' activeClassName="active_nav">Projects</Link>
                     </li>
                     <li>
-                        <Link to="/about" activeClassName="active_nav">About</Link>
+                        <Link to="/about" className='nav-link' activeClassName="active_nav">About</Link>
                     </li>
                     <li>
-                        <Link to="/contact" className="contact_cta" activeClassName="active_nav">Contact</Link>
+                        <Link to="/contact" className=" nav-link contact_cta" activeClassName="active_nav">Contact</Link>
                     </li>
                 </ul>
             </nav>
@@ -60,6 +60,9 @@ const HeaderContainer = styled.header`
         padding-bottom: 0.2rem;
         text-transform: uppercase;
         font-weight: 400;
+        .nav-link {
+            color: ${props => props.theme.colors.primary900};
+        }
     }
     @media screen and (max-width: 56rem){
         nav {

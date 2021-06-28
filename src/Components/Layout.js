@@ -23,6 +23,7 @@ const PageContainer = styled.div`
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     width: 100%;
+    overflow: hidden;
     
 `
 const ContentContainer = styled.main`
