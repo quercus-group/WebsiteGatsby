@@ -10,7 +10,7 @@ const ContactSection = () => {
             <p className='sectionSubtitle'>You have a project on your mind that can benefit from working together? We say 'Good things start from a cup of coffee'. Let's sit together for one to explore how we can work&nbsp;together.</p>
             <LightButton buttonText='Contact us today' linkTo='/contact' className='contactButton'/>
             <p className='sectionSubtitle clientIntro'>We prefer to meet each other, our partners and our clients on eye-height. In the past, we have worked together with organizations such as&hellip;</p>
-            {/* <div className="clientLogos">
+            <div className="clientLogos">
                 {partnerLogos.map(logo => (
                     <img
                          key={logo.name}
@@ -18,7 +18,7 @@ const ContactSection = () => {
                          alt={`Logo of ${logo.name}`}
                      />
                 ))}
-            </div> */}
+            </div>
         </ContactSectionContainer>
      );
 }
@@ -63,10 +63,22 @@ const ContactSectionContainer = styled.section`
             filter: grayscale(1);
         }
     }
+    @media screen and (max-width: 68rem){
+        .clientLogos {
+            justify-content: center;
+            img {
+                margin: 0 1rem 1.5rem 1rem;
+                transform: scale(0.9);
+            }
+        }
+    }
     @media screen and (max-width: 56rem){
         grid-template-columns: repeat(8, 1fr);
         .sectionTitle, .sectionSubtitle, .contactButton {
             grid-column: 2 / span 6;
+        }
+        .clientLogos {
+            grid-column: 1 / span 8;
         }
     }
     @media screen and (max-width: 45rem){
@@ -93,10 +105,13 @@ const ContactSectionContainer = styled.section`
         }
         .clientLogos {
             grid-column: 1 / span 6;
-            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+    }
+    @media screen and (max-width: 26rem){
+        .clientLogos {
             img {
-                margin-bottom: 1rem;
-                transform: scale(0.9);
+                max-height: 3rem;
             }
         }
     }
