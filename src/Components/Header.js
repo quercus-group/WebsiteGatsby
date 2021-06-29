@@ -83,6 +83,9 @@ const HeaderContainer = styled.header`
 
 const LogoImage = styled.img`
     max-width: 12.5rem;
+    @media screen and (max-width: 48rem) {
+        max-width: 11rem;
+    }
 `
 
 export default Header

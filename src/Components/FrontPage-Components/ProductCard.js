@@ -98,8 +98,7 @@ const Card = styled.div`
         border: none;
         border-bottom: 0.1rem solid ${props => props.theme.colors.white500};
         border-radius: 0;
-        grid-template-columns: 15% 80%;
-        grid-column-gap: 5%;
+        grid-template-columns: 20% 80%;
         grid-template-rows: repeat(2, max-content);
         min-height: fit-content;
         margin-bottom: 0;
@@ -107,9 +106,10 @@ const Card = styled.div`
         padding-right: 0;
         h2 {
             margin-bottom: 1rem;
+            margin-left: 1.5rem;
         }
         p {
-            margin: 0;
+            margin: 0 0 0 1.5rem;
         }
         svg {
             /* width:70%;

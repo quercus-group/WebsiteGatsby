@@ -35,7 +35,7 @@ const Footer = ()=>{
                 </div>
             </div>
             <div className='disclaimer'>
-                <Link style={{color: '#8189a5'}}to="/">Privacy Policy</Link>
+                <Link style={{color: '#8189a5'}}to="/privacypolicy">Privacy Policy</Link>
                 <div className='copyright'> &copy;{new Date().getFullYear()} Quercus Group</div>
             </div>
             </FooterContainer>
