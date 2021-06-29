@@ -98,14 +98,14 @@ const Card = styled.div`
         border: none;
         border-bottom: 0.1rem solid ${props => props.theme.colors.white500};
         border-radius: 0;
-        grid-template-columns: 15% 85%;
+        grid-template-columns: 25% 75%;
         grid-template-rows: repeat(2, 50%);
         min-height: fit-content;
         margin-bottom: 0;
         padding-left: 0;
         svg {
-            width:70%;
-            height: 70%;
+            /* width:70%;
+            height: 70%; */
             &.icon {
                 justify-self: flex-start;
                 grid-row: 1 / span 2;

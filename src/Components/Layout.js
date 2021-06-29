@@ -35,7 +35,7 @@ const PageContainer = styled.div`
         }
     }
     @media screen and (max-width: 40rem){
-        grid-template-columns: 1rem repeat(6, minmax(auto, 4.5rem)) 1rem;
+        grid-template-columns: 0.5rem repeat(6, minmax(auto, 4.5rem)) 0.5rem;
         grid-column-gap: 1.5rem;
         .content-container {
             grid-column: 2 / span 6;
