@@ -38,6 +38,9 @@ const TopicsContainer = styled.div`
     @media screen and (max-width: 40rem){
         grid-column: 1 / span 6;
         justify-content: flex-start;
+        div {
+            margin: 0.5rem 0.5rem 0.5rem 0rem;
+        }
     }
 `
  

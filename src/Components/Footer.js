@@ -36,7 +36,7 @@ const Footer = ()=>{
             </div>
             <div className='disclaimer'>
                 <Link style={{color: '#8189a5'}}to="/">Privacy Policy</Link>
-                <p> &copy;{new Date().getFullYear()} Quercus Group</p>
+                <div className='copyright'> &copy;{new Date().getFullYear()} Quercus Group</div>
             </div>
             </FooterContainer>
     )
@@ -96,8 +96,9 @@ const FooterContainer = styled.footer`
         margin-top: 4rem;
         padding-top: 0.5rem;
         display: flex;
+        flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
         color: ${props => props.theme.colors.primary300};
         p {
             margin-bottom: 0;
@@ -124,6 +125,11 @@ const FooterContainer = styled.footer`
         .social-media {
             margin-top: 0;
             grid-column: 2 / span 2;
+        }
+        .disclaimer {
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
         }
     }
     @media screen and (min-width: 55rem){
