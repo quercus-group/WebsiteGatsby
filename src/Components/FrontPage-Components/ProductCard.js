@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ArrowNarrowRight } from 'tabler-icons-react';
+import { IconArrowNarrowRight } from '@tabler/icons';
 
 const ProductCard = ({title, teaser, icon}) => {
     return ( 
@@ -8,7 +8,7 @@ const ProductCard = ({title, teaser, icon}) => {
             {icon}
             <h2>{title}</h2>
             <p>{teaser}</p>
-            <ArrowNarrowRight className='arrow'/>
+            <IconArrowNarrowRight className='arrow'/>
             <div className="slider"></div>
         </Card>
      );

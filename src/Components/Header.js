@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Logo from '../images/QuercusGroupLogo.svg'
 import {Link} from 'gatsby'
-import { Menu2 } from 'tabler-icons-react'
+import { IconMenu2 } from '@tabler/icons'
 
 const Header = ()=>{
  
@@ -26,7 +26,7 @@ const Header = ()=>{
                 </ul>
             </nav>
             <button className='menu-button'>
-                <Menu2 size={32}/>
+                <IconMenu2 size={32}/>
             </button>
         </HeaderContainer>
     )

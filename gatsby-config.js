@@ -32,6 +32,12 @@ module.exports = {
       },
       __key: "images",
     },
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        devMode: true,
+      },
+    }
     // "gatsby-plugin-preload-fonts",
     // {
     //   resolve: `gatsby-plugin-google-fonts`,
