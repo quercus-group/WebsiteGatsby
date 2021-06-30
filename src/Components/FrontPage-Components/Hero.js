@@ -19,6 +19,7 @@ const Hero = () => {
                             placeholder: BLURRED
                             formats: [AUTO, WEBP]
                             quality: 75
+                            width: 400
                         )
                     }
                 }

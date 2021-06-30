@@ -32,15 +32,15 @@ module.exports = {
       },
       __key: "images",
     },
-    "gatsby-plugin-preload-fonts",
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `lato\:400,700,900`,
-        ],
-        display: 'swap'
-      }
-    },
+    // "gatsby-plugin-preload-fonts",
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `lato\:400,700,900`,
+    //     ],
+    //     display: 'swap'
+    //   }
+    // },
   ],
 };
