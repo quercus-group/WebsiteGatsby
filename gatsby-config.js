@@ -32,7 +32,7 @@ module.exports = {
       },
       __key: "images",
     },
-    
+    "gatsby-plugin-preload-fonts",
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

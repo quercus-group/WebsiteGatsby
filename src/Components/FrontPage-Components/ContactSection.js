@@ -16,6 +16,7 @@ const ContactSection = () => {
                          key={logo.name}
                          src={logo.url}
                          alt={`Logo of ${logo.name}`}
+                         loading='lazy'
                      />
                 ))}
             </div>
