@@ -16,11 +16,10 @@ const ContactPage = ()=>{
                 </h1>
                 <div className='copy'>
                     <div>
-                        <p className="contactText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, blanditiis harum perferendis facere modi magnam ipsa!</p>
-                        <p>Email us.</p>
+                        <p className="contactText">Feel free to contact us by e-mail or the form (or visit us for a coffee). We will read every word and answer you within one business day.</p>
                         <p className="email-address">info@quercus-group.com</p>
                     </div>
-                    <div>
+                    <div className="ourteam">
                         <p>Looking for someone in particular?</p>
                         <LightButton buttonText='Our team' linkTo='/about' className='button'/>
                     </div>
@@ -58,20 +57,23 @@ const ContactPageContainer = styled.section`
             width: 80%;
         } 
         .email-address {
-            color: ${props => props.theme.colors.highlight600};
+            color: ${props => props.theme.colors.primary900};
             font-weight: 700;
             font-size: 2rem;
+            margin-top: 4.5rem;
         }
         .button {
             margin-top: 2rem;
         }
     }
+      
     
 `
 
 const ContactForm = styled(Form)`
     grid-row: 1 / span 2;
     grid-column: 7 / span 6;
+    
 `
 
 export default ContactPage

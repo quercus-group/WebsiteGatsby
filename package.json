@@ -41,7 +41,6 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
-    "env-cmd": "^10.1.0",
-    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.24"
+    "env-cmd": "^10.1.0"
   }
 }

@@ -24,7 +24,7 @@ const Button = styled(Link)`
     background: none;
     font-size: 1.5rem;
     font-weight: 700;
-    color: ${props => props.theme.colors.primary900};
+    color: ${props => props.theme.colors.highlight600};
     display: flex;
     align-items: center;
     .circle {

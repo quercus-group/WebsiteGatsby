@@ -1,33 +1,30 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import Logo from '../images/QuercusGroupLogo.svg'
 import {Link} from 'gatsby'
-import { IconMenu2 } from '@tabler/icons'
+import { IconMenu2, IconArrowUpRight } from '@tabler/icons'
+import NavigationLinks from './NavigationLinks'
 
 const Header = ()=>{
- 
-
+    const [isOpen, setIsOpen] = useState(false)
+    const toggleMenuHandler = () => {
+        setIsOpen(prev => !prev)
+    }
     return (
         <HeaderContainer>
             <Link to="/">
                 <LogoImage src={Logo} alt="Quercus Group Logo"/>
             </Link>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/projects" className='nav-link' activeClassName="active_nav">Projects</Link>
-                    </li>
-                    <li>
-                        <Link to="/about" className='nav-link' activeClassName="active_nav">About</Link>
-                    </li>
-                    <li>
-                        <Link to="/contact" className=" nav-link contact_cta" activeClassName="active_nav">Contact</Link>
-                    </li>
-                </ul>
-            </nav>
-            <button className='menu-button'>
-                <IconMenu2 size={32}/>
-            </button>
+            <NavigationLinks isOpen={isOpen}/>
+            {
+                !isOpen && 
+                <button 
+                    className='menu-button open'
+                    name='open-menu-button'
+                    onClick={toggleMenuHandler}>
+                    <IconMenu2 size={32}/>
+                </button>
+            } 
         </HeaderContainer>
     )
 }
@@ -44,32 +41,24 @@ const HeaderContainer = styled.header`
         border: none;
         cursor: pointer;
         padding: 0.5rem;
-        svg {
+        &.open svg {
             stroke: ${props => props.theme.colors.primary900};
+        }
+        .close {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+        }
+        &.close svg {
+            stroke: ${props => props.theme.colors.white50};
         }
     }
     @media screen and (max-width: 83rem){
         padding: 1rem 2rem;
     }
-    ul {
-        display: flex;
-        list-style: none;
-    }
-    li {
-        margin-left: clamp(2rem,2vw, 3rem);
-        padding-bottom: 0.2rem;
-        text-transform: uppercase;
-        font-weight: 400;
-        .nav-link {
-            color: ${props => props.theme.colors.primary900};
-        }
-    }
     @media screen and (max-width: 56rem){
         grid-column: 2 / span 8;
         padding: 1rem 0;
-        nav {
-            display: none;
-        }
     }
     @media screen and (min-width: 56rem){
         .menu-button {

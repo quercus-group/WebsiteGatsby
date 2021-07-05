@@ -79,7 +79,7 @@ const HeroContainer = styled.section`
         h3 {
             font-size: 1.5rem;
             line-height: 1.5;
-            color: ${props => props.theme.colors.primary300};
+            color: ${props => props.theme.colors.primary600};
         }
     }
     .cta {

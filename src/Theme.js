@@ -41,6 +41,8 @@ const theme = {
     black700: '#434343',
     black600: '#555555',
     black500: '#7b7b7b',
+    green: '#358357',
+    red: '#C55334'
   }
 }
 
