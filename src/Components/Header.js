@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 import Logo from '../images/QuercusGroupLogo.svg'
 import {Link} from 'gatsby'
-import { IconMenu2, IconArrowUpRight } from '@tabler/icons'
+import { IconMenu2 } from '@tabler/icons'
 import NavigationLinks from './NavigationLinks'
 
 const Header = ()=>{

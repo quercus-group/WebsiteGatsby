@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../Components/Layout'
 import styled from 'styled-components'
-import { Section } from '../Components/Elements'
 import Form from '../Components/Form'
 import LightButton from '../Components/Light-Button'
 import Seo from '../Components/SEO'
@@ -14,9 +13,10 @@ const ContactPage = ()=>{
                 <h1>
                     Tell us more about your project.  
                 </h1>
-                <div className='copy'>
+                <p className="contact-text">Feel free to contact us by e-mail or filling out the form (or visit us for a coffee). We will read every word and answer you within one business day.</p>
+                <div className='email-contact'>
                     <div>
-                        <p className="contactText">Feel free to contact us by e-mail or the form (or visit us for a coffee). We will read every word and answer you within one business day.</p>
+                        <p className='email-us'>Email us.</p>
                         <p className="email-address">info@quercus-group.com</p>
                     </div>
                     <div className="ourteam">
@@ -33,47 +33,133 @@ const ContactPage = ()=>{
 const ContactPageContainer = styled.section`
     grid-column: 2 / span 12;
     display: grid;
-    grid-template-columns: repeat(12, minmax(auto, 4.5rem));
+    grid-template-columns: repeat(12, minmax(0, 4.5rem));
     grid-column-gap: 2rem;
     grid-template-rows: max-content;
     padding: 4rem 0;
     h1 {
+        grid-column: 4 / span 6;
+        grid-row: 1 / span 1;
+        text-align: center;
         font-size: 3.5rem;
         line-height: 1.3;
         font-weight: 900;
         margin-bottom: 2rem;
-        grid-column: 1 / span 6;
     }
-    .copy {
+    .contact-text {
+        grid-column: 3 / span 8;
+        grid-row: 2 / span 1;
+        text-align: center;
+        margin-bottom: 4.5rem;
+    }
+    .email-contact {
         grid-column: 1 / span 6;
+        grid-row: 3 / span 1;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         p {
             font-size: 1.25rem;
             line-height: 1.5;
         }
-        .contactText {
-            width: 80%;
-        } 
+        .email-us {
+            margin-bottom: 1rem;
+        }
         .email-address {
-            color: ${props => props.theme.colors.primary900};
+            color: ${props => props.theme.colors.secondary700};
             font-weight: 700;
             font-size: 2rem;
-            margin-top: 4.5rem;
+            margin: 0rem 0 4.5rem 0;
         }
         .button {
-            margin-top: 2rem;
+            margin-top: 1rem;
+            color: ${props => props.theme.colors.primary900};
+            font-size: 1.125rem;
+            .circle {
+                background-color: ${props => props.theme.colors.primary900};
+                height: 2rem;
+                width: 2rem;
+            }
         }
     }
-      
-    
+    @media screen and (max-width: 68rem){
+        h1 {
+        grid-column: 3 / span 8;
+        }
+        .contact-text {
+        grid-column: 2 / span 10;
+        }
+    }  
+    @media screen and (max-width: 56rem){
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        h1 {
+            grid-column: 2 / span 6;
+        }
+        .contact-text {
+            grid-column: 2 / span 6;
+        }
+        .email-contact {
+            align-items: center;
+            grid-column: 2 / span 6;
+            .email-us, .email-address, .ourteam p {
+                text-align: center;
+            }
+            .email-address {
+                margin-bottom: 2.5rem;
+            }
+            .ourteam {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-bottom: 4.5rem;
+                .button {
+                    align-self: center;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 48rem){
+        h1 {
+            grid-column: 1 / span 8;
+        }
+        .contact-text {
+            grid-column: 1 / span 8;
+        }
+    }
+    @media screen and (max-width: 40rem){
+        h1, .contact-text {
+            text-align: left;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        .email-contact {
+            grid-column: 1 / span 8;
+            align-items: flex-start;
+            
+            .email-us, .email-address, .ourteam p {
+                text-align: left;
+            }
+            .email-address {
+                font-size: 1.5rem;
+            }
+            .ourteam .button {
+                align-self: flex-start;
+            }
+        }
+        
+    }
 `
 
 const ContactForm = styled(Form)`
-    grid-row: 1 / span 2;
+    grid-row: 3 / span 1;
     grid-column: 7 / span 6;
-    
+    @media screen and (max-width: 56rem) {
+        grid-row: 4 / span 1;
+        grid-column: 2 / span 6;
+    }
+    @media screen and (max-width: 48rem){
+        grid-column: 1 / span 8;
+    }
 `
 
 export default ContactPage

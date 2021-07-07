@@ -23,7 +23,7 @@ const StyledSubButton = styled.button`
     border: none;
     outline: none;
     background: none;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     pointer-events: ${props => (
         props.sending ? 'none' :
@@ -41,8 +41,8 @@ const StyledSubButton = styled.button`
     align-items: center;
     cursor: pointer;
     .circle {
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 2rem;
+        width: 2rem;
         background-color: ${props => (
         props.sending ? props.theme.colors.highlight700 :
         props.error ? props.theme.colors.red :

@@ -124,7 +124,7 @@ const FooterContainer = styled.footer`
         }
         .social-media {
             margin-top: 0;
-            grid-column: 2 / span 2;
+            grid-column: 2 / span 1;
         }
         .disclaimer {
             flex-direction: row;
@@ -132,7 +132,7 @@ const FooterContainer = styled.footer`
             align-items: center;
         }
     }
-    @media screen and (min-width: 55rem){
+    @media screen and (min-width: 56rem){
         grid-template-columns: repeat(3, 1fr);
         .line, .disclaimer {
             grid-column: 1 / span 3;
