@@ -24,6 +24,7 @@ const PageContainer = styled.div`
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
+    position: relative;
     .content-container {
         grid-column: 2 / span 12;
     }

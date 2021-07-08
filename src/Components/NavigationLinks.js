@@ -2,22 +2,18 @@ import React from 'react';
 import styled from 'styled-components'; 
 import {Link} from 'gatsby'
 
-const NavigationLinks = ({isOpen}) => {
-    const navClass = !isOpen ? 'standard-nav' : 'popup-nav'
-    const activeClass = !isOpen ? 'active_nav' : 'active_pop_nav'
-    const ulClass = !isOpen ? 'standard-ul' : 'popup-ul'
-    const liClass = !isOpen ? 'standard-li' : 'popup-li'
+const NavigationLinks = () => {
     return ( 
-        <Navigation className={navClass}>
-            <ul className={ulClass}>
-                <li className={liClass}>
-                    <Link to="/projects" className='nav-link' activeClassName={activeClass}>Projects</Link>
+        <Navigation>
+            <ul >
+                <li >
+                    <Link to="/projects" className='nav-link' activeClassName='active-nav'>Projects</Link>
                 </li>
-                <li className={liClass}>
-                    <Link to="/about" className='nav-link' activeClassName={activeClass}>About</Link>
+                <li >
+                    <Link to="/about" className='nav-link' activeClassName='active-nav'>About</Link>
                 </li>
-                <li className={liClass}>
-                    <Link to="/contact" className=" nav-link contact_cta" activeClassName={activeClass}>Contact</Link>
+                <li >
+                    <Link to="/contact" className=" nav-link contact_cta" activeClassName='active-nav'>Contact</Link>
                 </li>
             </ul>
         </Navigation>
@@ -25,11 +21,11 @@ const NavigationLinks = ({isOpen}) => {
 }
 
 const Navigation = styled.nav`
-    .standard-ul {
+    ul {
         display: flex;
         list-style: none;
     }
-    .standard-li {
+    li {
         margin-left: clamp(2rem,2vw, 3rem);
         padding-bottom: 0.2rem;
         text-transform: uppercase;

@@ -4,27 +4,26 @@ import Logo from '../images/QuercusGroupLogo.svg'
 import {Link} from 'gatsby'
 import { IconMenu2 } from '@tabler/icons'
 import NavigationLinks from './NavigationLinks'
+import ToggleMenu from './ToggleMenu'
 
 const Header = ()=>{
-    const [isOpen, setIsOpen] = useState(false)
-    const toggleMenuHandler = () => {
-        setIsOpen(prev => !prev)
+    const [open, setOpen] = useState(false)
+    const openMenuHandler = ()=>{
+        setOpen(!open)
     }
+
     return (
         <HeaderContainer>
             <Link to="/">
                 <LogoImage src={Logo} alt="Quercus Group Logo"/>
             </Link>
-            <NavigationLinks isOpen={isOpen}/>
+            <NavigationLinks/>
             {
-                !isOpen && 
-                <button 
-                    className='menu-button open'
-                    name='open-menu-button'
-                    onClick={toggleMenuHandler}>
+                <button className='menu-button' onClick={openMenuHandler}>
                     <IconMenu2 size={32}/>
                 </button>
-            } 
+            }
+            {open ? <ToggleMenu openMenuHandler={openMenuHandler}/> : null }
         </HeaderContainer>
     )
 }
@@ -41,16 +40,8 @@ const HeaderContainer = styled.header`
         border: none;
         cursor: pointer;
         padding: 0.5rem;
-        &.open svg {
+        svg {
             stroke: ${props => props.theme.colors.primary900};
-        }
-        .close {
-            position: absolute;
-            top: 10%;
-            right: 10%;
-        }
-        &.close svg {
-            stroke: ${props => props.theme.colors.white50};
         }
     }
     @media screen and (max-width: 83rem){
