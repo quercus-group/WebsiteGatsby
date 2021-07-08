@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 
 const TopicsOverview = () => {
-    const topics = ['Water & Sanitation', 'Sustainable Urban Development', 'Waste Management & Circular Economy', 'Cleantech', 'Sustainable Trade', 'Inclusive Business', 'Mobility', 'Climat Smart Agriculture', 'Regional Economic Development', 'Human Development']
+    const topics = ['Water & Sanitation', 'Sustainable Urban Development', 'Waste Management & Circular Economy', 'Cleantech', 'Sustainable Trade', 'Inclusive Business', 'Mobility', 'Climate Smart Agriculture', 'Regional Economic Development', 'Human Development']
     return ( 
         <TopicsContainer>
             {topics.map(topic => (
