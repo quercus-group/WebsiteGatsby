@@ -91,24 +91,55 @@ const ProjectPageContainer = styled.section`
         margin-bottom: 2rem;
 
     }
-    .sectionIntro {
+    .sectionIntro, .page-outro, .button {
         grid-column: 3  / span 8 ;
+    }
+    .sectionIntro {
         grid-row: 3 / span 1;
         text-align: center;
         line-height: 1.5;
         margin-bottom: 4.5rem;
     }
     .page-outro {
-        grid-column: 3  / span 8 ;
         text-align: center;
         line-height: 1.5;
         margin: 2.5rem 0 2.5rem 0;
     }
     .button {
-        grid-column: 3  / span 8 ;
         justify-self: center;
         margin-bottom: 4.5rem;
         color: ${props => props.theme.colors.highlight600};
+    }
+    @media screen and (max-width: 68rem){
+        grid-template-columns: repeat(8, minmax(auto, 6rem));
+        h1, h2, .sectionIntro, .page-outro, .button {
+        grid-column: 2  / span 6;
+        }
+    }
+    @media screen and (max-width: 68rem){
+        grid-template-columns: repeat(8, 1fr);
+    }
+    @media screen and (max-width: 56rem){
+        .sectionIntro, .page-outro, .button {
+        grid-column: 1  / span 8;
+        }
+    }
+    @media screen and (max-width: 48rem){
+        grid-template-columns: repeat(6, 1fr);
+        h1, h2, .sectionIntro, .page-outro, .button {
+            grid-column: 1  / span 6;
+        }
+    }
+    @media screen and (max-width: 40rem){
+        h1, h2, .sectionIntro, .page-outro{
+            text-align: left;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        .button {
+            justify-self: flex-start;
+        }
     }
 `
 

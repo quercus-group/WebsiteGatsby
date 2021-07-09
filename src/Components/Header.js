@@ -11,7 +11,6 @@ const Header = ()=>{
     const toggleMenuHandler = ()=> {
         setIsOpen(!isOpen)
     }
-    console.log(isOpen)
     return (
         <HeaderContainer>
             <Link to="/">
