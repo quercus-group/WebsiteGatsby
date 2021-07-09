@@ -1,27 +1,27 @@
 import { IconX } from '@tabler/icons';
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled from 'styled-components';
 import {Link} from 'gatsby'
 
-const ToggleMenu = ({openMenuHandler}) => {
+const ToggleMenu = ({cname, toggleMenuHandler}) => {
     return ( 
-        <ToggleMenuContainer>
-            <button onClick={openMenuHandler}>
-                <IconX className='icon'/>
+        <ToggleMenuContainer className={cname}>
+            <button onClick={toggleMenuHandler} className='close-button'>
+                <IconX  className='icon'/>
             </button>
             <nav>
-                <ul>
+                <ul >
                     <li >
-                        <Link to="/" className='nav-link' activeClassName='active-nav' onClick={openMenuHandler}>Home</Link>
+                        <Link to="/" className='nav-link' activeClassName='active-nav' onClick={toggleMenuHandler}>Home</Link>
                     </li>
                     <li >
-                        <Link to="/projects" className='nav-link' activeClassName='active-nav' onClick={openMenuHandler}>Projects</Link>
+                        <Link to="/projects" className='nav-link' activeClassName='active-nav' onClick={toggleMenuHandler}>Projects</Link>
                     </li>
                     <li >
-                        <Link to="/about" className='nav-link' activeClassName='active-nav' onClick={openMenuHandler}>About</Link>
+                        <Link to="/about" className='nav-link' activeClassName='active-nav' onClick={toggleMenuHandler}>About</Link>
                     </li>
                     <li >
-                        <Link to="/contact" className=" nav-link contact_cta" activeClassName='active-nav' onClick={openMenuHandler}>Contact</Link>
+                        <Link to="/contact" className=" nav-link" activeClassName='active-nav' onClick={toggleMenuHandler}>Contact</Link>
                     </li>
                 </ul>
             </nav>
@@ -31,71 +31,78 @@ const ToggleMenu = ({openMenuHandler}) => {
  
 export default ToggleMenu;
 
-const animation = keyframes`
-  0% {
-    clip-path: circle(0% at 100% 0);
-  }
-
-  100% {
-    clip-path: circle(150% at 100% 0);
-  }
-`;
 
 const ToggleMenuContainer = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     z-index: 5;
     width: 100vw;
     height: 100vh;
+    display: grid;
+    grid-template-columns: 1.5rem repeat(8, minmax(auto, 4.5rem)) 1.5rem;
+    grid-column-gap: 2rem;
     background-color: ${props => props.theme.colors.primary900};
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    animation: ${animation} 1s ease;
-    p {
-        color: ${props => props.theme.colors.white50};
+    transition: transform 0.5s ease;
+    &.close-menu {
+        transform: translateX(100%);
     }
-    button {
-        height: fit-content;
-        width: fit-content;
-        background: none;
-        outline: none;
-        border: none;
-        margin: 1rem;
-        padding: 1rem;
-        align-self: flex-end;
-    }
-    button .icon {
-        stroke: ${props => props.theme.colors.white50};
-        width: 2rem;
-        height: 2rem;
+    &.open-menu {
+        transform: translateX(0);
     }
     nav {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-end;
-        padding: 2rem 2rem;
+        grid-column: 2 / span 8;
+        grid-row: 1 / span 2;
+        margin: 1rem 0;
+        align-self: center;
+        justify-self: flex-end;
+        height: fit-content;
     }
-    nav ul {
-        height: 40%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between ;
+    ul {
+        list-style: none;
+        height: fit-content;
     }
-    nav ul li .nav-link{
-        color: ${props => props.theme.colors.white50};
-        font-size: 2.5rem;
-        font-weight: 900;
-        cursor: pointer;
-        
-    }
-    nav ul li {
+    li {
         text-align: right;
+        margin-bottom: 2rem;
+        .nav-link {
+            font-size: 2.5rem;
+            color: ${props => props.theme.colors.white100};
+            font-weight: 900;
+            padding: 1rem 0;
+        }
+        .active-nav {
+            color: ${props => props.theme.colors.secondary500};
+        }
+    }
+    .close-button {
+        grid-column: 2 / span 8;
+        grid-row: 1 / span 1;
+        justify-self: flex-end;
+        outline: none;
+        background: none;
+        border: none;
+        height: fit-content;
+        margin: 1rem 0;
+        padding: 0.5rem;
+        .icon {
+            width: 2rem;
+            height: 2rem;
+            stroke:  ${props => props.theme.colors.white100};
+        }
+    }
+    @media screen and (min-width: 56rem){
+        display: none;
+        pointer-events: none;
+    }
+    @media screen and (max-width: 40rem){
+        grid-template-columns: 0.5rem repeat(6, minmax(auto, 4.5rem)) 0.5rem;
+        nav {
+        grid-column: 2 / span 6;
+        }
+        .close-button {
+        grid-column: 2 / span 6;
+        }
     }
 `
 

@@ -3,30 +3,44 @@ import styled from 'styled-components'
 import Logo from '../images/QuercusGroupLogo.svg'
 import {Link} from 'gatsby'
 import { IconMenu2 } from '@tabler/icons'
-import NavigationLinks from './NavigationLinks'
-import ToggleMenu from './ToggleMenu'
+import ToggleMenu from './ToggleMenu';
 
 const Header = ()=>{
-    const [open, setOpen] = useState(false)
-    const openMenuHandler = ()=>{
-        setOpen(!open)
+    
+    const [isOpen, setIsOpen] = useState(false)
+    const toggleMenuHandler = ()=> {
+        setIsOpen(!isOpen)
     }
-
+    console.log(isOpen)
     return (
         <HeaderContainer>
             <Link to="/">
                 <LogoImage src={Logo} alt="Quercus Group Logo"/>
             </Link>
-            <NavigationLinks/>
+            <Navigation>
+                <ul >
+                    <li >
+                        <Link to="/projects" className='nav-link' activeClassName='active-nav'>Projects</Link>
+                    </li>
+                    <li >
+                        <Link to="/about" className='nav-link' activeClassName='active-nav'>About</Link>
+                    </li>
+                    <li >
+                        <Link to="/contact" className=" nav-link contact_cta" activeClassName='active-nav'>Contact</Link>
+                    </li>
+                </ul>
+            </Navigation>
             {
-                <button className='menu-button' onClick={openMenuHandler}>
+                <button className='menu-button' onClick={toggleMenuHandler} >
                     <IconMenu2 size={32}/>
                 </button>
             }
-            {open ? <ToggleMenu openMenuHandler={openMenuHandler}/> : null }
+            <ToggleMenu cname={ isOpen ? 'open-menu' : 'close-menu'} toggleMenuHandler={toggleMenuHandler}/>
         </HeaderContainer>
     )
 }
+
+export default Header
 
 const HeaderContainer = styled.header`
     grid-column: 1 / span 14;
@@ -68,4 +82,29 @@ const LogoImage = styled.img`
     }
 `
 
-export default Header
+const Navigation = styled.nav`
+    ul {
+        display: flex;
+        list-style: none;
+    }
+    li {
+        margin-left: clamp(2rem,3vw, 4rem);
+        padding-bottom: 0.2rem;
+        text-transform: uppercase;
+        font-weight: 400;
+        .nav-link {
+            color: ${props => props.theme.colors.primary500};
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+        .active_nav {
+            color: ${props => props.theme.colors.secondary700};
+            font-weight: 700;
+        }
+    }
+    @media screen and (max-width: 56rem){
+        display: none;
+        pointer-events: none;
+    }
+`
+
