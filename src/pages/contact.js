@@ -36,7 +36,7 @@ const ContactPageContainer = styled.section`
     grid-template-columns: repeat(12, minmax(0, 4.5rem));
     grid-column-gap: 2rem;
     grid-template-rows: max-content;
-    padding: 4rem 0;
+    margin-top: 5vh;
     h1 {
         grid-column: 4 / span 6;
         grid-row: 1 / span 1;

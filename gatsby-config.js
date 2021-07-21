@@ -22,8 +22,14 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
+    { resolve: "gatsby-plugin-sitemap",
+      options: {
+        createLinkInHead: true,
+      }
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -32,5 +38,6 @@ module.exports = {
       },
       __key: "images",
     },
+    "gatsby-plugin-preload-fonts"
   ],
 };

@@ -6,7 +6,7 @@ import {Link} from 'gatsby'
 const ToggleMenu = ({cname, toggleMenuHandler}) => {
     return ( 
         <ToggleMenuContainer className={cname}>
-            <button onClick={toggleMenuHandler} className='close-button'>
+            <button onClick={toggleMenuHandler} className='close-button' name='close-menu-button'>
                 <IconX  className='icon'/>
             </button>
             <nav>

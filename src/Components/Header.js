@@ -30,7 +30,7 @@ const Header = ()=>{
                 </ul>
             </Navigation>
             {
-                <button className='menu-button' onClick={toggleMenuHandler} >
+                <button className='menu-button' onClick={toggleMenuHandler} name='open-menu-button'>
                     <IconMenu2 size={32}/>
                 </button>
             }
@@ -89,15 +89,20 @@ const Navigation = styled.nav`
     li {
         margin-left: clamp(2rem,3vw, 4rem);
         padding-bottom: 0.2rem;
-        text-transform: uppercase;
+        text-transform: none;
         font-weight: 400;
+        
+        :hover .nav-link {
+            color: ${props => props.theme.colors.highlight600};
+        }
         .nav-link {
             color: ${props => props.theme.colors.primary500};
             font-size: 1.125rem;
             font-weight: 700;
+            transition: color 0.5s ease;
         }
         .active_nav {
-            color: ${props => props.theme.colors.secondary700};
+            color: ${props => props.theme.colors.highlight600};
             font-weight: 700;
         }
     }

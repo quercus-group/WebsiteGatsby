@@ -7,7 +7,7 @@ import LightButton from '../Light-Button';
 const AboutSection = () => {
     const data = useStaticQuery(graphql`
         query  TeamMembers {
-        allContentfulTeamMember (sort: { fields: order, order: ASC }) {
+        allContentfulTeamMember (sort: { fields: orderOfAppearance, order: ASC }) {
             edges {
                 node {
                     id
