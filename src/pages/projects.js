@@ -116,9 +116,9 @@ const ProjectPageContainer = styled.section`
         grid-column: 2  / span 6;
         }
     }
-    @media screen and (max-width: 68rem){
+    /* @media screen and (max-width: 68rem){
         grid-template-columns: repeat(8, 1fr);
-    }
+    } */
     @media screen and (max-width: 56rem){
         .sectionIntro, .page-outro, .button {
         grid-column: 1  / span 8;

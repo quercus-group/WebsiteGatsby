@@ -21,16 +21,10 @@ const AboutPage = ()=>{
     `)
     
     const allTeamMembers = allContentfulTeamMember.edges
-    const copenhagenTeam = allTeamMembers.filter(({node}) => (
-        node.officeLocation.includes('Copenhagen') 
+    const coreTeam = allTeamMembers.filter(({node}) => (
+        !node.officeLocation.includes('Other')
     ))
-    const nairobiTeam = allTeamMembers.filter(({node}) => (
-        node.officeLocation.includes('Nairobi') 
-    ))
-    const singaporeTeam = allTeamMembers.filter(({node}) => (
-        node.officeLocation.includes('Singapore') 
-    ))
-
+    console.log(coreTeam)
     return (
         <Layout>
             <Seo
@@ -53,12 +47,8 @@ const AboutPage = ()=>{
                 <BigStatement>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet consequuntur beatae tempore.
                 </BigStatement>
-                <h3 className="location">Copenhagen</h3>
-                <h3 className="location">Nairobi</h3>
-                <h3 className="location">Singapore</h3>
-                <div className="copenhagen-office">
                     {
-                        copenhagenTeam.map(member => {
+                        coreTeam.map(member => {
                             const {firstName, lastName, email, phone, profileImage, position, id} = member.node
                             return <TeamMember
                                 key={id} 
@@ -71,39 +61,6 @@ const AboutPage = ()=>{
                             />
                         })
                     }
-                </div>
-                <div className="nairobi-office">
-                {
-                        nairobiTeam.map(member => {
-                            const {firstName, lastName, email, phone, profileImage, position, id} = member.node
-                            return <TeamMember
-                                key={id} 
-                                firstName={firstName}
-                                lastName={lastName}
-                                email={email}
-                                phone={phone}
-                                profileImage={profileImage}
-                                position={position}
-                            />
-                        })
-                    }
-                </div>
-                <div className="singapore-office">
-                {
-                        singaporeTeam.map(member => {
-                            const {firstName, lastName, email, phone, profileImage, position, id} = member.node
-                            return <TeamMember
-                                key={id} 
-                                firstName={firstName}
-                                lastName={lastName}
-                                email={email}
-                                phone={phone}
-                                profileImage={profileImage}
-                                position={position}
-                            />
-                        })
-                    }
-                </div>
                 <p className="page-outro">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, est mollitia expedita pariatur animi incidunt neque ullam illo blanditiis? Voluptatem modi ratione officia quod corrupti odit deleniti, enim ea repellendus.
                 </p>
@@ -116,7 +73,7 @@ const AboutPage = ()=>{
 const AboutPageContainer = styled.section`
     margin-top: 5vh;
     display: grid;
-    grid-template-columns: repeat(12, minmax(auto, 4.5rem));
+    grid-template-columns: repeat(12, minmax(0, 4.5rem));
     grid-gap: 0rem 2rem;
     h1 {
         grid-column: 4  / span 6;
@@ -144,31 +101,6 @@ const AboutPageContainer = styled.section`
             text-align: center;
         }
     }
-    .location {
-        margin-bottom: 3.5rem;
-        ::after {
-            display: inline-block;
-            content: "";
-            border-top: .1rem solid ${props => props.theme.colors.white400};
-            width: 100%;
-        }
-        &:first-of-type {
-            grid-column: 1 / span 6;
-        }
-        grid-column: span 3;
-    }
-    .copenhagen-office {
-        grid-column: 1 / span 6;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-column-gap: 2rem;
-        grid-row-gap: 2rem;
-    }
-    .nairobi-office, .singapore-office {
-        grid-column: span 3;
-        display: grid;
-        grid-row-gap: 2rem;
-    }
     .page-outro {
         text-align: center;
         line-height: 1.5;
@@ -179,6 +111,34 @@ const AboutPageContainer = styled.section`
         margin-bottom: 4.5rem;
         color: ${props => props.theme.colors.highlight600};
     }
+    @media screen and (max-width: 68rem){
+        grid-template-columns: repeat(8, minmax(auto, 6rem));
+        h1, h2, .sectionIntro, .page-outro, .button {
+        grid-column: 2  / span 6;
+        }
+    }
+    @media screen and (max-width: 56rem){
+        .sectionIntro, .page-outro, .button {
+        grid-column: 1  / span 8;
+        }
+    }
+    @media screen and (max-width: 48rem){
+        grid-template-columns: repeat(6, 1fr);
+        h1, h2, .sectionIntro, .page-outro, .button {
+            grid-column: 1  / span 6;
+        }
+    }
+    @media screen and (max-width: 40rem){
+        h1, h2, .sectionIntro p, .page-outro{
+            text-align: left;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        .button {
+            justify-self: flex-start;
+        }
+    }
 `
 
 const BigStatement = styled.h4`
@@ -188,8 +148,14 @@ const BigStatement = styled.h4`
     text-align: center;
     margin: 4.5rem 0rem;
     grid-column: 3 / span 8;
+    @media screen and (max-width: 68rem){
+        grid-column: 2 / span 6;
+    }
     @media screen and (max-width: 56rem){
         grid-column: 1 / span 8;
+    }
+    @media screen and (max-width: 48rem){
+        grid-column: 1  / span 6;
     }
     @media screen and (max-width: 40rem){
         grid-column: 1 / span 6;
