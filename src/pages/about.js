@@ -24,7 +24,7 @@ const AboutPage = ()=>{
     const coreTeam = allTeamMembers.filter(({node}) => (
         !node.officeLocation.includes('Other')
     ))
-    console.log(coreTeam)
+    
     return (
         <Layout>
             <Seo
@@ -49,7 +49,7 @@ const AboutPage = ()=>{
                 </BigStatement>
                     {
                         coreTeam.map(member => {
-                            const {firstName, lastName, email, phone, profileImage, position, id} = member.node
+                            const {firstName, lastName, email, phone, profileImage, position, id, officeLocation} = member.node
                             return <TeamMember
                                 key={id} 
                                 firstName={firstName}
@@ -58,6 +58,7 @@ const AboutPage = ()=>{
                                 phone={phone}
                                 profileImage={profileImage}
                                 position={position}
+                                officeLocation={officeLocation}
                             />
                         })
                     }
@@ -77,7 +78,8 @@ const AboutPageContainer = styled.section`
     grid-gap: 0rem 2rem;
     h1 {
         grid-column: 4  / span 6;
-        font-size: 3.5rem;
+        /* font-size: 3.5rem; */
+        font-size: clamp(2rem, 3.889vw, 3.5rem) ;
         line-height: 1.3;
         font-weight: 900;
         text-align: center;
@@ -87,9 +89,13 @@ const AboutPageContainer = styled.section`
         grid-column: 4  / span 6;
         grid-row: 2 / span 1;
         font-weight: 700;
+        font-size: clamp(1.5rem, 2.223vw, 2rem);
         text-align: center;
         margin-bottom: 2rem;
 
+    }
+    p {
+        font-size: clamp(1rem, 1.339vw, 1.25rem);
     }
     .sectionIntro, .page-outro, .button {
         grid-column: 3  / span 8 ;
@@ -112,7 +118,7 @@ const AboutPageContainer = styled.section`
         color: ${props => props.theme.colors.highlight600};
     }
     @media screen and (max-width: 68rem){
-        grid-template-columns: repeat(8, minmax(auto, 6rem));
+        grid-template-columns: repeat(8, minmax(0, 6rem));
         h1, h2, .sectionIntro, .page-outro, .button {
         grid-column: 2  / span 6;
         }
