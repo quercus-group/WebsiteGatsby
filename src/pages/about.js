@@ -78,8 +78,7 @@ const AboutPageContainer = styled.section`
     grid-gap: 0rem 2rem;
     h1 {
         grid-column: 4  / span 6;
-        /* font-size: 3.5rem; */
-        font-size: clamp(2rem, 3.889vw, 3.5rem) ;
+        font-size: 3.5rem;
         line-height: 1.3;
         font-weight: 900;
         text-align: center;
@@ -89,13 +88,13 @@ const AboutPageContainer = styled.section`
         grid-column: 4  / span 6;
         grid-row: 2 / span 1;
         font-weight: 700;
-        font-size: clamp(1.5rem, 2.223vw, 2rem);
+        font-size: 2rem;
         text-align: center;
         margin-bottom: 2rem;
 
     }
     p {
-        font-size: clamp(1rem, 1.339vw, 1.25rem);
+        font-size: 1.25rem;
     }
     .sectionIntro, .page-outro, .button {
         grid-column: 3  / span 8 ;

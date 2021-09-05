@@ -22,8 +22,7 @@ const TeamMemberContainer = styled.div`
     display: flex;
     /* border: 0.1rem solid black; */
     h4 {
-        /* font-size: 1.25rem; */
-        font-size: clamp(1rem, 1.339vw, 1.25rem);
+        font-size: 1.25rem;
         font-weight: 700;
     }
     p {
@@ -40,27 +39,64 @@ const TeamMemberContainer = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: 2rem;
+        margin-left: clamp(0.5rem, 2.223vw, 2rem);
     }
     .profileImage {
         border-radius: 50%;
         aspect-ratio: 1;
         max-height: 11rem;
-        width: 33%;
     }
     @media screen and (max-width: 68rem){
         grid-column: span 4;
+    }
+    @media screen and (max-width: 64.125rem){
+        flex-direction: column;
+        align-items: center;
+        .details {
+            justify-content: flex-start;
+            align-items: center;
+            margin: 1rem 0 0 0;
+        }
+        .profileImage {
+            /* max-height: 9rem; */
+        }
     }
     @media screen and (max-width: 56rem){
         p.position {
             margin-bottom: 0.5rem;
         }
-        .details {
-            justify-content: flex-start;
-        }
     }
     @media screen and (max-width: 48rem){
-        grid-column: span 3;
+        grid-column: span 6;
+        flex-direction: row;
+        justify-content: center;
+        .details {
+            align-items: flex-start;
+            margin: 0 0 0 2rem;
+        }
+    }
+    @media screen and (max-width: 40rem){
+        grid-column: span 6;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        border-bottom: 0.1rem solid ${props => props.theme.colors.white500};
+        padding-bottom: 2rem;
+        .profileImage {
+            max-height: 9rem;
+        }
+    }
+    @media screen and (max-width: 32rem){
+        
+        .profileImage{
+            max-height: 7.5rem;
+        }
+        .details {
+            margin-left: 1.5rem;
+        }
+        p.position, p.email, p.phone {
+            font-size: 1.125rem
+        }
     }
 `
 
