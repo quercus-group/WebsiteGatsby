@@ -5,6 +5,8 @@ import Layout from '../Components/Layout'
 import Seo from '../Components/SEO'
 import ProjectCard from '../Components/ProjectCard'
 import LightButton from '../Components/Light-Button';
+import PageTitle from '../Components/Basic-Components/PageTitle'
+import PageSubTitle from '../Components/Basic-Components/PageSubTitle'
 
 const ProjectPage = ()=>{
     const data = useStaticQuery(graphql`
@@ -38,8 +40,8 @@ const ProjectPage = ()=>{
         <Layout>
             <Seo title='Projects'/>
             <ProjectPageContainer>
-                    <h1>Projects</h1>
-                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                    <PageTitle>Projects</PageTitle>
+                    <PageSubTitle>Lorem ipsum dolor sit amet consectetur adipisicing elit.</PageSubTitle>
                     <p className='sectionIntro'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsum fugiat ex doloremque, earum itaque. Sequi ea, non excepturi perferendis magni voluptatibus odio expedita laboriosam sint ullam minima voluptates qui, in voluptas eaque odit quam vero molestiae at facere voluptatum? Odio possimus dolor ipsum corrupti ipsa accusantium, ad vel</p>
                     {
                         featuredProjects.map(project => {
@@ -75,22 +77,6 @@ const ProjectPageContainer = styled.section`
     a {
         color: ${props => props.theme.colors.primary900};
     }
-    h1 {
-        grid-column: 4  / span 6;
-        font-size: 3.5rem;
-        line-height: 1.3;
-        font-weight: 900;
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    h2 {
-        grid-column: 4  / span 6;
-        grid-row: 2 / span 1;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 2rem;
-
-    }
     .sectionIntro, .page-outro, .button {
         grid-column: 3  / span 8 ;
     }
@@ -112,13 +98,10 @@ const ProjectPageContainer = styled.section`
     }
     @media screen and (max-width: 68rem){
         grid-template-columns: repeat(8, minmax(auto, 6rem));
-        h1, h2, .sectionIntro, .page-outro, .button {
+        .sectionIntro, .page-outro, .button {
         grid-column: 2  / span 6;
         }
     }
-    /* @media screen and (max-width: 68rem){
-        grid-template-columns: repeat(8, 1fr);
-    } */
     @media screen and (max-width: 56rem){
         .sectionIntro, .page-outro, .button {
         grid-column: 1  / span 8;
@@ -126,16 +109,13 @@ const ProjectPageContainer = styled.section`
     }
     @media screen and (max-width: 48rem){
         grid-template-columns: repeat(6, 1fr);
-        h1, h2, .sectionIntro, .page-outro, .button {
+        .sectionIntro, .page-outro, .button {
             grid-column: 1  / span 6;
         }
     }
     @media screen and (max-width: 40rem){
-        h1, h2, .sectionIntro, .page-outro{
+        .sectionIntro, .page-outro{
             text-align: left;
-        }
-        h1 {
-            font-size: 2.5rem;
         }
         .button {
             justify-self: flex-start;

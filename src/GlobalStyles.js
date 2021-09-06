@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
         scroll-behavior: smooth;
     }
     body, html {
-        font-family: 'Lato', Sans-Serif;
+        font-family: 'Lato', 'Trebuchet MS', sans-serif;
         color: ${props => props.theme.colors.primary900};
         background-color: ${props => props.theme.colors.white100};
     }

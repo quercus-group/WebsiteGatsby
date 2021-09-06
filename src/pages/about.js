@@ -5,6 +5,10 @@ import Seo from '../Components/SEO'
 import LightButton from '../Components/Light-Button';
 import { graphql, useStaticQuery } from 'gatsby';
 import TeamMember from '../Components/Team-Member';
+import PageTitle from '../Components/Basic-Components/PageTitle';
+import PageSubTitle from '../Components/Basic-Components/PageSubTitle';
+import BigStatement from '../Components/Basic-Components/BigStatement';
+import GridContainer from '../Components/Basic-Components/GridContainer';
 
 const AboutPage = ()=>{
     const {allContentfulTeamMember} = useStaticQuery(graphql`
@@ -30,9 +34,9 @@ const AboutPage = ()=>{
             <Seo
                 title='About'
             />
-            <AboutPageContainer>
-                <h1>About</h1>
-                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+            <AboutPageContainer className='about-page'>
+                <PageTitle>About</PageTitle>
+                <PageSubTitle>Lorem ipsum dolor sit amet consectetur adipisicing elit.</PageSubTitle>
                 <div className="sectionIntro">
                     <p>
                         In 2012, Quercus Group started as a spin-off of Nicolai's cluster development experiences focusing on cleantech and on helping other clusters to succeed.
@@ -71,28 +75,7 @@ const AboutPage = ()=>{
     )
 }
 
-const AboutPageContainer = styled.section`
-    margin-top: 5vh;
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 4.5rem));
-    grid-gap: 0rem 2rem;
-    h1 {
-        grid-column: 4  / span 6;
-        font-size: 3.5rem;
-        line-height: 1.3;
-        font-weight: 900;
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    h2 {
-        grid-column: 4  / span 6;
-        grid-row: 2 / span 1;
-        font-weight: 700;
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 2rem;
-
-    }
+const AboutPageContainer = styled(GridContainer)`
     p {
         font-size: 1.25rem;
     }
@@ -117,8 +100,7 @@ const AboutPageContainer = styled.section`
         color: ${props => props.theme.colors.highlight600};
     }
     @media screen and (max-width: 68rem){
-        grid-template-columns: repeat(8, minmax(0, 6rem));
-        h1, h2, .sectionIntro, .page-outro, .button {
+        .sectionIntro, .page-outro, .button {
         grid-column: 2  / span 6;
         }
     }
@@ -128,17 +110,13 @@ const AboutPageContainer = styled.section`
         }
     }
     @media screen and (max-width: 48rem){
-        grid-template-columns: repeat(6, 1fr);
-        h1, h2, .sectionIntro, .page-outro, .button {
+        .sectionIntro, .page-outro, .button {
             grid-column: 1  / span 6;
         }
     }
     @media screen and (max-width: 40rem){
-        h1, h2, .sectionIntro p, .page-outro{
+        .sectionIntro p, .page-outro{
             text-align: left;
-        }
-        h1 {
-            font-size: 2.5rem;
         }
         .button {
             justify-self: flex-start;
@@ -146,28 +124,5 @@ const AboutPageContainer = styled.section`
     }
 `
 
-const BigStatement = styled.h4`
-    font-size: 3rem;
-    color: ${props => props.theme.colors.secondary700};
-    font-weight: 900;
-    text-align: center;
-    margin: 4.5rem 0rem;
-    grid-column: 3 / span 8;
-    @media screen and (max-width: 68rem){
-        grid-column: 2 / span 6;
-    }
-    @media screen and (max-width: 56rem){
-        grid-column: 1 / span 8;
-    }
-    @media screen and (max-width: 48rem){
-        grid-column: 1  / span 6;
-    }
-    @media screen and (max-width: 40rem){
-        grid-column: 1 / span 6;
-        text-align: left;
-        margin: 4.5rem 0;
-        font-size: 2.5rem;
-    }
-`
 
 export default AboutPage
