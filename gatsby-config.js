@@ -39,13 +39,13 @@ module.exports = {
       __key: "images",
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        fonts: [
-          `lato\:,400,700,900`,
-        ],
-        display: 'swap'
+        google: {
+          families: ['Lato:400,700,900']
+        }
       }
-    }
+    },
+    'gatsby-plugin-preload-fonts'
   ],
 };

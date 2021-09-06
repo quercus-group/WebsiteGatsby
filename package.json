@@ -12,7 +12,8 @@
     "start": "env-cmd .env.development gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "preload-fonts": "gatsby-preload-fonts"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
@@ -22,13 +23,14 @@
     "framer-motion": "^3.10.0",
     "gatsby": "^3.0.3",
     "gatsby-image": "^3.0.0",
-    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^1.0.0",
+    "gatsby-plugin-preload-fonts": "^2.13.0",
     "gatsby-plugin-prettier-eslint": "^1.0.4",
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-plugin-sitemap": "^4.5.0",
     "gatsby-plugin-styled-components": "^4.0.0",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-contentful": "^5.0.0",
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-transformer-sharp": "^3.0.0",
