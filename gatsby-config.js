@@ -39,15 +39,13 @@ module.exports = {
       __key: "images",
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `Lato`,
-            variants: [`400`, `700`, `900`],
-          },
+          `lato\:,400,700,900`,
         ],
-      },
+        display: 'swap'
+      }
     }
   ],
 };
