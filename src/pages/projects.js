@@ -7,6 +7,7 @@ import ProjectCard from '../Components/ProjectCard'
 import LightButton from '../Components/Light-Button';
 import PageTitle from '../Components/Basic-Components/PageTitle'
 import PageSubTitle from '../Components/Basic-Components/PageSubTitle'
+import GridContainer from '../Components/Basic-Components/GridContainer'
 
 const ProjectPage = ()=>{
     const data = useStaticQuery(graphql`
@@ -69,11 +70,7 @@ const ProjectPage = ()=>{
 }
 
 
-const ProjectPageContainer = styled.section`
-    margin-top: 5vh;
-    display: grid;
-    grid-template-columns: repeat(12, minmax(auto, 4.5rem));
-    grid-gap: 0rem 2rem;
+const ProjectPageContainer = styled(GridContainer)`
     a {
         color: ${props => props.theme.colors.primary900};
     }
@@ -97,7 +94,6 @@ const ProjectPageContainer = styled.section`
         color: ${props => props.theme.colors.highlight600};
     }
     @media screen and (max-width: 68rem){
-        grid-template-columns: repeat(8, minmax(auto, 6rem));
         .sectionIntro, .page-outro, .button {
         grid-column: 2  / span 6;
         }
@@ -108,7 +104,6 @@ const ProjectPageContainer = styled.section`
         }
     }
     @media screen and (max-width: 48rem){
-        grid-template-columns: repeat(6, 1fr);
         .sectionIntro, .page-outro, .button {
             grid-column: 1  / span 6;
         }

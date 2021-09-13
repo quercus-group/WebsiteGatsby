@@ -85,7 +85,7 @@ const HeroContainer = styled.section`
     .cta {
         grid-column: 1 / span 6;
         grid-row: 3 / span 1;
-        align-self: flex-end;
+        align-self: flex-start;
     }
     .image {
         border-radius: 0.5rem;
@@ -130,7 +130,6 @@ const HeroContainer = styled.section`
         .cta {
             grid-column: 1 / span 4;
             grid-row: 3 / span 1;
-            align-self: flex-end;
             font-size: 1.25rem;
         }
     }
@@ -154,9 +153,6 @@ const HeroContainer = styled.section`
             grid-column: 4 /span 4;
             grid-row: 3 / span 2;
             box-shadow: 0.3rem 0.3rem 0.5rem 0rem rgba(0, 0, 0, 0.15);
-        }
-        .cta {
-            align-self: flex-start;
         }
     }
     @media screen and (max-width: 48rem){
