@@ -18,9 +18,9 @@ const projectPage = ({data}) => {
             />
             <ProjectPageContainer>
                 <PageTitle>{projectTitle}</PageTitle>
-                <p className="context-info">{client}  &bull; {projectStart} -{projectEnd}</p>
+                <p className="context-info">{client ? client : ''}  &bull; {projectStart ? projectStart : ''} -{projectEnd ? projectEnd : ''}</p>
                 <div className="tags">
-                    { tags.map(tag => (<p key={tag}>{tag}</p>)) }
+                    { tags ? tags.map(tag => (<p key={tag}>{tag}</p>)) : '' }
                 </div>
                 <div className="project-images">
                     {
@@ -32,7 +32,7 @@ const projectPage = ({data}) => {
                             alt={image.description}
                             key={image.id}
                             />
-                        )) : null
+                        )) : ''
                     }
                 </div>
                 { subtitle === null ? '' : <span className="subtitle">{documentToReactComponents(JSON.parse(subtitle.raw))}</span>}
@@ -52,7 +52,7 @@ const projectPage = ({data}) => {
                         <p className='contact-name'>{secondaryContact.firstName} {secondaryContact.lastName}</p>
                         <p className='contact-email'>{secondaryContact.email}</p>
                         <p className='contact-phone'>{secondaryContact.phone}</p>
-                    </div> : null}
+                    </div> : ''}
                 </div>
             </ProjectPageContainer>
         </Layout>
