@@ -237,6 +237,19 @@ export const query = graphql`
             projectEnd (formatString: " MMM YYYY")
             mainText {raw}
             imageOnProjectPage {
+<<<<<<< HEAD
+=======
+                title
+                description
+                id
+                gatsbyImageData (
+                    quality: 70
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP]
+                    )
+            }
+            featuredImage {
+>>>>>>> 917a70194a640291d8f0d9abd7ab99f640d0c37b
                 title
                 description
                 id
