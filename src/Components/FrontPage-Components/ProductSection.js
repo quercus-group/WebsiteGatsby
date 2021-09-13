@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Products from '../../data/products';
+import BasicProductCard from './BasicProductCard';
 import ProductCard from './ProductCard';
 import TopicsOverview from './TopicsOverviews';
 
@@ -12,7 +13,7 @@ const ProductSection = () => {
             <p className='sectionSubtitle'>Quercus Group employs a combination of approaches, methods and practices aimed to advance sustainability, collaboration and innovation.  Our services help get a better understanding of what is going on, how to navigate rapid, far-reaching and unprecedented changes in all aspects of society and how to create effective change by doing it in partnership.</p>
             {
                 Products.map(product => (
-                    <ProductCard 
+                    <BasicProductCard
                         title={product.title}
                         teaser={product.teaser}
                         icon={product.icon}
@@ -20,6 +21,16 @@ const ProductSection = () => {
                     />
                 ))
             }
+            {/* {
+                Products.map(product => (
+                    <ProductCard 
+                        title={product.title}
+                        teaser={product.teaser}
+                        icon={product.icon}
+                        key={product.id}
+                    />
+                ))
+            } */}
             <p className="topicIntro">We are not bound by the topic and seek synergies across sectors and themes. Our focus is driven by the challenge and its unique context. In past and recent projects, we tackled issues related to&hellip;</p>
             <TopicsOverview/>
             <BigStatement>
