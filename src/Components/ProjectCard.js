@@ -9,7 +9,7 @@ const ProjectCard = ({ slug, metaTitle, metaDescription, tags, client, thumbnail
         <ProjectCardContainer to={slug} className='projectCard'>
                 <GatsbyImage 
                     image={thumbnailImage.gatsbyImageData}
-                    alt={thumbnailImage.description}
+                    alt={thumbnailImage.description ? thumbnailImage.description : ''}
                     className='project-thumbnail-image'
                 />
                 
