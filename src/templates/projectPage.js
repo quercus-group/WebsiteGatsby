@@ -122,6 +122,17 @@ const ProjectPageContainer = styled.article`
         color: ${props => props.theme.colors.secondary700};
         text-decoration: underline;
     }
+    ul, ol {
+        margin-left: 2rem;
+        p {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    ol li::marker {
+        font-size: 1.25rem;
+        padding-right: 0.5rem;
+    }
     .question-cta {
         grid-column: 3 / span 8;
         font-size: 2rem;
