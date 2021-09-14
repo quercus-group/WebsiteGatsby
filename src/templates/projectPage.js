@@ -122,6 +122,9 @@ const ProjectPageContainer = styled.article`
         color: ${props => props.theme.colors.secondary700};
         text-decoration: underline;
     }
+    p {
+        line-height: 1.5;
+    }
     ul, ol {
         margin-left: 2rem;
         p {
