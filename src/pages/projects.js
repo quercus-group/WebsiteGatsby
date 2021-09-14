@@ -27,7 +27,7 @@ const ProjectPage = ()=>{
                             gatsbyImageData (
                                 placeholder: BLURRED
                                 formats: [AUTO, WEBP]
-                                quality: 100
+                                quality: 70
                                 width: 400
                                 )
                             }

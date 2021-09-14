@@ -5,7 +5,7 @@ const BigStatement  = ({children}) => {
     return ( <StyledBigStatement>{children}</StyledBigStatement> );
 }
 
-const StyledBigStatement = styled.h4`
+const StyledBigStatement = styled.blockquote`
 font-size: 3rem;
 color: ${props => props.theme.colors.secondary700};
 font-weight: 900;

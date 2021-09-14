@@ -22,7 +22,6 @@ module.exports = {
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
     { resolve: "gatsby-plugin-sitemap",

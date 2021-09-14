@@ -37,7 +37,7 @@ const projectPage = ({data}) => {
                 </div>
                 { subtitle === null ? '' : <span className="subtitle">{documentToReactComponents(JSON.parse(subtitle.raw))}</span>}
                 { mainText === null ? '' : documentToReactComponents(JSON.parse(mainText.raw)) }
-                <p className='question-cta'>Lorem ipsum dolor sit amet, consectetur adipiscing? </p>
+                <p className='question-cta'>Interested to learn more? Reach out to&hellip;</p>
                 <div className="project-contacts">
                     {primaryContact !== null ? 
                     <div className='contact-card'>
@@ -115,7 +115,7 @@ const ProjectPageContainer = styled.article`
         grid-column: 4 / span 6;
         margin: 1rem 0 0.5rem 0;
     }
-    p {
+    p, ul, ol {
         grid-column: 4 / span 6;
     }
     a {
@@ -164,7 +164,7 @@ const ProjectPageContainer = styled.article`
         .context-info, .tags, .project-contacts, .project-images, .subtitle, .question-cta {
             grid-column: 1 / span 8;
         }
-        p, h2, h3 {
+        p, h2, h3, ul, ol {
             grid-column: 2 / span 6;
         }
     }
@@ -173,7 +173,7 @@ const ProjectPageContainer = styled.article`
         .context-info, .tags, .project-contacts, .project-images, .subtitle, .question-cta {
             grid-column: 1 / span 6;
         }
-        p, h2, h3 {
+        p, h2, h3, ul, ol {
             grid-column: 2 / span 4;
         }
     }
@@ -182,7 +182,7 @@ const ProjectPageContainer = styled.article`
         .context-info, .tags, .project-contacts, .project-images, .subtitle, .question-cta {
             grid-column: 1 / span 6;
         }
-        p, h2, h3 {
+        p, h2, h3, ul, ol {
             grid-column: 1 / span 6;
         }
     }
