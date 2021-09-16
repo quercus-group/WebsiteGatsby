@@ -115,7 +115,7 @@ const ProjectPageContainer = styled.article`
         grid-column: 4 / span 6;
         margin: 1rem 0 0.5rem 0;
     }
-    p, ul, ol {
+    p, ul, ol, blockquote {
         grid-column: 4 / span 6;
     }
     a {
@@ -135,6 +135,16 @@ const ProjectPageContainer = styled.article`
     ol li::marker {
         font-size: 1.25rem;
         padding-right: 0.5rem;
+    }
+    blockquote {
+        font-style: italic;
+        color: ${props => props.theme.colors.secondary700};
+        padding-left: 2rem;
+        border-left: 0.15rem solid ${props => props.theme.colors.secondary200};
+        margin: 1.5rem 0;
+        p {
+            margin: 0;
+        }
     }
     .question-cta {
         grid-column: 3 / span 8;
@@ -170,7 +180,7 @@ const ProjectPageContainer = styled.article`
         .context-info, .tags, .project-contacts, .project-images, .subtitle, .question-cta {
             grid-column: 2 / span 6;
         }
-        p, h2, h3 {
+        p, h2, h3, blockquote, ul, ol {
             grid-column: 3 / span 4;
         }
     }
@@ -178,7 +188,7 @@ const ProjectPageContainer = styled.article`
         .context-info, .tags, .project-contacts, .project-images, .subtitle, .question-cta {
             grid-column: 1 / span 8;
         }
-        p, h2, h3, ul, ol {
+        p, h2, h3, ul, ol, blockquote {
             grid-column: 2 / span 6;
         }
     }
@@ -187,7 +197,7 @@ const ProjectPageContainer = styled.article`
         .context-info, .tags, .project-contacts, .project-images, .subtitle, .question-cta {
             grid-column: 1 / span 6;
         }
-        p, h2, h3, ul, ol {
+        p, h2, h3, ul, ol, blockquote {
             grid-column: 2 / span 4;
         }
     }
@@ -196,11 +206,14 @@ const ProjectPageContainer = styled.article`
         .context-info, .tags, .project-contacts, .project-images, .subtitle, .question-cta {
             grid-column: 1 / span 6;
         }
-        p, h2, h3, ul, ol {
+        p, h2, h3, ul, ol, blockquote {
             grid-column: 1 / span 6;
         }
     }
     @media screen and (max-width: 48rem){
+        blockquote {
+            padding-left: 1rem;
+        }
         .context-info, .subtitle, .question-cta, p, h2, h3 {
             text-align: left;
         }
