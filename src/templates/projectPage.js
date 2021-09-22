@@ -9,7 +9,7 @@ import Seo from '../Components/SEO'
 
 const projectPage = ({data}) => {
     const {projectTitle, client, tags, subtitle, mainText, metaTitle, metaDescription, imageOnProjectPage, primaryContact, secondaryContact, projectStart, projectEnd, seoImage } = data.contentfulProject
-    const seoImageSrc= `https:${seoImage.fluid.src}`    
+    const seoImageSrc= seoImage ? `https:${seoImage.fluid.src}` : ''   
     return ( 
         <Layout>
             <Seo
