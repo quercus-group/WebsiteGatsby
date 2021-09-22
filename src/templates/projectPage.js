@@ -8,13 +8,14 @@ import PageTitle from '../Components/Basic-Components/PageTitle';
 import Seo from '../Components/SEO'
 
 const projectPage = ({data}) => {
-    const {projectTitle, client, tags, subtitle, mainText, metaTitle, metaDescription, imageOnProjectPage, primaryContact, secondaryContact, projectStart, projectEnd } = data.contentfulProject
-    console.log(data)
+    const {projectTitle, client, tags, subtitle, mainText, metaTitle, metaDescription, imageOnProjectPage, primaryContact, secondaryContact, projectStart, projectEnd, seoImage } = data.contentfulProject
+    const seoImageSrc= `https:${seoImage.fluid.src}`    
     return ( 
         <Layout>
             <Seo
             title={metaTitle}
             description={metaDescription}
+            metaImage={seoImageSrc}
             />
             <ProjectPageContainer>
                 <PageTitle>{projectTitle}</PageTitle>
@@ -37,7 +38,7 @@ const projectPage = ({data}) => {
                 </div>
                 { subtitle === null ? '' : <span className="subtitle">{documentToReactComponents(JSON.parse(subtitle.raw))}</span>}
                 { mainText === null ? '' : documentToReactComponents(JSON.parse(mainText.raw)) }
-                <p className='question-cta'>Interested to learn more? Reach out to&hellip;</p>
+                <p className='question-cta'>Interested to learn more about {projectTitle}? Contact&hellip;</p>
                 <div className="project-contacts">
                     {primaryContact !== null ? 
                     <div className='contact-card'>
@@ -111,15 +112,18 @@ const ProjectPageContainer = styled.article`
         font-weight: 700;
         margin: 1rem 0 0.5rem 0;
     }
+    h3 {
+        font-size: 1.25rem;
+    }
     h4 {
         grid-column: 4 / span 6;
         margin: 1rem 0 0.5rem 0;
     }
-    p, ul, ol, blockquote {
+    p, ul, ol, blockquote, h3 {
         grid-column: 4 / span 6;
     }
     a {
-        color: ${props => props.theme.colors.secondary700};
+        color: ${props => props.theme.colors.primary900};
         text-decoration: underline;
     }
     p {
@@ -150,8 +154,8 @@ const ProjectPageContainer = styled.article`
         grid-column: 3 / span 8;
         font-size: 2rem;
         font-weight: 700;
+        margin: 3rem 0;
         text-align: center;
-        margin-bottom: 3rem;
     }
     .contact-card {
         display: grid;
@@ -175,12 +179,15 @@ const ProjectPageContainer = styled.article`
         grid-column: 2 / span 1;
         font-size: 1.125rem;
     }
+    .updated-at {
+        font-size: .875rem;
+    }
     @media screen and (max-width: 68rem){
         grid-template-columns: repeat(8, minmax(0, 6rem));
         .context-info, .tags, .project-contacts, .project-images, .subtitle, .question-cta {
             grid-column: 2 / span 6;
         }
-        p, h2, h3, blockquote, ul, ol {
+        p, h2, h3, blockquote, ul, ol, h3 {
             grid-column: 3 / span 4;
         }
     }
@@ -263,6 +270,7 @@ export const query = graphql`
             projectStart (formatString: "MMM YYYY")
             projectEnd (formatString: " MMM YYYY")
             mainText {raw}
+            updatedAt (formatString: "DD.MM.YYYY")
             imageOnProjectPage {
                 title
                 description
@@ -273,6 +281,7 @@ export const query = graphql`
                     formats: [AUTO, WEBP]
                     )
             }
+            seoImage {fluid {src}}
             primaryContact {
                 firstName
                 lastName

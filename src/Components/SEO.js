@@ -17,7 +17,7 @@ const query = graphql`
   }
 `
 
-const Seo = ({title, description}) => {
+const Seo = ({title, description, metaImage}) => {
     const { href } = useLocation()
     const { site } = useStaticQuery(query)
 
@@ -34,7 +34,7 @@ const Seo = ({title, description}) => {
         title: title ? `${title} | Quercus Group` : defaultTitle,
         description: description || defaultDescription,
         author: author,
-        // image: defaultImage,
+        // image: metaImage || defaultImage,
         color: defaultColor,
         baseUrl: siteUrl
       }
