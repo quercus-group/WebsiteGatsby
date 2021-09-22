@@ -8,7 +8,7 @@ module.exports = {
     description: "We help businesses, government and civic society to collaborate. Quercus Group is an international consulting company for sustainability in Copenhagen, Nairobi and Singapore.",
     author: "Quercus Group",
     siteUrl: "https://quercus-group.com/",
-    // image: '/BognaAnnaPortfolio.jpg',
+    image: '/metaImage-quercusGrop-main.jpg',
     themeColor: "#2C2D48"
   },
   plugins: [

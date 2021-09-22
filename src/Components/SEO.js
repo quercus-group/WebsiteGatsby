@@ -11,6 +11,7 @@ const query = graphql`
         defaultDescription: description
         author
         siteUrl
+        defaultImage: image
         defaultColor: themeColor
       }
     }
@@ -26,7 +27,7 @@ const Seo = ({title, description, metaImage}) => {
         defaultDescription,
         author,
         siteUrl,
-        // defaultImage,
+        defaultImage,
         defaultColor
       } = site.siteMetadata
 
@@ -34,7 +35,7 @@ const Seo = ({title, description, metaImage}) => {
         title: title ? `${title} | Quercus Group` : defaultTitle,
         description: description || defaultDescription,
         author: author,
-        // image: metaImage || defaultImage,
+        image: metaImage || defaultImage,
         color: defaultColor,
         baseUrl: siteUrl
       }
@@ -50,7 +51,7 @@ const Seo = ({title, description, metaImage}) => {
           {seo.description && (
             <meta property="og:description" content={seo.description} />
           )}
-          {/* <meta property="og:image" content={seo.image}/> */}
+          <meta property="og:image" content={seo.image}/>
           <meta property="og:url" content={href}/>
           <meta property="og:type" content="website"/>
           
@@ -59,11 +60,11 @@ const Seo = ({title, description, metaImage}) => {
           {seo.description && (
             <meta name="twitter:description" content={seo.description} />
           )}
-          {/* <meta name="twitter:image" content={seo.image}/> */}
+          <meta name="twitter:image" content={seo.image}/>
 
           <meta itemprop="name" content={site.title}/>
           <meta itemprop="description" content={site.description}/>
-          {/* <meta itemprop="image" content={seo.image}/> */}
+          <meta itemprop="image" content={seo.image}/>
             
           <meta name="theme-color" content={seo.defaultcolor}/>
           <meta name="msapplication-navbutton-color" content={seo.color}/>
