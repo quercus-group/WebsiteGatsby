@@ -21,7 +21,7 @@ const projectPage = ({data}) => {
                 <PageTitle>{projectTitle}</PageTitle>
                 <p className="context-info">{client ? client : ''}  &bull; {projectStart ? projectStart : ''} -{projectEnd ? projectEnd : ''}</p>
                 <div className="tags">
-                    { tags ? tags.map(tag => (<p key={tag}>{tag}</p>)) : '' }
+                    { tags ? tags.map(tag => (<span key={tag}>{tag}</span>)) : '' }
                 </div>
                 <div className="project-images">
                     {
@@ -74,14 +74,29 @@ const ProjectPageContainer = styled.article`
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        p {
-            background-color: ${props => props.theme.colors.white100};
-            border-radius: 0.5rem;
-            padding: 0.25em 0.5em;
-            margin: 0.5rem 1rem 1rem 0.5rem;
-            box-shadow: 0 0.3rem 0.5rem 0rem rgba(0, 0, 0, 0.15);
+        span {
+            display: inline-flex;
+            vertical-align: top;
+            -webkit-box-align: center;
+            align-items: center;
+            max-width: 100%;
+            font-weight: 400;
+            line-height: 1.2;
+            outline: transparent solid 2px;
+            outline-offset: 2px;
             border: 0.1rem solid ${props => props.theme.colors.white300};
+            box-shadow: 
+                0 .0625rem .1875rem 0rem rgba(0, 0, 0, 0.1),
+                0 .0625rem .125rem -0.125rem rgba(0, 0, 0, 0.06);
+            min-height: 2rem;
+            min-width: 2rem;
             font-size: 1rem;
+            border-radius: 0.375rem;
+            padding-inline-start: 0.75rem;
+            padding-inline-end: 0.75rem;
+            margin: 0.5rem 1rem 1rem 0.5rem;
+            background: ${props => props.theme.colors.white100};
+            color: ${props => props.theme.colors.primary900};
         }
     }
     .project-contacts,
@@ -226,7 +241,7 @@ const ProjectPageContainer = styled.article`
         }
         .tags {
             justify-content: flex-start;
-            p {
+            span {
                 margin: 0.5rem 0.5rem 0.5rem 0;
             }
         }
@@ -244,7 +259,9 @@ const ProjectPageContainer = styled.article`
             .project-image:nth-child(2) {
                 grid-column: 2 / span 2;
                 grid-row: 3 / span 3;
-                box-shadow: 0.3rem 0.3rem 0.5rem 0rem rgba(0, 0, 0, 0.15);
+                box-shadow: 
+                    0 0.625rem 0.9375rem -0.1875rem rgba(0, 0, 0, 0.1),
+                    0 .25rem .375rem -0.125rem rgba(0, 0, 0, 0.05);
             }
         }
         .project-contacts {

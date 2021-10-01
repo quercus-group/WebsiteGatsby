@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Products from '../../data/products';
 import BasicProductCard from './BasicProductCard';
-import ProductCard from './ProductCard';
+// import ProductCard from './ProductCard';
 import TopicsOverview from './TopicsOverviews';
 
 

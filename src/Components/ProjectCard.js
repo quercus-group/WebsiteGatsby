@@ -14,7 +14,7 @@ const ProjectCard = ({ slug, metaTitle, metaDescription, tags, client, thumbnail
                 />
                 
                 <div className="tags">
-                    {tags.map(tag => (<p className='tag' key={tag}>{tag}</p>))}
+                    {tags.map(tag => (<span className='tag' key={tag}>{tag}</span>))}
                 </div>
                 <div className="title-and-client">
                     <h3 className='title'>{metaTitle}</h3>
@@ -30,7 +30,9 @@ const ProjectCardContainer = styled(Link)`
     grid-column: span 4;
     border: 0.1rem solid ${props => props.theme.colors.white300};
     border-radius: 0.5rem;
-    box-shadow: 0 0.3rem 0.5rem 0rem rgba(0, 0, 0, 0.15);
+    box-shadow: 
+        0 0.625rem 0.9375rem -0.1875rem rgba(0, 0, 0, 0.1),
+        0 .25rem .375rem -0.125rem rgba(0, 0, 0, 0.05);
     overflow: hidden;
     display: grid;
     grid-template-columns: 2rem 1fr 2rem;
@@ -49,12 +51,25 @@ const ProjectCardContainer = styled(Link)`
         flex-wrap: wrap;
         margin-top: 1.5rem;
         .tag {
-            height: fit-content;
+            display: inline-flex;
+            vertical-align: top;
+            -webkit-box-align: center;
+            align-items: center;
+            max-width: 100%;
+            font-weight: 400;
+            line-height: 1.2;
+            outline: transparent solid 2px;
+            outline-offset: 2px;
+            border: 0.1rem solid ${props => props.theme.colors.white300};
+            min-height: 1.5rem;
+            min-width: 1.5rem;
             font-size: 0.875rem;
-            margin: 0 0.5rem 0 0;
-            padding: 0.25rem 0.5rem;
-            background-color: ${props => props.theme.colors.white300};
-            border-radius: 0.5rem;
+            border-radius: 0.375rem;
+            padding-inline-start: 0.5rem;
+            padding-inline-end: 0.5rem;
+            background: ${props => props.theme.colors.white300};
+            color: ${props => props.theme.colors.primary900};
+            margin: 0 0.5rem 0.5rem 0;
         }
     }
     
@@ -114,9 +129,6 @@ const ProjectCardContainer = styled(Link)`
         .tags {
             grid-row: 2 / span 1;
             margin-top: 0;
-            .tag {
-                margin-bottom: 0.5rem;
-            }
         }
         .title-and-client {
             grid-row: 3 / span 1;
