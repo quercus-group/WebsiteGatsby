@@ -45,6 +45,25 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-preload-fonts'
+    'gatsby-plugin-preload-fonts',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Quercus Group | Sustainability, Collaboration & Innovation`,
+        short_name: `Quercus Group`,
+        start_url: `/`,
+        background_color: `#fafafa`,
+        theme_color: `#2C2D48`,
+        display: `standalone`,
+        icon: 'src/images/QuercusGroupIcon-color.svg',
+        lang: `en`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://quercus-group.com/`,
+      },
+    },
   ],
 };

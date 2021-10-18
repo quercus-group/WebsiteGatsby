@@ -8,14 +8,16 @@ import PageTitle from '../Components/Basic-Components/PageTitle';
 import Seo from '../Components/SEO'
 
 const projectPage = ({data}) => {
-    const {projectTitle, client, tags, subtitle, mainText, metaTitle, metaDescription, imageOnProjectPage, primaryContact, secondaryContact, projectStart, projectEnd, seoImage } = data.contentfulProject
-    const seoImageSrc= seoImage ? `https:${seoImage.fluid.src}` : ''   
+    const {projectTitle, client, tags, subtitle, mainText, metaTitle, metaDescription, imageOnProjectPage, primaryContact, secondaryContact, projectStart, projectEnd, seoImage, author } = data.contentfulProject
+    const seoImageSrc= seoImage ? `https:${seoImage.fluid.src}` : ''
+    const articleAuthor = author ? `${author.firstName} ${author.lastName}` : null
     return ( 
         <Layout>
             <Seo
             title={metaTitle}
             description={metaDescription}
             metaImage={seoImageSrc}
+            author={articleAuthor}
             />
             <ProjectPageContainer>
                 <PageTitle>{projectTitle}</PageTitle>
@@ -284,6 +286,10 @@ export const query = graphql`
             metaDescription
             client
             tags
+            author {
+                firstName
+                lastName
+            }
             projectStart (formatString: "MMM YYYY")
             projectEnd (formatString: " MMM YYYY")
             mainText {raw}
