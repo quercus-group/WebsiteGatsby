@@ -72,6 +72,7 @@ const Seo = ({title, description, metaImage, robotParam, author}) => {
           <meta name="apple-mobile-web-app-status-bar-style" content={seo.color}/>
 
           <meta name="googlebot" content={seo.robotParam}/>
+          <meta name="robots" content={seo.robotParam} />
 
         </Helmet>
       )
