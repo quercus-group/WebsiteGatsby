@@ -42,8 +42,8 @@ const ProjectPage = ()=>{
             <Seo title='Projects'/>
             <ProjectPageContainer>
                     <PageTitle>Projects</PageTitle>
-                    <PageSubTitle>Lorem ipsum dolor sit amet consectetur adipisicing elit.</PageSubTitle>
-                    <p className='sectionIntro'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsum fugiat ex doloremque, earum itaque. Sequi ea, non excepturi perferendis magni voluptatibus odio expedita laboriosam sint ullam minima voluptates qui, in voluptas eaque odit quam vero molestiae at facere voluptatum? Odio possimus dolor ipsum corrupti ipsa accusantium, ad vel</p>
+                    <PageSubTitle>Multi-stakeholder partnerships are not easy but an effective way to move forward on difficult issues.</PageSubTitle>
+                    <p className='sectionIntro'>Sometimes it takes just one step like rigorous research, a coordinated strategy or good facilitation to get unstuck and to move forward. It might also require a partner, who carefully stewards the process from A to Z. We do both. What holds all our projects together is the participatory approach and the invitation to work together on real changes for sustainable development.</p>
                     {
                         featuredProjects.map(project => {
                             const {id, slug, metaTitle, metaDescription, tags, client, thumbnailImage} = project.node
@@ -61,7 +61,7 @@ const ProjectPage = ()=>{
                         })
                     }
                     <p className="page-outro">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique ipsam, facilis accusantium dolore a optio quis quibusdam ducimus. Adipisci, blanditiis. Rem, sed nam maxime numquam enim quod explicabo a eaque beatae tempora rerum, deleniti esse.
+                        Our clients are businesses & business associations, policy makers, civic society organizations, clusters, funders and enablers. If you also like to work and partner with us, we invite you to contact us anytime.  
                     </p>
                     <LightButton buttonText='Contact us today' className='button' linkTo='/contact' />
             </ProjectPageContainer>

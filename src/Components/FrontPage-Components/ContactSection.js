@@ -9,7 +9,7 @@ const ContactSection = () => {
             <h2 className='sectionTitle'>Imagine what we can do together. </h2>
             <p className='sectionSubtitle'>You have a project on your mind that can benefit from working together? We say 'Good things start from a cup of coffee'. Let's sit together for one to explore how we can work&nbsp;together.</p>
             <LightButton buttonText='Contact us today' linkTo='/contact' className='contactButton'/>
-            <p className='sectionSubtitle clientIntro'>We prefer to meet each other, our partners and our clients on eye-height. In the past, we have worked together with organizations such as&hellip;</p>
+            <p className='sectionSubtitle clientIntro'>In the past, we have worked together with organizations such as&hellip;</p>
             <div className="clientLogos">
                 {partnerLogos.map(logo => (
                     <img

@@ -34,7 +34,7 @@ const Hero = () => {
         <HeroContainer>
             <div className='heroCopy'>
                 <h1>Today's challenges demand acting together.</h1>
-                <h3>We help businesses, government, academia and civic society to collaborate more and better across perspectives, sectors and countries.</h3>
+                <span className='hero-subtitle'>We help businesses, government, academia and civic society to collaborate more and better across perspectives, sectors and countries.</span>
             </div>
             <LightButton buttonText='Get in touch' className='cta' linkTo='/contact'/>
             <GatsbyImage 
@@ -76,10 +76,11 @@ const HeroContainer = styled.section`
             font-weight: 900;
             margin-bottom: 2rem;
         }
-        h3 {
+        .hero-subtitle {
             font-size: 1.5rem;
             line-height: 1.5;
             color: ${props => props.theme.colors.primary600};
+            font-weight: 700;
         }
     }
     .cta {
@@ -114,7 +115,7 @@ const HeroContainer = styled.section`
             h1 {
                 font-size: 3rem;
             }
-            h3 {
+            .hero-subtitle {
                 font-size: 1.25rem;
             }
         }
@@ -180,7 +181,7 @@ const HeroContainer = styled.section`
             h1 {
                 font-size: 2.5rem;
             }
-            h3 {
+            .hero-subtitle {
                 font-size: 1.125rem;
             }
         }

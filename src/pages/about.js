@@ -13,7 +13,7 @@ import GridContainer from '../Components/Basic-Components/GridContainer';
 const AboutPage = ()=>{
     const {allContentfulTeamMember} = useStaticQuery(graphql`
     query  {
-        allContentfulTeamMember {edges {node {id firstName lastName position phone email officeLocation profileImage {
+        allContentfulTeamMember (sort: {fields: firstName order: ASC}) {edges {node {id firstName lastName position phone email officeLocation profileImage {
             gatsbyImageData (
                 aspectRatio: 1
                 placeholder: BLURRED
@@ -36,7 +36,7 @@ const AboutPage = ()=>{
             />
             <AboutPageContainer className='about-page'>
                 <PageTitle>About</PageTitle>
-                <PageSubTitle>Lorem ipsum dolor sit amet consectetur adipisicing elit.</PageSubTitle>
+                <PageSubTitle>A hybrid company - somewhere between management consultant and agency, crossing disciplines and international borders.</PageSubTitle>
                 <div className="sectionIntro">
                     <p>
                         In 2012, Quercus Group started as a spin-off of Nicolai's cluster development experiences focusing on cleantech and on helping other clusters to succeed.
@@ -49,7 +49,7 @@ const AboutPage = ()=>{
                     </p>
                 </div>
                 <BigStatement>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet consequuntur beatae tempore.
+                    It was the shared "aha"-moment when we knew that we achieved together what was unattainable by doing it alone. 
                 </BigStatement>
                     {
                         coreTeam.map(member => {

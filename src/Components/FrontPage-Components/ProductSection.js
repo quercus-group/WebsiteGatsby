@@ -9,7 +9,7 @@ import TopicsOverview from './TopicsOverviews';
 const ProductSection = () => {
      return ( 
         <SectionContainer>
-            <h2 className='sectionTitle'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+            <h2 className='sectionTitle'>Let us unlock people’s potential to cooperate and innovate for sustainability.</h2>
             <p className='sectionSubtitle'>Quercus Group employs a combination of approaches, methods and practices aimed to advance sustainability, collaboration and innovation.  Our services help get a better understanding of what is going on, how to navigate rapid, far-reaching and unprecedented changes in all aspects of society and how to create effective change by doing it in partnership.</p>
             {
                 Products.map(product => (
@@ -31,7 +31,7 @@ const ProductSection = () => {
                     />
                 ))
             } */}
-            <p className="topicIntro">We are not bound by the topic and seek synergies across sectors and themes. Our focus is driven by the challenge and its unique context. In past and recent projects, we tackled issues related to&hellip;</p>
+            <p className="topicIntro">Multi-stakeholder partnerships are effective to address challenges in different domains. In past and recent projects, we tackled issues related to&hellip;</p>
             <TopicsOverview/>
             <BigStatement>
                 A single project can be the beginning of a systemic shift. We help making changes beyond mere optimization.
@@ -99,8 +99,9 @@ const SectionContainer = styled.section`
         }
     }
 `
-const BigStatement = styled.h4`
+const BigStatement = styled.blockquote`
     font-size: 3rem;
+    line-height: 1.5;
     color: ${props => props.theme.colors.secondary700};
     font-weight: 900;
     text-align: center;

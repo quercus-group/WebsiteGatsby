@@ -5,7 +5,7 @@ const BasicProductCard = ({title, teaser, icon}) => {
     return ( 
         <Card className="product" >
             {icon}
-            <h2>{title}</h2>
+            <h3>{title}</h3>
             <p>{teaser}</p>
         </Card>
      );

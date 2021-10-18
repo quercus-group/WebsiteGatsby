@@ -9,7 +9,7 @@ const query = graphql`
       siteMetadata {
         defaultTitle: title
         defaultDescription: description
-        author
+        defaultAuthor
         siteUrl
         defaultImage: image
         defaultColor: themeColor
@@ -18,14 +18,14 @@ const query = graphql`
   }
 `
 
-const Seo = ({title, description, metaImage}) => {
+const Seo = ({title, description, metaImage, robotParam, author}) => {
     const { href } = useLocation()
     const { site } = useStaticQuery(query)
 
     const {
         defaultTitle,
         defaultDescription,
-        author,
+        defaultAuthor,
         siteUrl,
         defaultImage,
         defaultColor
@@ -34,10 +34,11 @@ const Seo = ({title, description, metaImage}) => {
     const seo = {
         title: title ? `${title} | Quercus Group` : defaultTitle,
         description: description || defaultDescription,
-        author: author,
+        author: author || defaultAuthor,
         image: metaImage || defaultImage,
         color: defaultColor,
-        baseUrl: siteUrl
+        baseUrl: siteUrl,
+        robotParam: robotParam  || 'index, follow'
       }
 
       return (
@@ -69,6 +70,8 @@ const Seo = ({title, description, metaImage}) => {
           <meta name="theme-color" content={seo.defaultcolor}/>
           <meta name="msapplication-navbutton-color" content={seo.color}/>
           <meta name="apple-mobile-web-app-status-bar-style" content={seo.color}/>
+
+          <meta name="googlebot" content={seo.robotParam}/>
 
         </Helmet>
       )

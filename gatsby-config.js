@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: "Quercus Group | Sustainability, Collaboration & Innovation",
     description: "We help businesses, government and civic society to collaborate. Quercus Group is an international consulting company for sustainability in Copenhagen, Nairobi and Singapore.",
-    author: "Quercus Group",
+    defaultAuthor: "Quercus Group",
     siteUrl: "https://quercus-group.com/",
     image: '/metaImage-quercusGrop-main.jpg',
     themeColor: "#2C2D48"
