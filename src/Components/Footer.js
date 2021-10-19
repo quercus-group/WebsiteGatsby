@@ -35,8 +35,12 @@ const Footer = ()=>{
                 </div>
             </div>
             <div className='disclaimer'>
-                <Link style={{color: '#8189a5'}}to="/privacy-policy">Privacy Policy</Link>
+                <Link style={{color: '#4f5782'}}to="/privacy-policy">Privacy Policy</Link>
                 <div className='copyright'> &copy;{new Date().getFullYear()} Quercus Group</div>
+            </div>
+            <div className="credits">
+                <div>Website build by <a href="https://www.linkedin.com/in/wbaslow/">Wadim Baslow.</a></div>
+                <div><a href="https://bognaanna.design/">Bogna Anna Design</a> designed our logo.</div>
             </div>
             </FooterContainer>
     )
@@ -92,8 +96,7 @@ const FooterContainer = styled.footer`
             flex-direction: column;
         }
     }
-    .disclaimer {
-        margin-top: 4rem;
+    .disclaimer, .credits {
         padding-top: 0.5rem;
         display: flex;
         flex-direction: column;
@@ -108,12 +111,23 @@ const FooterContainer = styled.footer`
         * {
             margin-right: 2rem;
         }
+        a {
+            margin: 0;
+            color: ${props => props.theme.colors.primary500};
+        }
     }
+    .disclaimer {
+        margin-top: 4rem;
+    }
+    .credits {
+        margin-top: 1rem;
+    }
+    
     @media screen and (min-width: 37rem){
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 2rem;
-        .line, .cta, .disclaimer {
+        .line, .cta, .disclaimer, .credits {
             grid-column: 1 / span 2;
         }
         .cta {
@@ -126,7 +140,7 @@ const FooterContainer = styled.footer`
             margin-top: 0;
             grid-column: 2 / span 1;
         }
-        .disclaimer {
+        .disclaimer, .credits {
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
@@ -134,7 +148,7 @@ const FooterContainer = styled.footer`
     }
     @media screen and (min-width: 56rem){
         grid-template-columns: repeat(3, 1fr);
-        .line, .disclaimer {
+        .line, .disclaimer, .credits {
             grid-column: 1 / span 3;
         }
         .cta {
@@ -146,7 +160,7 @@ const FooterContainer = styled.footer`
         .social-media {
             grid-column: 3 / span 1;
         }
-        .disclaimer {
+        .disclaimer, .credits {
             justify-content: flex-end;
             * {
             margin-right: 0rem;
