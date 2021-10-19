@@ -38,6 +38,12 @@ module.exports = {
       __key: "images",
     },
     {
+      resolve: `@raae/gatsby-plugin-fathom`,
+      options: {
+        site: "OAHGTWLB",
+      },
+    },
+    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {

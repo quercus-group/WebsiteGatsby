@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@raae/gatsby-plugin-fathom": "^0.0.4",
     "@tabler/icons": "^1.41.2",
     "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.12.0",

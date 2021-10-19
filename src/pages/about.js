@@ -6,7 +6,6 @@ import LightButton from '../Components/Light-Button';
 import { graphql, useStaticQuery } from 'gatsby';
 import TeamMember from '../Components/Team-Member';
 import PageTitle from '../Components/Basic-Components/PageTitle';
-import PageSubTitle from '../Components/Basic-Components/PageSubTitle';
 import BigStatement from '../Components/Basic-Components/BigStatement';
 import GridContainer from '../Components/Basic-Components/GridContainer';
 
@@ -36,7 +35,6 @@ const AboutPage = ()=>{
             />
             <AboutPageContainer className='about-page'>
                 <PageTitle>About</PageTitle>
-                <PageSubTitle>A hybrid company - somewhere between management consultant and agency, crossing disciplines and international borders.</PageSubTitle>
                 <div className="sectionIntro">
                     <p>
                         In 2012, Quercus Group started as a spin-off of Nicolai's cluster development experiences focusing on cleantech and on helping other clusters to succeed.

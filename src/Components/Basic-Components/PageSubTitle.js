@@ -20,7 +20,6 @@ const StyledPageSubTitle = styled.h2`
     }
     @media screen and (max-width: 40rem){
         text-align: left;
-        font-size: 2.5rem;
     }
 `
 
