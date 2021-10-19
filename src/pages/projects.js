@@ -39,7 +39,7 @@ const ProjectPage = ()=>{
     const featuredProjects = data.allContentfulProject.edges
     return (
         <Layout>
-            <Seo title='Projects'/>
+            <Seo title='Projects' description='The entire process or only research, facilitation or strategy. We do both. Check out our projects.'/>
             <ProjectPageContainer>
                     <PageTitle>Projects</PageTitle>
                     <PageSubTitle>Multi-stakeholder partnerships are not easy but an effective way to move forward on difficult issues.</PageSubTitle>

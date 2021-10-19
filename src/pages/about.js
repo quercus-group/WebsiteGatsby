@@ -32,6 +32,7 @@ const AboutPage = ()=>{
         <Layout>
             <Seo
                 title='About'
+                description='We started with cluster development. Today, we design, manage and facilitate multi-stakeholder partnerships for sustainability across sectors.'
             />
             <AboutPageContainer className='about-page'>
                 <PageTitle>About</PageTitle>

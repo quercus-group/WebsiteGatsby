@@ -74,7 +74,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        siteUrl: `https://quercus-group.com/`,
+        siteUrl: `https://quercus-group.com`,
       },
     },
   ],

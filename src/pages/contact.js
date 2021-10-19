@@ -8,12 +8,12 @@ import Seo from '../Components/SEO'
 const ContactPage = ()=>{
     return (
         <Layout>
-            <Seo title='Contact'/>
+            <Seo title='Contact' description='Tell us about your project in an email, in the form or to someone in our team.'/>
             <ContactPageContainer>
                 <h1>
                     Tell us more about your project.  
                 </h1>
-                <p className="contact-text">Feel free to contact us by e-mail or filling out the form (or visit us for a coffee). We will read every word and answer you within one business day.</p>
+                <p className="contact-text">Feel free to contact us by e-mail or filling out the form (or visit us for a coffee). We will read every word and answer you in no time.</p>
                 <div className='email-contact'>
                     <div>
                         <p className='email-us'>Email us.</p>
