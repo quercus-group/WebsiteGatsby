@@ -2,12 +2,12 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 module.exports = {
-  
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: "Quercus Group | Sustainability, Collaboration & Innovation",
     description: "We help businesses, government and civic society to collaborate. Quercus Group is an international consulting company for sustainability in Copenhagen, Nairobi and Singapore.",
     defaultAuthor: "Quercus Group",
-    siteUrl: "https://quercus-group.com/",
+    siteUrl: `https://quercus-group.com`,
     image: '/metaImage-quercusGrop-main.jpg',
     themeColor: "#2C2D48"
   },
@@ -24,9 +24,15 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
-    { resolve: "gatsby-plugin-sitemap",
+    {
+      resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
-        createLinkInHead: true,
+        createLinkInHead: true, 
+        addUncaughtPages: true,
+        exclude: [
+          `/404`,
+          `/404.html`,
+        ]
       }
     },
     {
