@@ -39,6 +39,9 @@ const Button = styled(Link)`
         justify-content: center;
         align-items: center;
     }
+    @media screen and (max-width: 40rem){
+        padding: 0.5rem 0.5rem 0.5rem 0;
+    }
 `
  
 export default LightButton;
