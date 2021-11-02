@@ -50,14 +50,27 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: "gatsby-omni-font-loader",
       options: {
-        google: {
-          families: ['Lato:400,700,900']
-        }
-      }
+        mode: "async",
+        enableListener: true,
+        preconnect: ["https://fonts.gstatic.com"],
+        web: [{
+            name: "Lato",
+            file: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap",
+          },
+        ],
+      },
     },
-    'gatsby-plugin-preload-fonts',
+    // {
+    //   resolve: 'gatsby-plugin-web-font-loader',
+    //   options: {
+    //     google: {
+    //       families: ['Lato:400,700,900']
+    //     }
+    //   }
+    // },
+    // 'gatsby-plugin-preload-fonts',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
