@@ -54,7 +54,7 @@ module.exports = {
       options: {
         mode: "async",
         enableListener: true,
-        preconnect: ["https://fonts.gstatic.com"],
+        preconnect: ["https://fonts.googleapis.com"],
         web: [{
             name: "Lato",
             file: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap",
