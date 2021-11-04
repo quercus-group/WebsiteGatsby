@@ -12,7 +12,7 @@ import GridContainer from '../Components/Basic-Components/GridContainer'
 const ProjectPage = ()=>{
     const data = useStaticQuery(graphql`
         query featuredProjects {
-            allContentfulProject (filter: {featuredProject: {eq: true}} limit: 6 sort: {fields: createdAt order: ASC})
+            allContentfulProject (filter: {featuredProject: {eq: true}} limit: 6 sort: {fields: updatedAt order: DESC})
                 {edges {
                     node {
                         id
