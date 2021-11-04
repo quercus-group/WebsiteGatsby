@@ -50,6 +50,7 @@ const ProjectCardContainer = styled(Link)`
         display: flex;
         flex-wrap: wrap;
         margin-top: 1.5rem;
+        height: fit-content;
         .tag {
             display: inline-flex;
             vertical-align: top;
