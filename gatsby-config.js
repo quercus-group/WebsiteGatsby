@@ -43,12 +43,12 @@ module.exports = {
       },
       __key: "images",
     },
-    {
-      resolve: `@raae/gatsby-plugin-fathom`,
-      options: {
-        site: "OAHGTWLB",
-      },
-    },
+    // {
+    //   resolve: `@raae/gatsby-plugin-fathom`,
+    //   options: {
+    //     site: "OAHGTWLB",
+    //   },
+    // },
     {
       resolve: "gatsby-omni-font-loader",
       options: {
