@@ -74,7 +74,7 @@ const Seo = ({title, description, metaImage, robotParam, author}) => {
           <meta name="googlebot" content={seo.robotParam}/>
           <meta name="robots" content={seo.robotParam} />
 
-          <script src="https://luminous-healing.b-cdn.net/script.js" data-site="OAHGTWLB" data-honor-dnt="false" data-auto="true" data-canonical="true" data-spa="auto" defer></script>
+          {/* <script src="https://luminous-healing.b-cdn.net/script.js" data-site="OAHGTWLB" data-honor-dnt="false" data-auto="true" data-canonical="true" data-spa="auto" defer></script> */}
 
         </Helmet>
       )
