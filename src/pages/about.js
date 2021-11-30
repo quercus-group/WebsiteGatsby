@@ -66,7 +66,7 @@ const AboutPage = ()=>{
                         })
                     }
                 <p className="page-outro">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, est mollitia expedita pariatur animi incidunt neque ullam illo blanditiis? Voluptatem modi ratione officia quod corrupti odit deleniti, enim ea repellendus.
+                    Interested to work with us? We would love to hear more of your project! 
                 </p>
                     <LightButton buttonText='Contact us today' className='button' linkTo='/contact' />
             </AboutPageContainer>
@@ -82,7 +82,6 @@ const AboutPageContainer = styled(GridContainer)`
         grid-column: 3  / span 8 ;
     }
     .sectionIntro {
-        grid-row: 3 / span 1;
         p {
             line-height: 1.5;
             text-align: center;
