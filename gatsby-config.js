@@ -24,6 +24,8 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
+    "gatsby-plugin-netlify",
+    "@netlify/plugin-gatsby",
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
