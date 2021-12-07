@@ -25,13 +25,14 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
     {
-      resolve: `gatsby-plugin-advanced-sitemap`,
+      resolve: "gatsby-plugin-sitemap",
       options: {
-        createLinkInHead: true, 
-        addUncaughtPages: true,
-        exclude: [
+        createLinkInHead: true,
+        excludes: [
           `/404`,
           `/404.html`,
+          `/privacy-policy.html`,
+          `/privacy-policy`,
         ]
       }
     },
@@ -88,7 +89,9 @@ module.exports = {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
         siteUrl: `https://quercus-group.com`,
+        noTrailingSlash: true,
       },
     },
+    'gatsby-plugin-remove-trailing-slashes',
   ],
 };
