@@ -9,7 +9,7 @@ import Seo from '../Components/SEO'
 
 const projectPage = ({data}) => {
     const {projectTitle, client, tags, subtitle, mainText, metaTitle, metaDescription, imageOnProjectPage, primaryContact, secondaryContact, projectStart, projectEnd, seoImage, author } = data.contentfulProject
-    const seoImageSrc= seoImage ? `https:${seoImage.fluid.src}` : ''
+    const seoImageSrc= seoImage ? `https:${seoImage.file.url}` : ''
     const articleAuthor = author ? `${author.firstName} ${author.lastName}` : null
     return ( 
         <Layout>
@@ -304,7 +304,11 @@ export const query = graphql`
                     formats: [AUTO, WEBP]
                     )
             }
-            seoImage {fluid {src}}
+            seoImage {
+                file {
+                    url
+                }
+            }
             primaryContact {
                 firstName
                 lastName
