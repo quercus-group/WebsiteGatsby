@@ -25,7 +25,6 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-image",
     "gatsby-plugin-netlify",
-    "@netlify/plugin-gatsby",
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
