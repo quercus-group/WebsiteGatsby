@@ -12,7 +12,6 @@ const PrivayPolicy = () => {
         <Layout>
             <Seo
                 title="Privacy Policy"
-                robotParam="nofollow, noindex"
             />
             <PrivacyPolicyContainer>
                 <PageTitle>Privacy Policy</PageTitle>
