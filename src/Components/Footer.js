@@ -5,7 +5,7 @@ import {Link, useStaticQuery, graphql} from 'gatsby'
 
 const Footer = ()=>{
     const offices = useStaticQuery(graphql`
-        query offices {allContentfulOfficeAddress {edges {node {id office street zip city country}}}}
+        query offices {allContentfulOfficeAddress {edges {node {id office street zip city country registrationNumber}}}}
     `)
     return (
         <FooterContainer>
@@ -21,6 +21,7 @@ const Footer = ()=>{
                                 {edge.node.street} <br/>
                                 {edge.node.zip} {edge.node.city},{edge.node.country}
                             </address>
+                            <p className='registration-number'>{edge.node.registrationNumber}</p>
                     </div>
                             
 
@@ -78,6 +79,9 @@ const FooterContainer = styled.footer`
             margin-bottom: 1rem;
             line-height: 1.5;
             color: ${props => props.theme.colors.primary700};
+        }
+        .registration-number {
+            font-size: 1rem;
         }
     }
     .social-media {
