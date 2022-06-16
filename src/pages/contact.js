@@ -1,7 +1,6 @@
 import React from 'react'
 import Layout from '../Components/Layout'
 import styled from 'styled-components'
-import Form from '../Components/Form'
 import LightButton from '../Components/Light-Button'
 import Seo from '../Components/SEO'
 
@@ -17,14 +16,13 @@ const ContactPage = ()=>{
                 <div className='email-contact'>
                     <div>
                         <p className='email-us'>Email us.</p>
-                        <p className="email-address">info@quercus-group.com</p>
+                        <p className="email-address">mariam@quercus-group.com</p>
                     </div>
                     <div className="ourteam">
                         <p>Looking for someone in particular?</p>
                         <LightButton buttonText='Our team' linkTo='/about' className='button'/>
                     </div>
                 </div>
-                <ContactForm/>
             </ContactPageContainer>
         </Layout>
     )
@@ -150,16 +148,5 @@ const ContactPageContainer = styled.section`
     }
 `
 
-const ContactForm = styled(Form)`
-    grid-row: 3 / span 1;
-    grid-column: 7 / span 6;
-    @media screen and (max-width: 56rem) {
-        grid-row: 4 / span 1;
-        grid-column: 2 / span 6;
-    }
-    @media screen and (max-width: 48rem){
-        grid-column: 1 / span 8;
-    }
-`
 
 export default ContactPage

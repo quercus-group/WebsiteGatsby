@@ -8,16 +8,14 @@ import PageTitle from '../Components/Basic-Components/PageTitle';
 import Seo from '../Components/SEO'
 
 const projectPage = ({data}) => {
-    const {projectTitle, client, tags, subtitle, mainText, metaTitle, metaDescription, imageOnProjectPage, primaryContact, secondaryContact, projectStart, projectEnd, seoImage, author } = data.contentfulProject
+    const {projectTitle, client, tags, subtitle, mainText, metaTitle, metaDescription, imageOnProjectPage, primaryContact, projectStart, projectEnd, seoImage } = data.contentfulProject
     const seoImageSrc= seoImage ? `https:${seoImage.file.url}` : ''
-    const articleAuthor = author ? `${author.firstName} ${author.lastName}` : null
     return ( 
         <Layout>
             <Seo
             title={metaTitle}
             description={metaDescription}
             metaImage={seoImageSrc}
-            author={articleAuthor}
             />
             <ProjectPageContainer>
                 <PageTitle>{projectTitle}</PageTitle>
@@ -42,20 +40,13 @@ const projectPage = ({data}) => {
                 { mainText === null ? '' : documentToReactComponents(JSON.parse(mainText.raw)) }
                 <p className='question-cta'>Interested to learn more about {projectTitle}? Contact&hellip;</p>
                 <div className="project-contacts">
-                    {primaryContact !== null ? 
+                    {primaryContact && primaryContact !== null &&
                     <div className='contact-card'>
                         <GatsbyImage className='contact-image' image={primaryContact.profileImage.gatsbyImageData} alt={`${primaryContact.firstName} ${primaryContact.lastName} from Quercus Group.`}/>
                         <p className='contact-name'>{primaryContact.firstName} {primaryContact.lastName}</p>
                         <p className='contact-email'>{primaryContact.email}</p>
                         <p className='contact-phone'>{primaryContact.phone}</p>
-                    </div> : null}
-                    {secondaryContact !== null ?
-                     <div className='contact-card'>
-                        <GatsbyImage className='contact-image' image={secondaryContact.profileImage.gatsbyImageData} alt={`${secondaryContact.firstName} ${secondaryContact.lastName} from Quercus Group.`}/>
-                        <p className='contact-name'>{secondaryContact.firstName} {secondaryContact.lastName}</p>
-                        <p className='contact-email'>{secondaryContact.email}</p>
-                        <p className='contact-phone'>{secondaryContact.phone}</p>
-                    </div> : ''}
+                    </div>}
                 </div>
             </ProjectPageContainer>
         </Layout>
@@ -286,10 +277,6 @@ export const query = graphql`
             metaDescription
             client
             tags
-            author {
-                firstName
-                lastName
-            }
             projectStart (formatString: "MMM YYYY")
             projectEnd (formatString: " MMM YYYY")
             mainText {raw}
@@ -310,21 +297,6 @@ export const query = graphql`
                 }
             }
             primaryContact {
-                firstName
-                lastName
-                email
-                phone
-                profileImage {
-                    title
-                    gatsbyImageData (
-                        quality: 70
-                        placeholder: BLURRED
-                        formats: [AUTO, WEBP]
-                        aspectRatio: 1
-                        )
-                }
-            }
-            secondaryContact {
                 firstName
                 lastName
                 email

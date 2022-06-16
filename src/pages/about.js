@@ -38,7 +38,7 @@ const AboutPage = ()=>{
                 <PageTitle>About</PageTitle>
                 <div className="sectionIntro">
                     <p>
-                        In 2012, Quercus Group started as a spin-off of Nicolai's cluster development experiences focusing on cleantech and on helping other clusters to succeed.
+                        In 2012, Quercus Group started as a spin-off of Nicolai Rottbøell's cluster development experiences focusing on cleantech and on helping other clusters to succeed.
                     </p>
                     <p >
                         Over time however, we understood that partnerships with many involved minds, hearts and hands such as cluster organizations also create real changes in many other problem areas and sectors of society, too. They offer a way forward in intractable situations and open new opportunities to achieve value for many.

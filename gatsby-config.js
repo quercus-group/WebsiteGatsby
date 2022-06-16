@@ -46,12 +46,6 @@ module.exports = {
       __key: "images",
     },
     {
-      resolve: `@raae/gatsby-plugin-fathom`,
-      options: {
-        site: "OAHGTWLB",
-      },
-    },
-    {
       resolve: "gatsby-omni-font-loader",
       options: {
         mode: "async",
@@ -64,15 +58,6 @@ module.exports = {
         ],
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-web-font-loader',
-    //   options: {
-    //     google: {
-    //       families: ['Lato:400,700,900']
-    //     }
-    //   }
-    // },
-    // 'gatsby-plugin-preload-fonts',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

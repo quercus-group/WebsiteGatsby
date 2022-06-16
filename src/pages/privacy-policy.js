@@ -15,14 +15,13 @@ const PrivayPolicy = () => {
             />
             <PrivacyPolicyContainer>
                 <PageTitle>Privacy Policy</PageTitle>
-                    <p><Link to="/">https://quercus-group.com</Link> is run by Quercus Group Aps (hereafter as "we"), Dantes Plads 1, 1557 København V. Email: info@quercus-group.com.</p>
+                    <p><Link to="/">https://quercus-group.com</Link> is run by Quercus Group Kenya Ltd. (hereafter as "we"), Email: mariam@quercus-group.com.</p>
                     <p>The website's purpose is to provide a digital overview of Quercus Group as company including its services, projects, team and relevant contact information.</p>
                 <h2>What data do we collect?</h2>
                     <p>We collect statistical usage data of our website such as page visitors, views, average time on site, bounce rate, referrals, visitor's browser and device types, as well as georgaphic location of the visitor.</p>
                     <p>We collect the name, email address, in certain cases the organization's name (when submitting a message using the contact form), and the conversation when interacting or communicating with our team or our service.</p>
                 <h2>How do we collect your data?</h2>
                     <p>We typically process personal data on potential or existing customers, website visitors and vendors and collaboration partners.</p>
-                    <p>We use <a href="https://usefathom.com/">fathom</a> to collect and process website statistics. Fathom puts digital privacy first and is compliant to GDPR, CCPA, ePrivacy, and others. Read more about the data journey using fathom <a href="https://usefathom.com/data">here</a> and fathom's privacy policy <a href="https://usefathom.com/privacy">here</a></p>
                     <p>When contacting us via the contact form, the data will be send to the Client Relationship Management Software Hubspot. Read about Hubspot's security <a href="https://legal.hubspot.com/security">here</a> and privacy policy <a href="https://www.hubspot.com/data-privacy/privacy-shield">here</a>.</p>
                     <p>If you interact with us via e-mail, your name and email address as well as the communication's content will be stored as part of the cloud-based platform Microsoft Office 365.</p>
                     <p>We do not rent, buy or sell personal data from or to others, use automated decisions or profiling in the processing of your personal data, or process any special category data.</p>
